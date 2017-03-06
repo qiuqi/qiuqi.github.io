@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>记</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="记">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="记">
+  
+    <link rel="alternate" href="/atom.xml" title="记" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">记</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">每一天都是新的开始</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-markdown的常用格式使用记录" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/06/markdown的常用格式使用记录/" class="article-date">
+  <time datetime="2017-03-06T02:06:30.000Z" itemprop="datePublished">2017-03-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/06/markdown的常用格式使用记录/">markdown的常用格式使用记录</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>插入代码块<br>使用三个”```”起头，然后再结束，中间就是代码块。</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/06/markdown的常用格式使用记录/" data-id="cizxgv3j60004gyz8nz9hng2b" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-windows-10使用照片查看器" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/06/windows-10使用照片查看器/" class="article-date">
+  <time datetime="2017-03-06T01:55:41.000Z" itemprop="datePublished">2017-03-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/06/windows-10使用照片查看器/">windows 10使用照片查看器</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>微软脑子坏了，居然屏蔽使用历史悠久的windows照片查看器，在win10下浏览照片几乎成为噩梦。<br>找回办法：<br>编辑一个注册表文件：picture.reg</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Windows Registry Editor Version 5.00</div><div class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Photo Viewer\Capabilities\FileAssociations]</div><div class="line">&quot;.tif&quot;=&quot;PhotoViewer.FileAssoc.Tiff&quot;</div><div class="line">&quot;.tiff&quot;=&quot;PhotoViewer.FileAssoc.Tiff&quot;</div><div class="line">&quot;.jpg&quot;=&quot;PhotoViewer.FileAssoc.Tiff&quot;</div><div class="line">&quot;.png&quot;=&quot;PhotoViewer.FileAssoc.Tiff&quot;</div><div class="line">&quot;.gif&quot;=&quot;PhotoViewer.FileAssoc.Tiff&quot;</div></pre></td></tr></table></figure>
+<p>双机执行，重新找回windows照片查看器。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/06/windows-10使用照片查看器/" data-id="cizxgv3ja0006gyz8nuqa9gxn" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-针对lynis检查以后的安全改进建议" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/02/针对lynis检查以后的安全改进建议/" class="article-date">
+  <time datetime="2017-03-02T05:31:20.000Z" itemprop="datePublished">2017-03-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/02/针对lynis检查以后的安全改进建议/">针对lynis检查以后的安全改进建议</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1、安装基于pam的密码检测模块<br>apt-get install libpam-pwquality</p>
+<p>2、在/etc/login.defs里面设置密码的最小和最长时间<br>minimum和maximum<br>在ubuntu下，缺省的PASS_MAX_DAYS 99999，缺省的PASS_MIN_DAYS 0</p>
+<p>3、修改/etc/login.defs里面umask的值为027，缺省为022</p>
+<p>4、/tmp和/var采用独立分区，以防止这些地方无序增长的空间要求，影响整体系统</p>
+<p>5、缺省关闭对usb存储设备的支持<br><a href="https://linux-audit.com/kernel-hardening-disable-and-blacklist-linux-modules/" target="_blank" rel="external">https://linux-audit.com/kernel-hardening-disable-and-blacklist-linux-modules/</a><br>利用卸载内核模块的办法进行管理</p>
+<p>6、安装debsums用来验证安装包的正确性</p>
+<p>7、安装apt-show-versions用来看软件是否安装到最新版本</p>
+<p>8、安装arpwatch或者arpon来监控arp的变化</p>
+<p>9、安装rkhunter来发现隐藏木马</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/02/针对lynis检查以后的安全改进建议/" data-id="cizxgv3jj000fgyz8e63c1ktl" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-值得关注的问题：各种密码管理软件的缺陷" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/02/值得关注的问题：各种密码管理软件的缺陷/" class="article-date">
+  <time datetime="2017-03-02T03:49:56.000Z" itemprop="datePublished">2017-03-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/02/值得关注的问题：各种密码管理软件的缺陷/">值得关注的问题：各种密码管理软件的缺陷</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://team-sik.org/trent_portfolio/password-manager-apps/" target="_blank" rel="external">https://team-sik.org/trent_portfolio/password-manager-apps/</a><br>这个博客跟踪分析了各种密码管理软件的缺陷，希望抽空的时候好好梳理一下他们的成果,我需要从两个方面考虑：</p>
+<ol>
+<li>如何选择自己的密码保存方式</li>
+<li>如何在我们自己的软件中避免同样的错误</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/02/值得关注的问题：各种密码管理软件的缺陷/" data-id="cizxgv3je0009gyz8a69uchac" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-ropes-一种快速处理字符串的方法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/02/ropes-一种快速处理字符串的方法/" class="article-date">
+  <time datetime="2017-03-02T02:23:12.000Z" itemprop="datePublished">2017-03-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/02/ropes-一种快速处理字符串的方法/">ropes:一种快速处理字符串的方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>利用树结构来处理字符串<br><a href="https://kukuruku.co/post/ropes-fast-strings/" target="_blank" rel="external">https://kukuruku.co/post/ropes-fast-strings/</a><br>在wiki上的介绍：<a href="https://en.wikipedia.org/wiki/Rope_(data_structure" target="_blank" rel="external">https://en.wikipedia.org/wiki/Rope_(data_structure</a>)<br>java上的实现：<a href="http://www.ahmadsoft.org/source/xref/ropes-1.2.5/src/org/ahmadsoft/ropes/" target="_blank" rel="external">http://www.ahmadsoft.org/source/xref/ropes-1.2.5/src/org/ahmadsoft/ropes/</a><br>erlang上的实现：<a href="https://github.com/flambard/roper" target="_blank" rel="external">https://github.com/flambard/roper</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/02/ropes-一种快速处理字符串的方法/" data-id="cizxgv3j50002gyz8f9ydfwr7" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-ubuntu的dns设置" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/02/ubuntu的dns设置/" class="article-date">
+  <time datetime="2017-03-02T01:45:35.000Z" itemprop="datePublished">2017-03-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/02/ubuntu的dns设置/">ubuntu的dns设置</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>vi systemd/resolved.conf<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[Resolve]</div><div class="line">DNS=fb7f:e922:7783:4f2f:632c:fc24:f8d7:7379 223.5.5.5</div><div class="line">FallbackDNS=fb7f:e922:7783:4f2f:632c:fc24:f8d7:7379 223.5.5.5</div><div class="line"></div><div class="line">systemctl restart resolvconf.service</div><div class="line">systemctl restart systemd-resolved.service</div></pre></td></tr></table></figure></p>
+<p>没有测试到底重启哪个service是有效的，索性都重启一下。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/02/ubuntu的dns设置/" data-id="cizxgv3j60003gyz8fplkxtc1" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-back-again" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/02/back-again/" class="article-date">
+  <time datetime="2017-03-02T01:25:59.000Z" itemprop="datePublished">2017-03-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/02/back-again/">back again</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>时间已是3月，发现不经意之间，又有半个月没有写，原因很简单，因为半个月前启动了一次电脑。<br>我本想记录半个月发生的各种琐事，觉得又毫无意义，很多事情本身有意义，记录下来就没有意义。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/02/back-again/" data-id="cizxgv3iz0000gyz8l3dzs0a8" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-windows的安全性在哪里？" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/12/windows的安全性在哪里？/" class="article-date">
+  <time datetime="2017-02-12T02:42:27.000Z" itemprop="datePublished">2017-02-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/12/windows的安全性在哪里？/">windows的安全性在哪里？</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>醒来看到一个新闻说，NSA已经把Windows列入可以用于秘密的操作系统，作为一个老牌操作系统，这个入围并不是什么大事，应该属于理所当然。<br>但是我想到上周我和Mada的一次交流，谈到windows体系安全性的问题。近年来长期使用Android和Linux作为日常操作系统，使用Windows的时候，觉得分为别扭，这中间最大的问题在于整个操作系统的应用架构问题，以Android系统为典型的代表，新一代的移动操作系统从上到小其实多做了基于应用的沙箱隔离，除了在sd卡层面上，存在一些数据交错以外，在执行程序和一些需要保密的应用私有数据都有独立可靠的隔离存储区域，所以当我们在Android系统上安装一个未知应用的时候，并不担心它可能造成多大的恶果。但是在windows系统下就不行，随意的超级用户权限申请，安装一个应用冒着十分大的风险。所以，从windows 7之后， 微软一直在windows上沉浸于超级用户和普通用户之间的权力分隔，但是在核心的系统安全架构上，却已经保守落后了，从这点上看，Android系统更像是未来。桌面系统，象Linux也存在同样的问题。应用的不同来源带来不同的风险，如果我们不能在一个私有的桌面系统上隔离这种安全风险，那整个系统的安全道路依然艰险。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/02/12/windows的安全性在哪里？/" data-id="cizxgv3j80005gyz8pd3e6y8w" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-终于找到一个轻量级的git管理服务器" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/10/终于找到一个轻量级的git管理服务器/" class="article-date">
+  <time datetime="2017-02-10T15:37:46.000Z" itemprop="datePublished">2017-02-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/10/终于找到一个轻量级的git管理服务器/">终于找到一个轻量级的git管理服务器</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>自从接触android开发以来，一直使用gerrit作为私有的git管理服务器，但是gerrit的问题在于，本身基于java内存占用庞大，在vps上使用颇为吃力。<br>今天看到一个开源项目：<a href="https://gogs.io" target="_blank" rel="external">https://gogs.io</a>, 基于Go语言实现跨平台，而且粗略看了一下支持邮件帐号注册，貌似十分理想。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/02/10/终于找到一个轻量级的git管理服务器/" data-id="cizxgv3ji000egyz8qfc6f24f" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-为什么要做一个公司" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/10/为什么要做一个公司/" class="article-date">
+  <time datetime="2017-02-10T09:28:52.000Z" itemprop="datePublished">2017-02-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/10/为什么要做一个公司/">为什么要做一个公司</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>为什么要做一个公司？<br>我期望通过公司这样一个利益体，使得依存它生活的人，不以出卖个人的尊严，可以靠自己的能力，在一个平等互助的环境中发展。<br>我期望通过这个公司，使得财富不完全被掌握于那些粗俗和无道德的人手里，使我们可以用财富去扩张这个世界正义的范围。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/02/10/为什么要做一个公司/" data-id="cizxgv3jb0007gyz88fnh5pn1" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">__('next') &raquo;</a>
+  </nav>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/03/06/markdown的常用格式使用记录/">markdown的常用格式使用记录</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/06/windows-10使用照片查看器/">windows 10使用照片查看器</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/02/针对lynis检查以后的安全改进建议/">针对lynis检查以后的安全改进建议</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/02/值得关注的问题：各种密码管理软件的缺陷/">值得关注的问题：各种密码管理软件的缺陷</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/02/ropes-一种快速处理字符串的方法/">ropes:一种快速处理字符串的方法</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 QQ<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
