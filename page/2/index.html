@@ -65,6 +65,43 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-ropes-一种快速处理字符串的方法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/02/ropes-一种快速处理字符串的方法/" class="article-date">
+  <time datetime="2017-03-02T02:23:12.000Z" itemprop="datePublished">2017-03-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/02/ropes-一种快速处理字符串的方法/">ropes:一种快速处理字符串的方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>利用树结构来处理字符串<br><a href="https://kukuruku.co/post/ropes-fast-strings/" target="_blank" rel="external">https://kukuruku.co/post/ropes-fast-strings/</a><br>在wiki上的介绍：<a href="https://en.wikipedia.org/wiki/Rope_(data_structure" target="_blank" rel="external">https://en.wikipedia.org/wiki/Rope_(data_structure</a>)<br>java上的实现：<a href="http://www.ahmadsoft.org/source/xref/ropes-1.2.5/src/org/ahmadsoft/ropes/" target="_blank" rel="external">http://www.ahmadsoft.org/source/xref/ropes-1.2.5/src/org/ahmadsoft/ropes/</a><br>erlang上的实现：<a href="https://github.com/flambard/roper" target="_blank" rel="external">https://github.com/flambard/roper</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/02/ropes-一种快速处理字符串的方法/" data-id="cj166fys20005njz8tx0jpicx" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-ubuntu的dns设置" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/03/02/ubuntu的dns设置/" class="article-date">
@@ -89,11 +126,12 @@
       
         <p>vi systemd/resolved.conf<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[Resolve]</div><div class="line">DNS=fb7f:e922:7783:4f2f:632c:fc24:f8d7:7379 223.5.5.5</div><div class="line">FallbackDNS=fb7f:e922:7783:4f2f:632c:fc24:f8d7:7379 223.5.5.5</div><div class="line"></div><div class="line">systemctl restart resolvconf.service</div><div class="line">systemctl restart systemd-resolved.service</div></pre></td></tr></table></figure></p>
 <p>没有测试到底重启哪个service是有效的，索性都重启一下。</p>
+<p>2017-04-06更新<br>systemctl disable systemd-resolved.service<br>彻底关闭了这东西，不知道什么协议引起的，每次ping目标地址的时候，居然要向目标地址发出一个tcp连接请求，太恶心了。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/02/ubuntu的dns设置/" data-id="cj0rlgohv0003lgz8xv49zm9u" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/03/02/ubuntu的dns设置/" data-id="cj166fyrw0001njz8kcueqcs5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -130,7 +168,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/02/back-again/" data-id="cj0rlgohn0000lgz80li1g4re" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/03/02/back-again/" data-id="cj166fyrt0000njz8033t4ws6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -167,7 +205,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/02/12/windows的安全性在哪里？/" data-id="cj0rlgoi00006lgz8p10ycuxi" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/02/12/windows的安全性在哪里？/" data-id="cj166fysa000anjz8sjwgcr69" class="article-share-link">Share</a>
       
       
     </footer>
@@ -204,7 +242,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/02/10/终于找到一个轻量级的git管理服务器/" data-id="cj0rlgoib000flgz8c77c3iry" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/02/10/终于找到一个轻量级的git管理服务器/" data-id="cj166fysh000hnjz8idbaqq4l" class="article-share-link">Share</a>
       
       
     </footer>
@@ -241,7 +279,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/02/10/为什么要做一个公司/" data-id="cj0rlgoi10007lgz88rn6qnl7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/02/10/为什么要做一个公司/" data-id="cj166fys50007njz8uwc5b92p" class="article-share-link">Share</a>
       
       
     </footer>
@@ -289,7 +327,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/02/09/有意思的项目跟踪/" data-id="cj0rlgoi9000dlgz8cdpw73o6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/02/09/有意思的项目跟踪/" data-id="cj166fysg000gnjz8d083c0im" class="article-share-link">Share</a>
       
       
     </footer>
@@ -326,7 +364,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/02/09/处理比特币unconfirmed交易的办法/" data-id="cj0rlgoi5000algz8dskyc8ob" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/02/09/处理比特币unconfirmed交易的办法/" data-id="cj166fysb000bnjz86bad9nky" class="article-share-link">Share</a>
       
       
     </footer>
@@ -406,7 +444,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/02/08/手机上安装的apps/" data-id="cj0rlgoi8000clgz8v01e4lsh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/02/08/手机上安装的apps/" data-id="cj166fysd000enjz8avh23kzu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -443,44 +481,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/02/08/去掉三星手机的图案锁/" data-id="cj0rlgoi40009lgz82snw86u9" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hack交规失败" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/02/08/hack交规失败/" class="article-date">
-  <time datetime="2017-02-08T03:33:02.000Z" itemprop="datePublished">2017-02-08</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/08/hack交规失败/">hack交规失败</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>清早出门的时候，知道今天是车辆限行的，但是因为带着孩子，我做好支付罚金的打算。不过我依然想了一下，如果我们要hack生活的每个细节的话，那是否可以尝试一下绕过这个城市的监控系统呢。我选择了一条非主路，然后准备从那里绕上高速，我觉得那一路上应该可以躲避拍摄的摄像头。我在开车的时候，心里甚至想好了hack成功的欣喜感言。但是在进入高速的路口，两个交警在那里友好的拦下了我。好吧，这些小鸡贼的想法，其实每个人都有，你并不特别，并且被人猜到了。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/02/08/hack交规失败/" data-id="cj0rlgohr0001lgz8gnc4ihth" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/02/08/去掉三星手机的图案锁/" data-id="cj166fys90009njz85k78rfwr" class="article-share-link">Share</a>
       
       
     </footer>
@@ -511,7 +512,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li></ul>
     </div>
   </div>
 
@@ -522,6 +523,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/04/06/sniffer/">sniffer</a>
+          </li>
         
           <li>
             <a href="/2017/03/27/比特币钱包的匿名性/">比特币钱包的匿名性</a>
@@ -537,10 +542,6 @@
         
           <li>
             <a href="/2017/03/07/大数据/">大数据</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/06/部署到github上/">部署到github上</a>
           </li>
         
       </ul>

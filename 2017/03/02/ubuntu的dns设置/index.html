@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/03/02/ubuntu的dns设置/index.html">
 <meta property="og:site_name" content="记">
 <meta property="og:description" content="vi systemd/resolved.conf123456[Resolve]DNS=fb7f:e922:7783:4f2f:632c:fc24:f8d7:7379 223.5.5.5FallbackDNS=fb7f:e922:7783:4f2f:632c:fc24:f8d7:7379 223.5.5.5systemctl restart resolvconf.servicesystemctl r">
-<meta property="og:updated_time" content="2017-03-06T02:05:29.901Z">
+<meta property="og:updated_time" content="2017-04-06T09:01:16.252Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ubuntu的dns设置">
 <meta name="twitter:description" content="vi systemd/resolved.conf123456[Resolve]DNS=fb7f:e922:7783:4f2f:632c:fc24:f8d7:7379 223.5.5.5FallbackDNS=fb7f:e922:7783:4f2f:632c:fc24:f8d7:7379 223.5.5.5systemctl restart resolvconf.servicesystemctl r">
@@ -91,11 +91,12 @@
       
         <p>vi systemd/resolved.conf<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[Resolve]</div><div class="line">DNS=fb7f:e922:7783:4f2f:632c:fc24:f8d7:7379 223.5.5.5</div><div class="line">FallbackDNS=fb7f:e922:7783:4f2f:632c:fc24:f8d7:7379 223.5.5.5</div><div class="line"></div><div class="line">systemctl restart resolvconf.service</div><div class="line">systemctl restart systemd-resolved.service</div></pre></td></tr></table></figure></p>
 <p>没有测试到底重启哪个service是有效的，索性都重启一下。</p>
+<p>2017-04-06更新<br>systemctl disable systemd-resolved.service<br>彻底关闭了这东西，不知道什么协议引起的，每次ping目标地址的时候，居然要向目标地址发出一个tcp连接请求，太恶心了。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/02/ubuntu的dns设置/" data-id="cj0rlgohv0003lgz8xv49zm9u" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/03/02/ubuntu的dns设置/" data-id="cj166fyrw0001njz8kcueqcs5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -140,7 +141,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li></ul>
     </div>
   </div>
 
@@ -151,6 +152,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/04/06/sniffer/">sniffer</a>
+          </li>
         
           <li>
             <a href="/2017/03/27/比特币钱包的匿名性/">比特币钱包的匿名性</a>
@@ -166,10 +171,6 @@
         
           <li>
             <a href="/2017/03/07/大数据/">大数据</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/06/部署到github上/">部署到github上</a>
           </li>
         
       </ul>
