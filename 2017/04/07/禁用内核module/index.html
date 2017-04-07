@@ -3,18 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>ropes:一种快速处理字符串的方法 | 记</title>
+  <title>禁用内核module | 记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="利用树结构来处理字符串https://kukuruku.co/post/ropes-fast-strings/在wiki上的介绍：https://en.wikipedia.org/wiki/Rope_(data_structure)java上的实现：http://www.ahmadsoft.org/source/xref/ropes-1.2.5/src/org/ahmadsoft/ropes/er">
+  <meta name="description" content="编辑 /etc/modules， 确保要禁用的modules没有启用
+在/etc/modprobe.d里面建立一个自定义的custom.conf，把要禁用的module增加进去blacklist modulename
+dpkg-reconfigure linux-image-$(uname -r)修改完成以后，重启机器测试">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ropes:一种快速处理字符串的方法">
-<meta property="og:url" content="http://yoursite.com/2017/03/02/ropes-一种快速处理字符串的方法/index.html">
+<meta property="og:title" content="禁用内核module">
+<meta property="og:url" content="http://yoursite.com/2017/04/07/禁用内核module/index.html">
 <meta property="og:site_name" content="记">
-<meta property="og:description" content="利用树结构来处理字符串https://kukuruku.co/post/ropes-fast-strings/在wiki上的介绍：https://en.wikipedia.org/wiki/Rope_(data_structure)java上的实现：http://www.ahmadsoft.org/source/xref/ropes-1.2.5/src/org/ahmadsoft/ropes/er">
-<meta property="og:updated_time" content="2017-03-02T02:34:29.913Z">
+<meta property="og:description" content="编辑 /etc/modules， 确保要禁用的modules没有启用
+在/etc/modprobe.d里面建立一个自定义的custom.conf，把要禁用的module增加进去blacklist modulename
+dpkg-reconfigure linux-image-$(uname -r)修改完成以后，重启机器测试">
+<meta property="og:updated_time" content="2017-04-07T03:54:16.291Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ropes:一种快速处理字符串的方法">
-<meta name="twitter:description" content="利用树结构来处理字符串https://kukuruku.co/post/ropes-fast-strings/在wiki上的介绍：https://en.wikipedia.org/wiki/Rope_(data_structure)java上的实现：http://www.ahmadsoft.org/source/xref/ropes-1.2.5/src/org/ahmadsoft/ropes/er">
+<meta name="twitter:title" content="禁用内核module">
+<meta name="twitter:description" content="编辑 /etc/modules， 确保要禁用的modules没有启用
+在/etc/modprobe.d里面建立一个自定义的custom.conf，把要禁用的module增加进去blacklist modulename
+dpkg-reconfigure linux-image-$(uname -r)修改完成以后，重启机器测试">
   
     <link rel="alternate" href="/atom.xml" title="记" type="application/atom+xml">
   
@@ -67,10 +73,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-ropes-一种快速处理字符串的方法" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-禁用内核module" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/03/02/ropes-一种快速处理字符串的方法/" class="article-date">
-  <time datetime="2017-03-02T02:23:12.000Z" itemprop="datePublished">2017-03-02</time>
+    <a href="/2017/04/07/禁用内核module/" class="article-date">
+  <time datetime="2017-04-07T03:51:24.000Z" itemprop="datePublished">2017-04-07</time>
 </a>
     
   </div>
@@ -81,7 +87,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      ropes:一种快速处理字符串的方法
+      禁用内核module
     </h1>
   
 
@@ -89,12 +95,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>利用树结构来处理字符串<br><a href="https://kukuruku.co/post/ropes-fast-strings/" target="_blank" rel="external">https://kukuruku.co/post/ropes-fast-strings/</a><br>在wiki上的介绍：<a href="https://en.wikipedia.org/wiki/Rope_(data_structure" target="_blank" rel="external">https://en.wikipedia.org/wiki/Rope_(data_structure</a>)<br>java上的实现：<a href="http://www.ahmadsoft.org/source/xref/ropes-1.2.5/src/org/ahmadsoft/ropes/" target="_blank" rel="external">http://www.ahmadsoft.org/source/xref/ropes-1.2.5/src/org/ahmadsoft/ropes/</a><br>erlang上的实现：<a href="https://github.com/flambard/roper" target="_blank" rel="external">https://github.com/flambard/roper</a></p>
+        <ol>
+<li>编辑 /etc/modules， 确保要禁用的modules没有启用</li>
+<li>在/etc/modprobe.d里面建立一个自定义的custom.conf，把要禁用的module增加进去<br>blacklist modulename</li>
+<li>dpkg-reconfigure linux-image-$(uname -r)<br>修改完成以后，重启机器测试</li>
+</ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/02/ropes-一种快速处理字符串的方法/" data-id="cj17e1ci90003d4z8ataaajnb" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/04/07/禁用内核module/" data-id="cj17e1ciq000gd4z8buzzgyue" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -103,19 +113,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2017/03/02/值得关注的问题：各种密码管理软件的缺陷/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Récent</strong>
-      <div class="article-nav-title">
-        
-          值得关注的问题：各种密码管理软件的缺陷
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/03/02/ubuntu的dns设置/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/04/07/使用nftables/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Ancien</strong>
-      <div class="article-nav-title">ubuntu的dns设置</div>
+      <div class="article-nav-title">使用nftables</div>
     </a>
   
 </nav>

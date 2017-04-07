@@ -52,9 +52,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -64,6 +64,121 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-禁用内核module" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/04/07/禁用内核module/" class="article-date">
+  <time datetime="2017-04-07T03:51:24.000Z" itemprop="datePublished">2017-04-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/07/禁用内核module/">禁用内核module</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>编辑 /etc/modules， 确保要禁用的modules没有启用</li>
+<li>在/etc/modprobe.d里面建立一个自定义的custom.conf，把要禁用的module增加进去<br>blacklist modulename</li>
+<li>dpkg-reconfigure linux-image-$(uname -r)<br>修改完成以后，重启机器测试</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/04/07/禁用内核module/" data-id="cj17e1ciq000gd4z8buzzgyue" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-使用nftables" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/04/07/使用nftables/" class="article-date">
+  <time datetime="2017-04-07T03:43:26.000Z" itemprop="datePublished">2017-04-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/07/使用nftables/">使用nftables</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://wiki.nftables.org/wiki-nftables/index.php/Quick_reference-nftables_in_10_minutes" target="_blank" rel="external">https://wiki.nftables.org/wiki-nftables/index.php/Quick_reference-nftables_in_10_minutes</a><br>apt-get install nftables<br>应该开始习惯利用nftable来作为系统防火墙，从主机防护开始</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">cat nftables.conf </div><div class="line">#!/usr/sbin/nft -f</div><div class="line"></div><div class="line">flush ruleset</div><div class="line"></div><div class="line">table firewall &#123;</div><div class="line">    chain input &#123;</div><div class="line">        type filter hook input priority 0; policy drop;</div><div class="line">        iif lo accept</div><div class="line">        ct state established,related accept</div><div class="line">        icmp type echo-request accept</div><div class="line">        tcp dport &#123;22,443&#125; accept</div><div class="line">        ip saddr 1.1.1.1 accept</div><div class="line">        counter drop</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">table ip6 firewall &#123;</div><div class="line">    chain input &#123;</div><div class="line">        type filter hook input priority 0; policy drop;</div><div class="line">        iif lo accept</div><div class="line">        ct state established, related accept</div><div class="line">        ct state invalid drop</div><div class="line">        iifname lo accept</div><div class="line">		ip6 nexthdr icmpv6 icmpv6 type &#123; nd-neighbor-solicit,  nd-router-advert, nd-neighbor-advert &#125; accept</div><div class="line">        tcp dport &#123;ssh&#125; accept</div><div class="line">        counter drop</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/04/07/使用nftables/" data-id="cj17e1cie0006d4z881wexhdm" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-阿里云上的ubuntu跨版本升级" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/04/07/阿里云上的ubuntu跨版本升级/" class="article-date">
+  <time datetime="2017-04-07T02:21:12.000Z" itemprop="datePublished">2017-04-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/07/阿里云上的ubuntu跨版本升级/">阿里云上的ubuntu跨版本升级</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>do-release-upgrade -d </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/04/07/阿里云上的ubuntu跨版本升级/" data-id="cj17e1cj6000ld4z8o3udqbwp" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-sniffer" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -92,7 +207,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/04/06/sniffer/" data-id="cj166fys00004njz8ju908t56" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/04/06/sniffer/" data-id="cj17e1cij0009d4z878g30chd" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -145,7 +260,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/27/比特币钱包的匿名性/" data-id="cj166fyse000fnjz8blrlbllz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/03/27/比特币钱包的匿名性/" data-id="cj17e1cit000jd4z88kojkt60" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -186,7 +301,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/13/昂贵产品的替代品/" data-id="cj166fysd000dnjz8cro91gtl" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/03/13/昂贵产品的替代品/" data-id="cj17e1cji000nd4z8xxz3myc9" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -236,7 +351,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/10/我从vault-7里看到的/" data-id="cj166fysr000jnjz8877gzoly" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/03/10/我从vault-7里看到的/" data-id="cj17e1cj8000md4z88y34mpzc" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -273,7 +388,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/07/大数据/" data-id="cj166fysu000knjz8ydghvzs7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/03/07/大数据/" data-id="cj17e1cii0008d4z8cuqmoamp" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -311,7 +426,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/06/部署到github上/" data-id="cj166fyt1000lnjz8gjnnpri9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/03/06/部署到github上/" data-id="cj17e1cji000od4z8src67zk5" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -350,132 +465,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/06/markdown的常用格式使用记录/" data-id="cj166fys00003njz8vajgtemu" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-windows-10使用照片查看器" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/03/06/windows-10使用照片查看器/" class="article-date">
-  <time datetime="2017-03-06T01:55:41.000Z" itemprop="datePublished">2017-03-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/06/windows-10使用照片查看器/">windows 10使用照片查看器</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>微软脑子坏了，居然屏蔽使用历史悠久的windows照片查看器，在win10下浏览照片几乎成为噩梦。<br>找回办法：<br>编辑一个注册表文件：picture.reg</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Windows Registry Editor Version 5.00</div><div class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Photo Viewer\Capabilities\FileAssociations]</div><div class="line">&quot;.tif&quot;=&quot;PhotoViewer.FileAssoc.Tiff&quot;</div><div class="line">&quot;.tiff&quot;=&quot;PhotoViewer.FileAssoc.Tiff&quot;</div><div class="line">&quot;.jpg&quot;=&quot;PhotoViewer.FileAssoc.Tiff&quot;</div><div class="line">&quot;.png&quot;=&quot;PhotoViewer.FileAssoc.Tiff&quot;</div><div class="line">&quot;.gif&quot;=&quot;PhotoViewer.FileAssoc.Tiff&quot;</div></pre></td></tr></table></figure>
-<p>双机执行，重新找回windows照片查看器。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/06/windows-10使用照片查看器/" data-id="cj166fys40006njz8x0y7xnsi" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-针对lynis检查以后的安全改进建议" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/03/02/针对lynis检查以后的安全改进建议/" class="article-date">
-  <time datetime="2017-03-02T05:31:20.000Z" itemprop="datePublished">2017-03-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/02/针对lynis检查以后的安全改进建议/">针对lynis检查以后的安全改进建议</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1、安装基于pam的密码检测模块<br>apt-get install libpam-pwquality</p>
-<p>2、在/etc/login.defs里面设置密码的最小和最长时间<br>minimum和maximum<br>在ubuntu下，缺省的PASS_MAX_DAYS 99999，缺省的PASS_MIN_DAYS 0</p>
-<p>3、修改/etc/login.defs里面umask的值为027，缺省为022</p>
-<p>4、/tmp和/var采用独立分区，以防止这些地方无序增长的空间要求，影响整体系统</p>
-<p>5、缺省关闭对usb存储设备的支持<br><a href="https://linux-audit.com/kernel-hardening-disable-and-blacklist-linux-modules/" target="_blank" rel="external">https://linux-audit.com/kernel-hardening-disable-and-blacklist-linux-modules/</a><br>利用卸载内核模块的办法进行管理</p>
-<p>6、安装debsums用来验证安装包的正确性</p>
-<p>7、安装apt-show-versions用来看软件是否安装到最新版本</p>
-<p>8、安装arpwatch或者arpon来监控arp的变化</p>
-<p>9、安装rkhunter来发现隐藏木马</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/02/针对lynis检查以后的安全改进建议/" data-id="cj166fysi000injz85gfbcci8" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-值得关注的问题：各种密码管理软件的缺陷" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/03/02/值得关注的问题：各种密码管理软件的缺陷/" class="article-date">
-  <time datetime="2017-03-02T03:49:56.000Z" itemprop="datePublished">2017-03-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/02/值得关注的问题：各种密码管理软件的缺陷/">值得关注的问题：各种密码管理软件的缺陷</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://team-sik.org/trent_portfolio/password-manager-apps/" target="_blank" rel="external">https://team-sik.org/trent_portfolio/password-manager-apps/</a><br>这个博客跟踪分析了各种密码管理软件的缺陷，希望抽空的时候好好梳理一下他们的成果,我需要从两个方面考虑：</p>
-<ol>
-<li>如何选择自己的密码保存方式</li>
-<li>如何在我们自己的软件中避免同样的错误</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/02/值得关注的问题：各种密码管理软件的缺陷/" data-id="cj166fys80008njz8w5z9i1e4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/03/06/markdown的常用格式使用记录/" data-id="cj17e1cia0004d4z81ebr62qh" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -514,9 +504,21 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/04/07/禁用内核module/">禁用内核module</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/07/使用nftables/">使用nftables</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/07/阿里云上的ubuntu跨版本升级/">阿里云上的ubuntu跨版本升级</a>
+          </li>
         
           <li>
             <a href="/2017/04/06/sniffer/">sniffer</a>
@@ -524,18 +526,6 @@
         
           <li>
             <a href="/2017/03/27/比特币钱包的匿名性/">比特币钱包的匿名性</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/13/昂贵产品的替代品/">昂贵产品的替代品</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/10/我从vault-7里看到的/">我从vault 7里看到的</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/07/大数据/">大数据</a>
           </li>
         
       </ul>
@@ -551,7 +541,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 QQ<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
