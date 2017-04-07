@@ -52,9 +52,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -96,7 +96,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/04/07/禁用内核module/" data-id="cj17e1ciq000gd4z8buzzgyue" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/04/07/禁用内核module/" data-id="cj17esv9a000ks6z8qi9pnzj4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -129,11 +129,11 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><a href="https://wiki.nftables.org/wiki-nftables/index.php/Quick_reference-nftables_in_10_minutes" target="_blank" rel="external">https://wiki.nftables.org/wiki-nftables/index.php/Quick_reference-nftables_in_10_minutes</a><br>apt-get install nftables<br>应该开始习惯利用nftable来作为系统防火墙，从主机防护开始</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">cat nftables.conf </div><div class="line">#!/usr/sbin/nft -f</div><div class="line"></div><div class="line">flush ruleset</div><div class="line"></div><div class="line">table firewall &#123;</div><div class="line">    chain input &#123;</div><div class="line">        type filter hook input priority 0; policy drop;</div><div class="line">        iif lo accept</div><div class="line">        ct state established,related accept</div><div class="line">        icmp type echo-request accept</div><div class="line">        tcp dport &#123;22,443&#125; accept</div><div class="line">        ip saddr 1.1.1.1 accept</div><div class="line">        counter drop</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">table ip6 firewall &#123;</div><div class="line">    chain input &#123;</div><div class="line">        type filter hook input priority 0; policy drop;</div><div class="line">        iif lo accept</div><div class="line">        ct state established, related accept</div><div class="line">        ct state invalid drop</div><div class="line">        iifname lo accept</div><div class="line">		ip6 nexthdr icmpv6 icmpv6 type &#123; nd-neighbor-solicit,  nd-router-advert, nd-neighbor-advert &#125; accept</div><div class="line">        tcp dport &#123;ssh&#125; accept</div><div class="line">        counter drop</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">cat nftables.conf </div><div class="line">#!/usr/sbin/nft -f</div><div class="line"></div><div class="line">flush ruleset</div><div class="line"></div><div class="line">define sh_gateway = 2.2.2.2</div><div class="line">define test = 1.1.1.1</div><div class="line">define allowips=&#123;$sh_gateway, $test&#125;</div><div class="line"></div><div class="line">table firewall &#123;</div><div class="line">    chain input &#123;</div><div class="line">        type filter hook input priority 0; policy drop;</div><div class="line">        iif lo accept</div><div class="line">        ct state established,related accept</div><div class="line">        icmp type echo-request accept</div><div class="line">        tcp dport &#123;22,443&#125; accept</div><div class="line">        ip saddr $allowips accept</div><div class="line">        counter drop</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">table ip6 firewall &#123;</div><div class="line">    chain input &#123;</div><div class="line">        type filter hook input priority 0; policy drop;</div><div class="line">        iif lo accept</div><div class="line">        ct state established, related accept</div><div class="line">        ct state invalid drop</div><div class="line">        iifname lo accept</div><div class="line">		ip6 nexthdr icmpv6 icmpv6 type &#123; nd-neighbor-solicit,  nd-router-advert, nd-neighbor-advert &#125; accept</div><div class="line">        tcp dport &#123;ssh&#125; accept</div><div class="line">        counter drop</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/04/07/使用nftables/" data-id="cj17e1cie0006d4z881wexhdm" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/04/07/使用nftables/" data-id="cj17esv8y0008s6z8f2jk7evc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -170,7 +170,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/04/07/阿里云上的ubuntu跨版本升级/" data-id="cj17e1cj6000ld4z8o3udqbwp" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/04/07/阿里云上的ubuntu跨版本升级/" data-id="cj17esv9f000os6z83k8pbt8a" class="article-share-link">Share</a>
       
       
     </footer>
@@ -207,7 +207,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/04/06/sniffer/" data-id="cj17e1cij0009d4z878g30chd" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/04/06/sniffer/" data-id="cj17esv8q0003s6z88jxsjxg5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -260,7 +260,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/27/比特币钱包的匿名性/" data-id="cj17e1cit000jd4z88kojkt60" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/03/27/比特币钱包的匿名性/" data-id="cj17esv99000js6z863wr9nhs" class="article-share-link">Share</a>
       
       
     </footer>
@@ -301,7 +301,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/13/昂贵产品的替代品/" data-id="cj17e1cji000nd4z8xxz3myc9" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/03/13/昂贵产品的替代品/" data-id="cj17esv97000hs6z8oh74xsvp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -351,7 +351,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/10/我从vault-7里看到的/" data-id="cj17e1cj8000md4z88y34mpzc" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/03/10/我从vault-7里看到的/" data-id="cj17esv95000fs6z8i0judf1x" class="article-share-link">Share</a>
       
       
     </footer>
@@ -388,7 +388,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/07/大数据/" data-id="cj17e1cii0008d4z8cuqmoamp" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/03/07/大数据/" data-id="cj17esv93000ds6z8skg6t7el" class="article-share-link">Share</a>
       
       
     </footer>
@@ -426,7 +426,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/06/部署到github上/" data-id="cj17e1cji000od4z8src67zk5" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/03/06/部署到github上/" data-id="cj17esv9e000ms6z8sfa0q7ke" class="article-share-link">Share</a>
       
       
     </footer>
@@ -465,7 +465,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/06/markdown的常用格式使用记录/" data-id="cj17e1cia0004d4z81ebr62qh" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/03/06/markdown的常用格式使用记录/" data-id="cj17esv8m0001s6z8d3gri78m" class="article-share-link">Share</a>
       
       
     </footer>
@@ -504,7 +504,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
         
@@ -541,7 +541,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 QQ<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
