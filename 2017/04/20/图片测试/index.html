@@ -3,27 +3,35 @@
 <head>
   <meta charset="utf-8">
   
-  <title>针对lynis检查以后的安全改进建议 | 记</title>
+  <title>图片测试 | 记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1、安装基于pam的密码检测模块apt-get install libpam-pwquality
-2、在/etc/login.defs里面设置密码的最小和最长时间minimum和maximum在ubuntu下，缺省的PASS_MAX_DAYS 99999，缺省的PASS_MIN_DAYS 0
-3、修改/etc/login.defs里面umask的值为027，缺省为022
-4、/tmp和/var采用">
+  <meta name="description" content="在hexo中增加对图片的支持
+
+修改_config.xml， post_asset_folder:true
+安装hexo-asset-image插件npm install https://github.com/CodeFalling/hexo-asset-image –save
+把图片拷贝到新建立的md文件名的目录中去
+显示图片">
 <meta property="og:type" content="article">
-<meta property="og:title" content="针对lynis检查以后的安全改进建议">
-<meta property="og:url" content="http://yoursite.com/2017/03/02/针对lynis检查以后的安全改进建议/index.html">
+<meta property="og:title" content="图片测试">
+<meta property="og:url" content="http://yoursite.com/2017/04/20/图片测试/index.html">
 <meta property="og:site_name" content="记">
-<meta property="og:description" content="1、安装基于pam的密码检测模块apt-get install libpam-pwquality
-2、在/etc/login.defs里面设置密码的最小和最长时间minimum和maximum在ubuntu下，缺省的PASS_MAX_DAYS 99999，缺省的PASS_MIN_DAYS 0
-3、修改/etc/login.defs里面umask的值为027，缺省为022
-4、/tmp和/var采用">
-<meta property="og:updated_time" content="2017-03-02T06:21:55.035Z">
+<meta property="og:description" content="在hexo中增加对图片的支持
+
+修改_config.xml， post_asset_folder:true
+安装hexo-asset-image插件npm install https://github.com/CodeFalling/hexo-asset-image –save
+把图片拷贝到新建立的md文件名的目录中去
+显示图片">
+<meta property="og:image" content="http://yoursite.com/2017/04/20/图片测试/sea.jpg">
+<meta property="og:updated_time" content="2017-04-20T06:39:18.898Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="针对lynis检查以后的安全改进建议">
-<meta name="twitter:description" content="1、安装基于pam的密码检测模块apt-get install libpam-pwquality
-2、在/etc/login.defs里面设置密码的最小和最长时间minimum和maximum在ubuntu下，缺省的PASS_MAX_DAYS 99999，缺省的PASS_MIN_DAYS 0
-3、修改/etc/login.defs里面umask的值为027，缺省为022
-4、/tmp和/var采用">
+<meta name="twitter:title" content="图片测试">
+<meta name="twitter:description" content="在hexo中增加对图片的支持
+
+修改_config.xml， post_asset_folder:true
+安装hexo-asset-image插件npm install https://github.com/CodeFalling/hexo-asset-image –save
+把图片拷贝到新建立的md文件名的目录中去
+显示图片">
+<meta name="twitter:image" content="http://yoursite.com/2017/04/20/图片测试/sea.jpg">
   
     <link rel="alternate" href="/atom.xml" title="记" type="application/atom+xml">
   
@@ -76,10 +84,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-针对lynis检查以后的安全改进建议" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-图片测试" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/03/02/针对lynis检查以后的安全改进建议/" class="article-date">
-  <time datetime="2017-03-02T05:31:20.000Z" itemprop="datePublished">2017-03-02</time>
+    <a href="/2017/04/20/图片测试/" class="article-date">
+  <time datetime="2017-04-20T06:33:35.000Z" itemprop="datePublished">2017-04-20</time>
 </a>
     
   </div>
@@ -90,7 +98,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      针对lynis检查以后的安全改进建议
+      图片测试
     </h1>
   
 
@@ -98,20 +106,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1、安装基于pam的密码检测模块<br>apt-get install libpam-pwquality</p>
-<p>2、在/etc/login.defs里面设置密码的最小和最长时间<br>minimum和maximum<br>在ubuntu下，缺省的PASS_MAX_DAYS 99999，缺省的PASS_MIN_DAYS 0</p>
-<p>3、修改/etc/login.defs里面umask的值为027，缺省为022</p>
-<p>4、/tmp和/var采用独立分区，以防止这些地方无序增长的空间要求，影响整体系统</p>
-<p>5、缺省关闭对usb存储设备的支持<br><a href="https://linux-audit.com/kernel-hardening-disable-and-blacklist-linux-modules/" target="_blank" rel="external">https://linux-audit.com/kernel-hardening-disable-and-blacklist-linux-modules/</a><br>利用卸载内核模块的办法进行管理</p>
-<p>6、安装debsums用来验证安装包的正确性</p>
-<p>7、安装apt-show-versions用来看软件是否安装到最新版本</p>
-<p>8、安装arpwatch或者arpon来监控arp的变化</p>
-<p>9、安装rkhunter来发现隐藏木马</p>
+        <p>在hexo中增加对图片的支持</p>
+<ol>
+<li>修改_config.xml， post_asset_folder:true</li>
+<li>安装hexo-asset-image插件<br>npm install <a href="https://github.com/CodeFalling/hexo-asset-image" target="_blank" rel="external">https://github.com/CodeFalling/hexo-asset-image</a> –save</li>
+<li>把图片拷贝到新建立的md文件名的目录中去</li>
+<li>显示图片<br><img src="/2017/04/20/图片测试/sea.jpg" alt="图片说明"></li>
+</ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/02/针对lynis检查以后的安全改进建议/" data-id="cj1q1emwa000slxz8un1hfpln" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/04/20/图片测试/" data-id="cj1q1emvt000elxz86azhkg3g" class="article-share-link">Share</a>
       
       
     </footer>
@@ -120,19 +126,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2017/03/06/windows-10使用照片查看器/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          windows 10使用照片查看器
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/03/02/值得关注的问题：各种密码管理软件的缺陷/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/04/20/圆周率包含一切信息了吗/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">值得关注的问题：各种密码管理软件的缺陷</div>
+      <div class="article-nav-title">圆周率包含一切信息了吗?</div>
     </a>
   
 </nav>
