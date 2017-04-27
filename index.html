@@ -83,8 +83,18 @@
 </header>
     <div class="article-content">
         
-        <p>从ubuntu 17.04开始，发现当配置在config里面的ssh server，主动连接的时候，只解析ipv4地址，对于使用ipv6就讨厌了，所以得修改配置文件为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Host example</div><div class="line">    HostName example.ipv6.host</div><div class="line">    AddressFamily inet6</div><div class="line">    User name</div><div class="line">    Port 22</div><div class="line">    IdentityFile ~/.ssh/rsa_pub</div></pre></td></tr></table></figure>
+        <ol>
+<li><p>只用ipv6连接<br>从ubuntu 17.04开始，发现当配置在config里面的ssh server，主动连接的时候，只解析ipv4地址，对于使用ipv6就讨厌了，所以增加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AddressFamily inet6</div></pre></td></tr></table></figure>
+</li>
+<li><p>定期包活，每隔60秒发一个保活包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ServerAliveInterval 60</div></pre></td></tr></table></figure>
+</li>
+<li><p>多个ssh连接，共用一个socket</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ControlMaster auto</div><div class="line">ControlPath ~/.ssh/master-%r%h:%p</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Host example</div><div class="line">    HostName example.ipv6.host</div><div class="line">    AddressFamily inet6</div><div class="line">    ServerAliveInterval 60</div><div class="line">    ControlMaster auto</div><div class="line">    ControlPath ~/.ssh/master-%r%h:%p</div><div class="line">    User name</div><div class="line">    Port 22</div><div class="line">    IdentityFile ~/.ssh/rsa_pub</div></pre></td></tr></table></figure>
         
         
         <p class="article-more-link">
