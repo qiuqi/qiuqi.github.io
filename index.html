@@ -38,7 +38,7 @@
 				<h1 class="site-name"><a href="/" title="记">记</a></h1>
 				<h2 class="blog-motto">每一天都是新的开始</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -52,7 +52,7 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
 						<input type="hidden" name="q" value="site:yoursite.com">
 					</form>
 					
@@ -70,6 +70,56 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2017/07/02/配置ubuntu-server的无线网络/" title="配置ubuntu server的无线网络" itemprop="url">配置ubuntu server的无线网络</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
+		
+  <p class="article-time">
+    <time datetime="2017-07-02T01:21:40.000Z" itemprop="datePublished"> 发表于 2017-07-02</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>ubuntu server简单安装以后，需要配置无线网络：<br>1.iwconfig，确认无线网卡的名称，wlan0或者其他比较怪的名字，例如：wlp2s0<br>2.启用无线网卡 sudo ifconfig wlp2s0 up<br>3.使用wpa_passphrase命令生成无线配置文件<br>wpa_passphrase “essid” “password” &gt;/etc/wireless.conf<br>4.配置添加网卡<br>vi /etc/network/interfaces<br>auto wlp2s0<br>iface wlp2s0 inet dhcp<br>wpa-conf /etc/wireless.conf</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2017/06/24/窗外的雨声/" title="窗外的雨声" itemprop="url">窗外的雨声</a>
   </h1>
   <p class="article-author">By
@@ -77,7 +127,7 @@
 		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
 		
   <p class="article-time">
-    <time datetime="2017-06-23T16:51:02.000Z" itemprop="datePublished"> Published 2017-06-24</time>
+    <time datetime="2017-06-23T16:51:02.000Z" itemprop="datePublished"> 发表于 2017-06-24</time>
     
   </p>
 </header>
@@ -127,7 +177,7 @@
 		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
 		
   <p class="article-time">
-    <time datetime="2017-06-22T15:52:00.000Z" itemprop="datePublished"> Published 2017-06-22</time>
+    <time datetime="2017-06-22T15:52:00.000Z" itemprop="datePublished"> 发表于 2017-06-22</time>
     
   </p>
 </header>
@@ -179,7 +229,7 @@
 		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
 		
   <p class="article-time">
-    <time datetime="2017-06-22T09:40:41.000Z" itemprop="datePublished"> Published 2017-06-22</time>
+    <time datetime="2017-06-22T09:40:41.000Z" itemprop="datePublished"> 发表于 2017-06-22</time>
     
   </p>
 </header>
@@ -230,7 +280,7 @@
 		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
 		
   <p class="article-time">
-    <time datetime="2017-06-01T06:12:56.000Z" itemprop="datePublished"> Published 2017-06-01</time>
+    <time datetime="2017-06-01T06:12:56.000Z" itemprop="datePublished"> 发表于 2017-06-01</time>
     
   </p>
 </header>
@@ -281,7 +331,7 @@
 		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
 		
   <p class="article-time">
-    <time datetime="2017-05-31T05:39:12.000Z" itemprop="datePublished"> Published 2017-05-31</time>
+    <time datetime="2017-05-31T05:39:12.000Z" itemprop="datePublished"> 发表于 2017-05-31</time>
     
   </p>
 </header>
@@ -331,7 +381,7 @@
 		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
 		
   <p class="article-time">
-    <time datetime="2017-04-26T03:05:52.000Z" itemprop="datePublished"> Published 2017-04-26</time>
+    <time datetime="2017-04-26T03:05:52.000Z" itemprop="datePublished"> 发表于 2017-04-26</time>
     
   </p>
 </header>
@@ -391,7 +441,7 @@
 		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
 		
   <p class="article-time">
-    <time datetime="2017-04-22T00:58:22.000Z" itemprop="datePublished"> Published 2017-04-22</time>
+    <time datetime="2017-04-22T00:58:22.000Z" itemprop="datePublished"> 发表于 2017-04-22</time>
     
   </p>
 </header>
@@ -447,7 +497,7 @@
 		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
 		
   <p class="article-time">
-    <time datetime="2017-04-20T06:33:35.000Z" itemprop="datePublished"> Published 2017-04-20</time>
+    <time datetime="2017-04-20T06:33:35.000Z" itemprop="datePublished"> 发表于 2017-04-20</time>
     
   </p>
 </header>
@@ -503,7 +553,7 @@
 		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
 		
   <p class="article-time">
-    <time datetime="2017-04-20T03:49:20.000Z" itemprop="datePublished"> Published 2017-04-20</time>
+    <time datetime="2017-04-20T03:49:20.000Z" itemprop="datePublished"> 发表于 2017-04-20</time>
     
   </p>
 </header>
@@ -540,73 +590,16 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/04/20/计划的作用/" title="计划的作用" itemprop="url">计划的作用</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
-		
-  <p class="article-time">
-    <time datetime="2017-04-20T03:33:47.000Z" itemprop="datePublished"> Published 2017-04-20</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>听到音频节目里面说计划的作用，和我平时的想法类似，在我快忘记它的说法的时候，用自己的语言再重新组织一下：</p>
-<ol>
-<li>什么事情其实都有计划，但是太小的时候，靠人脑存储和运算就可以了，所以没有体现在纸面上，但是当项目庞大的时候，就需要以某种格式呈现出来;</li>
-<li>制订计划的过程比执行计划的过程更重要，如果一个计划涉及到很多的人，就最好让参与的人都自己加入制订计划的过程，在这个过程中，所有参与人会理解计划的目标，能动用的资源，确定和不确定的时间片，哪些是关键点;</li>
-<li>执行计划是一个灵活的过程，经验越丰富的人，可以制订出偏差越小的计划，但是意外永远都可能出现，不要纠结与是否在执行一个完全没有偏差的计划，要更强调在执行一个可控的计划，如果计划已经失控了，最好重新制订新的计划;</li>
-<li>制订计划可以在当你碰到意外的时候，可以非常清晰的认识到哪些环节你是可以调节的，哪些资源是可以重新分配的，会避免掉去动用那些更关键的环节导致整体计划上的崩溃;意外并不总是指坏情况，有时候意外是发现执行计划必预想的要容易，这时候，计划可以方便将资源调配到那些需要的地方，从而在整体上达到必计划中更好的预期;</li>
-<li>在执行计划的过程中，不断的修整并展示计划，使得每一个参与人都明白自己所处的位置和整体计划之间的关系，每个个体不断调整和总体计划目标之间的进度距离，就可以使得整体计划处于一个健康状态。<br>凭直觉写这么多先。</li>
-</ol>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
   </nav>
 
 </div>
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
@@ -617,7 +610,7 @@
   
 
   <div class="linkslist">
-  <p class="asidetitle">Links</p>
+  <p class="asidetitle">友情链接</p>
     <ul>
         
           <li>
@@ -633,11 +626,11 @@
 
 
   <div class="rsspart">
-	<a href="undefined" target="_blank" title="rss">RSS</a>
+	<a href="undefined" target="_blank" title="rss">RSS 订阅</a>
 </div>
 
   <div class="weiboshow">
-  <p class="asidetitle">Weibo</p>
+  <p class="asidetitle">新浪微博</p>
     <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=&dpc=1"></iframe>
 </div>
 
@@ -760,7 +753,7 @@ $(document).ready(function(){
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 

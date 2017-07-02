@@ -4,23 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>windows的安全性在哪里？ | 记</title>
+    <title>配置ubuntu server的无线网络 | 记</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="QQ">
     
 
     
-    <meta name="description" content="醒来看到一个新闻说，NSA已经把Windows列入可以用于秘密的操作系统，作为一个老牌操作系统，这个入围并不是什么大事，应该属于理所当然。但是我想到上周我和Mada的一次交流，谈到windows体系安全性的问题。近年来长期使用Android和Linux作为日常操作系统，使用Windows的时候，觉得分为别扭，这中间最大的问题在于整个操作系统的应用架构问题，以Android系统为典型的代表，新一代的">
+    <meta name="description" content="ubuntu server简单安装以后，需要配置无线网络：1.iwconfig，确认无线网卡的名称，wlan0或者其他比较怪的名字，例如：wlp2s02.启用无线网卡 sudo ifconfig wlp2s0 up3.使用wpa_passphrase命令生成无线配置文件wpa_passphrase “essid” “password” &amp;gt;/etc/wireless.conf4.配置添加网卡v">
 <meta property="og:type" content="article">
-<meta property="og:title" content="windows的安全性在哪里？">
-<meta property="og:url" content="http://yoursite.com/2017/02/12/windows的安全性在哪里？/index.html">
+<meta property="og:title" content="配置ubuntu server的无线网络">
+<meta property="og:url" content="http://yoursite.com/2017/07/02/配置ubuntu-server的无线网络/index.html">
 <meta property="og:site_name" content="记">
-<meta property="og:description" content="醒来看到一个新闻说，NSA已经把Windows列入可以用于秘密的操作系统，作为一个老牌操作系统，这个入围并不是什么大事，应该属于理所当然。但是我想到上周我和Mada的一次交流，谈到windows体系安全性的问题。近年来长期使用Android和Linux作为日常操作系统，使用Windows的时候，觉得分为别扭，这中间最大的问题在于整个操作系统的应用架构问题，以Android系统为典型的代表，新一代的">
-<meta property="og:updated_time" content="2017-02-12T04:45:10.856Z">
+<meta property="og:description" content="ubuntu server简单安装以后，需要配置无线网络：1.iwconfig，确认无线网卡的名称，wlan0或者其他比较怪的名字，例如：wlp2s02.启用无线网卡 sudo ifconfig wlp2s0 up3.使用wpa_passphrase命令生成无线配置文件wpa_passphrase “essid” “password” &amp;gt;/etc/wireless.conf4.配置添加网卡v">
+<meta property="og:updated_time" content="2017-07-02T01:25:31.162Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="windows的安全性在哪里？">
-<meta name="twitter:description" content="醒来看到一个新闻说，NSA已经把Windows列入可以用于秘密的操作系统，作为一个老牌操作系统，这个入围并不是什么大事，应该属于理所当然。但是我想到上周我和Mada的一次交流，谈到windows体系安全性的问题。近年来长期使用Android和Linux作为日常操作系统，使用Windows的时候，觉得分为别扭，这中间最大的问题在于整个操作系统的应用架构问题，以Android系统为典型的代表，新一代的">
+<meta name="twitter:title" content="配置ubuntu server的无线网络">
+<meta name="twitter:description" content="ubuntu server简单安装以后，需要配置无线网络：1.iwconfig，确认无线网卡的名称，wlan0或者其他比较怪的名字，例如：wlp2s02.启用无线网卡 sudo ifconfig wlp2s0 up3.使用wpa_passphrase命令生成无线配置文件wpa_passphrase “essid” “password” &amp;gt;/etc/wireless.conf4.配置添加网卡v">
 
     
     
@@ -72,14 +72,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/02/12/windows的安全性在哪里？/" title="windows的安全性在哪里？" itemprop="url">windows的安全性在哪里？</a>
+      <a href="/2017/07/02/配置ubuntu-server的无线网络/" title="配置ubuntu server的无线网络" itemprop="url">配置ubuntu server的无线网络</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
 		
   <p class="article-time">
-    <time datetime="2017-02-12T02:42:27.000Z" itemprop="datePublished"> 发表于 2017-02-12</time>
+    <time datetime="2017-07-02T01:21:40.000Z" itemprop="datePublished"> 发表于 2017-07-02</time>
     
   </p>
 </header>
@@ -92,7 +92,7 @@
 		
 		</div>
 		
-		<p>醒来看到一个新闻说，NSA已经把Windows列入可以用于秘密的操作系统，作为一个老牌操作系统，这个入围并不是什么大事，应该属于理所当然。<br>但是我想到上周我和Mada的一次交流，谈到windows体系安全性的问题。近年来长期使用Android和Linux作为日常操作系统，使用Windows的时候，觉得分为别扭，这中间最大的问题在于整个操作系统的应用架构问题，以Android系统为典型的代表，新一代的移动操作系统从上到小其实多做了基于应用的沙箱隔离，除了在sd卡层面上，存在一些数据交错以外，在执行程序和一些需要保密的应用私有数据都有独立可靠的隔离存储区域，所以当我们在Android系统上安装一个未知应用的时候，并不担心它可能造成多大的恶果。但是在windows系统下就不行，随意的超级用户权限申请，安装一个应用冒着十分大的风险。所以，从windows 7之后， 微软一直在windows上沉浸于超级用户和普通用户之间的权力分隔，但是在核心的系统安全架构上，却已经保守落后了，从这点上看，Android系统更像是未来。桌面系统，象Linux也存在同样的问题。应用的不同来源带来不同的风险，如果我们不能在一个私有的桌面系统上隔离这种安全风险，那整个系统的安全道路依然艰险。</p>
+		<p>ubuntu server简单安装以后，需要配置无线网络：<br>1.iwconfig，确认无线网卡的名称，wlan0或者其他比较怪的名字，例如：wlp2s0<br>2.启用无线网卡 sudo ifconfig wlp2s0 up<br>3.使用wpa_passphrase命令生成无线配置文件<br>wpa_passphrase “essid” “password” &gt;/etc/wireless.conf<br>4.配置添加网卡<br>vi /etc/network/interfaces<br>auto wlp2s0<br>iface wlp2s0 inet dhcp<br>wpa-conf /etc/wireless.conf</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -105,7 +105,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2017/02/12/windows的安全性在哪里？/" data-title="windows的安全性在哪里？ | 记" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2017/07/02/配置ubuntu-server的无线网络/" data-title="配置ubuntu server的无线网络 | 记" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -118,19 +118,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2017/03/02/back-again/" title="back again">
-  <strong>上一篇：</strong><br/>
-  <span>
-  back again</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2017/02/10/终于找到一个轻量级的git管理服务器/"  title="终于找到一个轻量级的git管理服务器">
+<a href="/2017/06/24/窗外的雨声/"  title="窗外的雨声">
  <strong>下一篇：</strong><br/> 
- <span>终于找到一个轻量级的git管理服务器
+ <span>窗外的雨声
 </span>
 </a>
 </div>
