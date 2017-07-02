@@ -31,7 +31,7 @@
 
 多个ssh连接，共用一个socket
 12ControlMaster autoControlPat">
-<meta property="og:updated_time" content="2017-04-27T14:56:59.926Z">
+<meta property="og:updated_time" content="2017-07-02T02:10:51.638Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ssh client">
 <meta name="twitter:description" content="只用ipv6连接从ubuntu 17.04开始，发现当配置在config里面的ssh server，主动连接的时候，只解析ipv4地址，对于使用ipv6就讨厌了，所以增加
@@ -123,8 +123,11 @@
 <li><p>多个ssh连接，共用一个socket</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ControlMaster auto</div><div class="line">ControlPath ~/.ssh/master-%r%h:%p</div></pre></td></tr></table></figure>
 </li>
+<li><p>使用ed25519作为密钥算法<br>ssh-keygen -t ed25519<br>会生成：id_ed25519和id_ed25519_pub<br>在IdentifyFile ~/.ssh/id_ed25519</p>
+</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Host example</div><div class="line">    HostName example.ipv6.host</div><div class="line">    AddressFamily inet6</div><div class="line">    ServerAliveInterval 60</div><div class="line">    ControlMaster auto</div><div class="line">    ControlPath ~/.ssh/master-%r%h:%p</div><div class="line">    User name</div><div class="line">    Port 22</div><div class="line">    IdentityFile ~/.ssh/rsa_pub</div></pre></td></tr></table></figure>  
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Host example</div><div class="line">    HostName example.ipv6.host</div><div class="line">    AddressFamily inet6</div><div class="line">    ServerAliveInterval 60</div><div class="line">    ControlMaster auto</div><div class="line">    ControlPath ~/.ssh/master-%r%h:%p</div><div class="line">    User name</div><div class="line">    Port 22</div><div class="line">    IdentityFile ~/.ssh/rsa_pub</div></pre></td></tr></table></figure>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
