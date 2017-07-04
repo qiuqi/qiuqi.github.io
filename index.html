@@ -69,6 +69,56 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2017/07/04/xz的用法/" title="xz的用法" itemprop="url">xz的用法</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
+		
+  <p class="article-time">
+    <time datetime="2017-07-04T15:35:13.000Z" itemprop="datePublished"> Published 2017-07-04</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>tar cJf file.tar.xz files<br>tar xJf file.tar.xz</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2017/07/02/在linux-console中显示markdown文件/" title="在linux console中显示markdown文件" itemprop="url">在linux console中显示markdown文件</a>
   </h1>
   <p class="article-author">By
@@ -488,69 +538,6 @@
     <div class="article-content">
         
         <p>当在ubuntu下通过ssh访问多个服务器的时候，gnome-terminal标签上显示的内容非常重要，可以帮助你清晰的辨别访问的是哪一台服务器，降低出错的概率：<br>修改~/.bashrc文件，增加以下两行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">PROMPT_COMMAND=&apos;echo -ne &quot;\033]0;TitleName\007&quot;&apos;</div><div class="line">PS1=&apos;$&#123;debian_chroot:+($debian_chroot)&#125;\u@\h:\w\$ &apos;</div></pre></td></tr></table></figure></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/04/26/ssh-client/" title="ssh client" itemprop="url">ssh client</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
-		
-  <p class="article-time">
-    <time datetime="2017-04-26T03:05:52.000Z" itemprop="datePublished"> Published 2017-04-26</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <ol>
-<li><p>只用ipv6连接<br>从ubuntu 17.04开始，发现当配置在config里面的ssh server，主动连接的时候，只解析ipv4地址，对于使用ipv6就讨厌了，所以增加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AddressFamily inet6</div></pre></td></tr></table></figure>
-</li>
-<li><p>定期包活，每隔60秒发一个保活包</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ServerAliveInterval 60</div></pre></td></tr></table></figure>
-</li>
-<li><p>多个ssh连接，共用一个socket</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ControlMaster auto</div><div class="line">ControlPath ~/.ssh/master-%r%h:%p</div></pre></td></tr></table></figure>
-</li>
-<li><p>使用ed25519作为密钥算法<br>ssh-keygen -t ed25519<br>会生成：id_ed25519和id_ed25519_pub<br>在IdentifyFile ~/.ssh/id_ed25519</p>
-</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Host example</div><div class="line">    HostName example.ipv6.host</div><div class="line">    AddressFamily inet6</div><div class="line">    ServerAliveInterval 60</div><div class="line">    ControlMaster auto</div><div class="line">    ControlPath ~/.ssh/master-%r%h:%p</div><div class="line">    User name</div><div class="line">    Port 22</div><div class="line">    IdentityFile ~/.ssh/rsa_pub</div></pre></td></tr></table></figure>
 
         
         
