@@ -11,31 +11,37 @@
     
 
     
-    <meta name="description" content="rsync -avzP –delete src dst
+    <meta name="description" content="一、本机目录之间同步rsync -avzP –delete src dst
 
 -a, 相当于-rlptgoD, -r 递归， -l 链接文件, -p 保持文件原有权限，-t 保持文件原有时间， -g 保持文件原有用户组，-o 保持文件原有属主, -D 块设备文件
 -z 传输时压缩
 -P 显示传输进度
--v 传输时的进度信息">
+-v 传输时的进度信息
+
+二、从远程服务器通过ssh同步到本地rsync -avzP -delet">
 <meta property="og:type" content="article">
 <meta property="og:title" content="rsync">
 <meta property="og:url" content="http://yoursite.com/2017/04/22/rsync/index.html">
 <meta property="og:site_name" content="记">
-<meta property="og:description" content="rsync -avzP –delete src dst
+<meta property="og:description" content="一、本机目录之间同步rsync -avzP –delete src dst
 
 -a, 相当于-rlptgoD, -r 递归， -l 链接文件, -p 保持文件原有权限，-t 保持文件原有时间， -g 保持文件原有用户组，-o 保持文件原有属主, -D 块设备文件
 -z 传输时压缩
 -P 显示传输进度
--v 传输时的进度信息">
-<meta property="og:updated_time" content="2017-04-22T01:05:21.514Z">
+-v 传输时的进度信息
+
+二、从远程服务器通过ssh同步到本地rsync -avzP -delet">
+<meta property="og:updated_time" content="2017-07-11T06:14:51.607Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="rsync">
-<meta name="twitter:description" content="rsync -avzP –delete src dst
+<meta name="twitter:description" content="一、本机目录之间同步rsync -avzP –delete src dst
 
 -a, 相当于-rlptgoD, -r 递归， -l 链接文件, -p 保持文件原有权限，-t 保持文件原有时间， -g 保持文件原有用户组，-o 保持文件原有属主, -D 块设备文件
 -z 传输时压缩
 -P 显示传输进度
--v 传输时的进度信息">
+-v 传输时的进度信息
+
+二、从远程服务器通过ssh同步到本地rsync -avzP -delet">
 
     
     
@@ -106,13 +112,14 @@
 		
 		</div>
 		
-		<p>rsync -avzP –delete src dst</p>
+		<p>一、本机目录之间同步<br>rsync -avzP –delete src dst</p>
 <ol>
 <li>-a, 相当于-rlptgoD, -r 递归， -l 链接文件, -p 保持文件原有权限，-t 保持文件原有时间， -g 保持文件原有用户组，-o 保持文件原有属主, -D 块设备文件</li>
 <li>-z 传输时压缩</li>
 <li>-P 显示传输进度</li>
 <li>-v 传输时的进度信息</li>
 </ol>
+<p>二、从远程服务器通过ssh同步到本地<br>rsync -avzP -delete –progress -e ‘ssh -p 11011’ root@www.some.com:/dst ./</p>
   
 	</div>
 		<footer class="article-footer clearfix">
