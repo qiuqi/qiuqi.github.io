@@ -69,6 +69,56 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2017/05/31/设置gnome-terminal的显示标签/" title="设置gnome-terminal的显示标签" itemprop="url">设置gnome-terminal的显示标签</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
+		
+  <p class="article-time">
+    <time datetime="2017-05-31T05:39:12.000Z" itemprop="datePublished"> Published 2017-05-31</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>当在ubuntu下通过ssh访问多个服务器的时候，gnome-terminal标签上显示的内容非常重要，可以帮助你清晰的辨别访问的是哪一台服务器，降低出错的概率：<br>修改~/.bashrc文件，增加以下两行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">PROMPT_COMMAND=&apos;echo -ne &quot;\033]0;TitleName\007&quot;&apos;</div><div class="line">PS1=&apos;$&#123;debian_chroot:+($debian_chroot)&#125;\u@\h:\w\$ &apos;</div></pre></td></tr></table></figure></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2017/04/26/ssh-client/" title="ssh client" itemprop="url">ssh client</a>
   </h1>
   <p class="article-author">By
@@ -545,56 +595,6 @@
         
         <p><a href="https://wiki.nftables.org/wiki-nftables/index.php/Quick_reference-nftables_in_10_minutes" target="_blank" rel="external">https://wiki.nftables.org/wiki-nftables/index.php/Quick_reference-nftables_in_10_minutes</a><br>apt-get install nftables   安装<br>systemctl enable nftables  自动启动<br>应该开始习惯利用nftable来作为系统防火墙，从主机防护开始</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">cat nftables.conf </div><div class="line">#!/usr/sbin/nft -f</div><div class="line"></div><div class="line">flush ruleset</div><div class="line"></div><div class="line">define sh_gateway = 2.2.2.2</div><div class="line">define test = 1.1.1.1</div><div class="line">define allowips=&#123;$sh_gateway, $test&#125;</div><div class="line"></div><div class="line">table firewall &#123;</div><div class="line">    chain input &#123;</div><div class="line">        type filter hook input priority 0; policy drop;</div><div class="line">        iif lo accept</div><div class="line">        ct state established,related accept</div><div class="line">        icmp type echo-request accept</div><div class="line">        tcp dport &#123;22,443&#125; accept</div><div class="line">        ip saddr $allowips accept</div><div class="line">        counter drop</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">table ip6 firewall &#123;</div><div class="line">    chain input &#123;</div><div class="line">        type filter hook input priority 0; policy drop;</div><div class="line">        iif lo accept</div><div class="line">        ct state established, related accept</div><div class="line">        ct state invalid drop</div><div class="line">        iifname lo accept</div><div class="line">		ip6 nexthdr icmpv6 icmpv6 type &#123; nd-neighbor-solicit,  nd-router-advert, nd-neighbor-advert &#125; accept</div><div class="line">        tcp dport &#123;ssh&#125; accept</div><div class="line">        counter drop</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/04/07/阿里云上的ubuntu跨版本升级/" title="阿里云上的ubuntu跨版本升级" itemprop="url">阿里云上的ubuntu跨版本升级</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
-		
-  <p class="article-time">
-    <time datetime="2017-04-07T02:21:12.000Z" itemprop="datePublished"> Published 2017-04-07</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>do-release-upgrade -d </p>
-
         
         
         <p class="article-more-link">

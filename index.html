@@ -69,6 +69,56 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2017/08/02/erlang-根据奇偶位置重组list/" title="erlang:根据奇偶位置重组list" itemprop="url">erlang:根据奇偶位置重组list</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
+		
+  <p class="article-time">
+    <time datetime="2017-08-02T06:54:20.000Z" itemprop="datePublished"> Published 2017-08-02</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">输入数组：[k1,v1,k2,v2,k3,v3....]</div><div class="line">输出数组：[[k1,v1],[k2,v2],[k3,v3]...]</div><div class="line"></div><div class="line">process_list(2, List, Result)-&gt;</div><div class="line">    [k,v] = List,</div><div class="line">    [[k,v]|Result];</div><div class="line">process_list(_Length, List, Result)-&gt;</div><div class="line">    &#123;[k,v], T&#125; = lists:split(2, List),</div><div class="line">    process_list(length(T), T, [[k,v]|Result]).</div><div class="line"></div><div class="line">A = [1,2,3,4,5,6],</div><div class="line">B = process_list(length(A), A, []).</div></pre></td></tr></table></figure>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2017/07/04/xz的用法/" title="xz的用法" itemprop="url">xz的用法</a>
   </h1>
   <p class="article-author">By
@@ -488,56 +538,6 @@
         
         <p>好久不用，老司机翻船了，如下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">iptables -t nat -A PREROUTING -p tcp --dport 443 -j REDIRECT --to-ports 1080</div><div class="line">iptables -t nat -A PREROUTING -p tcp --dport 443 -j DNAT --to-destination 127.0.0.1:1080</div></pre></td></tr></table></figure></p>
 <p>运行ss-redir监听在127.0.0.1:1080端口上，发现虽然规则被匹配，但是始终没有包进入到ss-redir中。<br>失效的原因在于，对于redirect来说，只能在同一个接口上转发，因此ss-redir必须使用进来的包相同的接口上的ip地址才能收到包。<br>第二条命令失效的原因在于dnat对lo设备无效，因此ss-redir至少要使用某个物理网卡的地址，必redirect限制少一条在于，dnat可以用其他网卡上的地址，而redirect必须使用相同网卡上的地址。<br>折腾了半天！</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/05/31/设置gnome-terminal的显示标签/" title="设置gnome-terminal的显示标签" itemprop="url">设置gnome-terminal的显示标签</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
-		
-  <p class="article-time">
-    <time datetime="2017-05-31T05:39:12.000Z" itemprop="datePublished"> Published 2017-05-31</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>当在ubuntu下通过ssh访问多个服务器的时候，gnome-terminal标签上显示的内容非常重要，可以帮助你清晰的辨别访问的是哪一台服务器，降低出错的概率：<br>修改~/.bashrc文件，增加以下两行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">PROMPT_COMMAND=&apos;echo -ne &quot;\033]0;TitleName\007&quot;&apos;</div><div class="line">PS1=&apos;$&#123;debian_chroot:+($debian_chroot)&#125;\u@\h:\w\$ &apos;</div></pre></td></tr></table></figure></p>
 
         
         

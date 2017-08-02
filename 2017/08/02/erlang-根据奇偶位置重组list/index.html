@@ -4,23 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>xz的用法 | 记</title>
+    <title>erlang:根据奇偶位置重组list | 记</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="QQ">
     
 
     
-    <meta name="description" content="tar cJf file.tar.xz filestar xJf file.tar.xz">
+    <meta name="description" content="123456789101112输入数组：[k1,v1,k2,v2,k3,v3....]输出数组：[[k1,v1],[k2,v2],[k3,v3]...]process_list(2, List, Result)-&amp;gt;    [k,v] = List,    [[k,v]|Result];process_list(_Length, List, Result)-&amp;gt;    &amp;#123;[k,v">
 <meta property="og:type" content="article">
-<meta property="og:title" content="xz的用法">
-<meta property="og:url" content="http://yoursite.com/2017/07/04/xz的用法/index.html">
+<meta property="og:title" content="erlang:根据奇偶位置重组list">
+<meta property="og:url" content="http://yoursite.com/2017/08/02/erlang-根据奇偶位置重组list/index.html">
 <meta property="og:site_name" content="记">
-<meta property="og:description" content="tar cJf file.tar.xz filestar xJf file.tar.xz">
-<meta property="og:updated_time" content="2017-07-04T15:36:57.656Z">
+<meta property="og:description" content="123456789101112输入数组：[k1,v1,k2,v2,k3,v3....]输出数组：[[k1,v1],[k2,v2],[k3,v3]...]process_list(2, List, Result)-&amp;gt;    [k,v] = List,    [[k,v]|Result];process_list(_Length, List, Result)-&amp;gt;    &amp;#123;[k,v">
+<meta property="og:updated_time" content="2017-08-02T07:00:32.072Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="xz的用法">
-<meta name="twitter:description" content="tar cJf file.tar.xz filestar xJf file.tar.xz">
+<meta name="twitter:title" content="erlang:根据奇偶位置重组list">
+<meta name="twitter:description" content="123456789101112输入数组：[k1,v1,k2,v2,k3,v3....]输出数组：[[k1,v1],[k2,v2],[k3,v3]...]process_list(2, List, Result)-&amp;gt;    [k,v] = List,    [[k,v]|Result];process_list(_Length, List, Result)-&amp;gt;    &amp;#123;[k,v">
 
     
     
@@ -71,14 +71,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/07/04/xz的用法/" title="xz的用法" itemprop="url">xz的用法</a>
+      <a href="/2017/08/02/erlang-根据奇偶位置重组list/" title="erlang:根据奇偶位置重组list" itemprop="url">erlang:根据奇偶位置重组list</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
 		
   <p class="article-time">
-    <time datetime="2017-07-04T15:35:13.000Z" itemprop="datePublished"> Published 2017-07-04</time>
+    <time datetime="2017-08-02T06:54:20.000Z" itemprop="datePublished"> Published 2017-08-02</time>
     
   </p>
 </header>
@@ -91,7 +91,7 @@
 		
 		</div>
 		
-		<p>tar cJf file.tar.xz files<br>tar xJf file.tar.xz</p>
+		<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">输入数组：[k1,v1,k2,v2,k3,v3....]</div><div class="line">输出数组：[[k1,v1],[k2,v2],[k3,v3]...]</div><div class="line"></div><div class="line">process_list(2, List, Result)-&gt;</div><div class="line">    [k,v] = List,</div><div class="line">    [[k,v]|Result];</div><div class="line">process_list(_Length, List, Result)-&gt;</div><div class="line">    &#123;[k,v], T&#125; = lists:split(2, List),</div><div class="line">    process_list(length(T), T, [[k,v]|Result]).</div><div class="line"></div><div class="line">A = [1,2,3,4,5,6],</div><div class="line">B = process_list(length(A), A, []).</div></pre></td></tr></table></figure>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -104,7 +104,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2017/07/04/xz的用法/" data-title="xz的用法 | 记" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2017/08/02/erlang-根据奇偶位置重组list/" data-title="erlang:根据奇偶位置重组list | 记" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -117,19 +117,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2017/08/02/erlang-根据奇偶位置重组list/" title="erlang:根据奇偶位置重组list">
-  <strong>上一篇：</strong><br/>
-  <span>
-  erlang:根据奇偶位置重组list</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2017/07/02/在linux-console中显示markdown文件/"  title="在linux console中显示markdown文件">
+<a href="/2017/07/04/xz的用法/"  title="xz的用法">
  <strong>下一篇：</strong><br/> 
- <span>在linux console中显示markdown文件
+ <span>xz的用法
 </span>
 </a>
 </div>
