@@ -69,6 +69,58 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2017/03/06/windows-10使用照片查看器/" title="windows 10使用照片查看器" itemprop="url">windows 10使用照片查看器</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
+		
+  <p class="article-time">
+    <time datetime="2017-03-06T01:55:41.000Z" itemprop="datePublished"> Published 2017-03-06</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>微软脑子坏了，居然屏蔽使用历史悠久的windows照片查看器，在win10下浏览照片几乎成为噩梦。<br>找回办法：<br>编辑一个注册表文件：picture.reg</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Windows Registry Editor Version 5.00</div><div class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Photo Viewer\Capabilities\FileAssociations]</div><div class="line">&quot;.tif&quot;=&quot;PhotoViewer.FileAssoc.Tiff&quot;</div><div class="line">&quot;.tiff&quot;=&quot;PhotoViewer.FileAssoc.Tiff&quot;</div><div class="line">&quot;.jpg&quot;=&quot;PhotoViewer.FileAssoc.Tiff&quot;</div><div class="line">&quot;.png&quot;=&quot;PhotoViewer.FileAssoc.Tiff&quot;</div><div class="line">&quot;.gif&quot;=&quot;PhotoViewer.FileAssoc.Tiff&quot;</div></pre></td></tr></table></figure>
+<p>双机执行，重新找回windows照片查看器。</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2017/03/02/针对lynis检查以后的安全改进建议/" title="针对lynis检查以后的安全改进建议" itemprop="url">针对lynis检查以后的安全改进建议</a>
   </h1>
   <p class="article-author">By
@@ -508,56 +560,6 @@
 </ul>
 <p><a href="http://malqr.shielder.it/" target="_blank" rel="external">http://malqr.shielder.it/</a> 二维码扫描程序安全测试</p>
 <p><a href="https://www.nowsecure.com/blog/2014/02/07/bluetooth-packet-capture-on-android-4-4/#viaforensics" target="_blank" rel="external">https://www.nowsecure.com/blog/2014/02/07/bluetooth-packet-capture-on-android-4-4/#viaforensics</a> 利用Android手机进行蓝牙抓包</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/02/09/处理比特币unconfirmed交易的办法/" title="处理比特币unconfirmed交易的办法" itemprop="url">处理比特币unconfirmed交易的办法</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
-		
-  <p class="article-time">
-    <time datetime="2017-02-09T02:46:18.000Z" itemprop="datePublished"> Published 2017-02-09</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>通过一段时间对比特币的了解，确实觉得区块链是一种有意义的技术。但是对于比特币交易系统的可用性，一直觉得十分的困惑，难以想象这样一个要求苛刻、日益变得庞大臃肿的系统，怎么会有未来。<br>作为一个初次使用者，冲进去用bitcoin作为钱包系统，发现它不得不要占用庞大的硬盘空间来同步历史交易数据，受不了，就决定采用更轻量级的钱包MultiBit，在转账过程中，由于自定义的交易费用过低，导致交易长时间出于unconfirmed状态，难以想象普通人如果碰到这种问题怎么办，在bitcoin的软件界面上居然没有取消的办法。<br>查了一下，解决办法：<br>    bitcoin-qt -zapwallettxes=1</p>
 
         
         

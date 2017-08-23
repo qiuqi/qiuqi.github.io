@@ -69,6 +69,58 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2017/08/23/git使用中碰到的各种问题/" title="git使用中碰到的各种问题" itemprop="url">git使用中碰到的各种问题</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
+		
+  <p class="article-time">
+    <time datetime="2017-08-23T02:14:11.000Z" itemprop="datePublished"> Published 2017-08-23</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <ol>
+<li>错误：“拒绝合并无关的历史”<br>解决方法： –allow-unrelated-histories<br>使用场景：有时候本地的git源要强行合并某个git server上的源，当执行git pull someremote master的时候，就会出这个错误提示，增加选项强行合并，然后解决冲突即可。</li>
+</ol>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2017/08/08/linux下清除内存缓存/" title="linux下清除内存缓存" itemprop="url">linux下清除内存缓存</a>
   </h1>
   <p class="article-author">By
@@ -488,57 +540,6 @@
         <p>git<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global http.proxy &apos;socks5://127.0.0.1:1080&apos;</div><div class="line">git config --global https.proxy &apos;socks5://127.0.0.1:1080&apos;</div></pre></td></tr></table></figure></p>
 <p>sbt<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sbt  -DsocksProxyHost=127.0.0.1 DsocksProxyPort=1080</div></pre></td></tr></table></figure></p>
 <p>npm<br>npm是先通过neesocks把socks5转成http proxy<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">npm config set http http://127.0.0.1:1081</div><div class="line">npm config set https-proxy http://127.0.0.1:1081</div><div class="line">DEBUG=proxy kneesocks 1081 1080</div></pre></td></tr></table></figure></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/06/22/android-adb-shell下ping6的路由查找/" title="android adb shell下ping6的路由查找" itemprop="url">android adb shell下ping6的路由查找</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
-		
-  <p class="article-time">
-    <time datetime="2017-06-22T09:40:41.000Z" itemprop="datePublished"> Published 2017-06-22</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>android大约是在5.x开始，修改了系统底部的缺省路由表，导致当你从adb shell进去调试ipv6的时候，找不到合适的路由，显示network unreachable。<br>调试过程充满各种盲猜和恶心过程…，最后确定了修正方案：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ip -6 rule add pref 31999 from all lookup main</div><div class="line">ip -6 route add default dev somedevice table main</div></pre></td></tr></table></figure></p>
-<p>现在可以正常的ping6 ipv6地址了。<br>造成这个现象的根本原因在于，当你调用android本地ping6命令的时候，内部实现上设置了mark值，这个步骤被深深的隐藏在其中，折磨你的耐心。</p>
 
         
         
