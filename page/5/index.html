@@ -69,6 +69,118 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2017/03/02/针对lynis检查以后的安全改进建议/" title="针对lynis检查以后的安全改进建议" itemprop="url">针对lynis检查以后的安全改进建议</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
+		
+  <p class="article-time">
+    <time datetime="2017-03-02T05:31:20.000Z" itemprop="datePublished"> Published 2017-03-02</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>1、安装基于pam的密码检测模块<br>apt-get install libpam-pwquality</p>
+<p>2、在/etc/login.defs里面设置密码的最小和最长时间<br>minimum和maximum<br>在ubuntu下，缺省的PASS_MAX_DAYS 99999，缺省的PASS_MIN_DAYS 0</p>
+<p>3、修改/etc/login.defs里面umask的值为027，缺省为022</p>
+<p>4、/tmp和/var采用独立分区，以防止这些地方无序增长的空间要求，影响整体系统</p>
+<p>5、缺省关闭对usb存储设备的支持<br><a href="https://linux-audit.com/kernel-hardening-disable-and-blacklist-linux-modules/" target="_blank" rel="external">https://linux-audit.com/kernel-hardening-disable-and-blacklist-linux-modules/</a><br>利用卸载内核模块的办法进行管理</p>
+<p>6、安装debsums用来验证安装包的正确性</p>
+<p>7、安装apt-show-versions用来看软件是否安装到最新版本</p>
+<p>8、安装arpwatch或者arpon来监控arp的变化</p>
+<p>9、安装rkhunter来发现隐藏木马</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/03/02/值得关注的问题：各种密码管理软件的缺陷/" title="值得关注的问题：各种密码管理软件的缺陷" itemprop="url">值得关注的问题：各种密码管理软件的缺陷</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
+		
+  <p class="article-time">
+    <time datetime="2017-03-02T03:49:56.000Z" itemprop="datePublished"> Published 2017-03-02</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p><a href="https://team-sik.org/trent_portfolio/password-manager-apps/" target="_blank" rel="external">https://team-sik.org/trent_portfolio/password-manager-apps/</a><br>这个博客跟踪分析了各种密码管理软件的缺陷，希望抽空的时候好好梳理一下他们的成果,我需要从两个方面考虑：</p>
+<ol>
+<li>如何选择自己的密码保存方式</li>
+<li>如何在我们自己的软件中避免同样的错误</li>
+</ol>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2017/03/02/ropes-一种快速处理字符串的方法/" title="ropes:一种快速处理字符串的方法" itemprop="url">ropes:一种快速处理字符串的方法</a>
   </h1>
   <p class="article-author">By
@@ -135,6 +247,8 @@
         <p>vi systemd/resolved.conf<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[Resolve]</div><div class="line">DNS=fb7f:e922:7783:4f2f:632c:fc24:f8d7:7379 223.5.5.5</div><div class="line">FallbackDNS=fb7f:e922:7783:4f2f:632c:fc24:f8d7:7379 223.5.5.5</div><div class="line"></div><div class="line">systemctl restart resolvconf.service</div><div class="line">systemctl restart systemd-resolved.service</div></pre></td></tr></table></figure></p>
 <p>没有测试到底重启哪个service是有效的，索性都重启一下。</p>
 <p>2017-04-06更新<br>systemctl disable systemd-resolved.service<br>彻底关闭了这东西，不知道什么协议引起的，每次ping目标地址的时候，居然要向目标地址发出一个tcp连接请求，太恶心了。</p>
+<p>2017-10-17更新<br>编辑/etc/default/dnsmasq<br>去掉最后一行注释：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">IGNORE_RESOLVCONF=yes</div></pre></td></tr></table></figure></p>
+<p>这样就可以准确使用/etc/dnsmasq.conf里面指定的的resolv-file=/etc/myresolf.conf</p>
 
         
         
@@ -447,149 +561,6 @@
     <div class="article-content">
         
         <p>通过一段时间对比特币的了解，确实觉得区块链是一种有意义的技术。但是对于比特币交易系统的可用性，一直觉得十分的困惑，难以想象这样一个要求苛刻、日益变得庞大臃肿的系统，怎么会有未来。<br>作为一个初次使用者，冲进去用bitcoin作为钱包系统，发现它不得不要占用庞大的硬盘空间来同步历史交易数据，受不了，就决定采用更轻量级的钱包MultiBit，在转账过程中，由于自定义的交易费用过低，导致交易长时间出于unconfirmed状态，难以想象普通人如果碰到这种问题怎么办，在bitcoin的软件界面上居然没有取消的办法。<br>查了一下，解决办法：<br>    bitcoin-qt -zapwallettxes=1</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/02/08/手机上安装的apps/" title="手机上安装的apps" itemprop="url">手机上安装的apps</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
-		
-  <p class="article-time">
-    <time datetime="2017-02-08T14:05:13.000Z" itemprop="datePublished"> Published 2017-02-08</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>因为手机要刷ROMS，记录一下目前手机需要安装的APPS:</p>
-<ul>
-<li>Chrome</li>
-<li>Deadly Desert</li>
-<li>Defense Zone</li>
-<li>Desert Golfing</li>
-<li>FlipaClip</li>
-<li>Hum On!</li>
-<li>Minecraft PE</li>
-<li>QQ影音</li>
-<li>Reddit</li>
-<li>Train Conduct…</li>
-<li>阿里云</li>
-<li>百度地图</li>
-<li>百度输入法</li>
-<li>比特币交易</li>
-<li>cnBeta官方客户端</li>
-<li>锤子便签</li>
-<li>得到</li>
-<li>滴滴出行</li>
-<li>多看阅读</li>
-<li>多玩我的世界</li>
-<li>老来网</li>
-<li>华尔街见闻</li>
-<li>密话</li>
-<li>密讯</li>
-<li>密流防火墙</li>
-<li>摩拜单车</li>
-<li>米家</li>
-<li>QQ</li>
-<li>天天爱消除</li>
-<li>UC浏览器</li>
-<li>微信</li>
-<li>微信电话本</li>
-<li>豌豆夹</li>
-<li>网易邮箱大师</li>
-<li>网易云音乐</li>
-<li>喜马拉雅FM</li>
-<li>小米WIFI</li>
-<li>有道云笔记</li>
-<li>有道翻译官</li>
-<li>有道词典</li>
-<li>支付宝</li>
-</ul>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/02/08/去掉三星手机的图案锁/" title="去掉三星手机的图案锁" itemprop="url">去掉三星手机的图案锁</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
-		
-  <p class="article-time">
-    <time datetime="2017-02-08T06:59:20.000Z" itemprop="datePublished"> Published 2017-02-08</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>一个朋友交给我一个三星手机，说忘记锁屏图案了，能不能帮忙把里面的照片取出来。我想到的终极的方法应该是替换recovery，然后进入到主系统，把图案锁密码文件干掉，不过这样意味着我要找三星刷机的odin软件，还要找合适的recovery镜像，虽说这些都可行，但是都挺麻烦的。Google一下，看到一个网站上说有9种办法搞定，我想的办法自然在其中，不过还有一些貌似可以尝试的偏门办法，我一一尝试，都失败了。我在尝试这些方法的过程中，利用空余时间不时猜测它的图案，图案重试次数多了，三星手机就会进入到猜pin码的界面，这个是不受限制的，我就继续利用空余时间猜pin码数字。猜中了。</p>
 
         
         

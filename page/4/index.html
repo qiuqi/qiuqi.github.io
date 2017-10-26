@@ -69,6 +69,106 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2017/04/07/使用nftables/" title="使用nftables" itemprop="url">使用nftables</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
+		
+  <p class="article-time">
+    <time datetime="2017-04-07T03:43:26.000Z" itemprop="datePublished"> Published 2017-04-07</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p><a href="https://wiki.nftables.org/wiki-nftables/index.php/Quick_reference-nftables_in_10_minutes" target="_blank" rel="external">https://wiki.nftables.org/wiki-nftables/index.php/Quick_reference-nftables_in_10_minutes</a><br>apt-get install nftables   安装<br>systemctl enable nftables  自动启动<br>应该开始习惯利用nftable来作为系统防火墙，从主机防护开始</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">cat nftables.conf </div><div class="line">#!/usr/sbin/nft -f</div><div class="line"></div><div class="line">flush ruleset</div><div class="line"></div><div class="line">define sh_gateway = 2.2.2.2</div><div class="line">define test = 1.1.1.1</div><div class="line">define allowips=&#123;$sh_gateway, $test&#125;</div><div class="line"></div><div class="line">table firewall &#123;</div><div class="line">    chain input &#123;</div><div class="line">        type filter hook input priority 0; policy drop;</div><div class="line">        iif lo accept</div><div class="line">        ct state established,related accept</div><div class="line">        icmp type echo-request accept</div><div class="line">        tcp dport &#123;22,443&#125; accept</div><div class="line">        ip saddr $allowips accept</div><div class="line">        counter drop</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">table ip6 firewall &#123;</div><div class="line">    chain input &#123;</div><div class="line">        type filter hook input priority 0; policy drop;</div><div class="line">        iif lo accept</div><div class="line">        ct state established, related accept</div><div class="line">        ct state invalid drop</div><div class="line">        iifname lo accept</div><div class="line">		ip6 nexthdr icmpv6 icmpv6 type &#123; nd-neighbor-solicit,  nd-router-advert, nd-neighbor-advert &#125; accept</div><div class="line">        tcp dport &#123;ssh&#125; accept</div><div class="line">        counter drop</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/04/07/阿里云上的ubuntu跨版本升级/" title="阿里云上的ubuntu跨版本升级" itemprop="url">阿里云上的ubuntu跨版本升级</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
+		
+  <p class="article-time">
+    <time datetime="2017-04-07T02:21:12.000Z" itemprop="datePublished"> Published 2017-04-07</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>do-release-upgrade -d </p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2017/04/06/sniffer/" title="sniffer" itemprop="url">sniffer</a>
   </h1>
   <p class="article-author">By
@@ -471,118 +571,6 @@
         <p>微软脑子坏了，居然屏蔽使用历史悠久的windows照片查看器，在win10下浏览照片几乎成为噩梦。<br>找回办法：<br>编辑一个注册表文件：picture.reg</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Windows Registry Editor Version 5.00</div><div class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Photo Viewer\Capabilities\FileAssociations]</div><div class="line">&quot;.tif&quot;=&quot;PhotoViewer.FileAssoc.Tiff&quot;</div><div class="line">&quot;.tiff&quot;=&quot;PhotoViewer.FileAssoc.Tiff&quot;</div><div class="line">&quot;.jpg&quot;=&quot;PhotoViewer.FileAssoc.Tiff&quot;</div><div class="line">&quot;.png&quot;=&quot;PhotoViewer.FileAssoc.Tiff&quot;</div><div class="line">&quot;.gif&quot;=&quot;PhotoViewer.FileAssoc.Tiff&quot;</div></pre></td></tr></table></figure>
 <p>双机执行，重新找回windows照片查看器。</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/03/02/针对lynis检查以后的安全改进建议/" title="针对lynis检查以后的安全改进建议" itemprop="url">针对lynis检查以后的安全改进建议</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
-		
-  <p class="article-time">
-    <time datetime="2017-03-02T05:31:20.000Z" itemprop="datePublished"> Published 2017-03-02</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>1、安装基于pam的密码检测模块<br>apt-get install libpam-pwquality</p>
-<p>2、在/etc/login.defs里面设置密码的最小和最长时间<br>minimum和maximum<br>在ubuntu下，缺省的PASS_MAX_DAYS 99999，缺省的PASS_MIN_DAYS 0</p>
-<p>3、修改/etc/login.defs里面umask的值为027，缺省为022</p>
-<p>4、/tmp和/var采用独立分区，以防止这些地方无序增长的空间要求，影响整体系统</p>
-<p>5、缺省关闭对usb存储设备的支持<br><a href="https://linux-audit.com/kernel-hardening-disable-and-blacklist-linux-modules/" target="_blank" rel="external">https://linux-audit.com/kernel-hardening-disable-and-blacklist-linux-modules/</a><br>利用卸载内核模块的办法进行管理</p>
-<p>6、安装debsums用来验证安装包的正确性</p>
-<p>7、安装apt-show-versions用来看软件是否安装到最新版本</p>
-<p>8、安装arpwatch或者arpon来监控arp的变化</p>
-<p>9、安装rkhunter来发现隐藏木马</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/03/02/值得关注的问题：各种密码管理软件的缺陷/" title="值得关注的问题：各种密码管理软件的缺陷" itemprop="url">值得关注的问题：各种密码管理软件的缺陷</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
-		
-  <p class="article-time">
-    <time datetime="2017-03-02T03:49:56.000Z" itemprop="datePublished"> Published 2017-03-02</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p><a href="https://team-sik.org/trent_portfolio/password-manager-apps/" target="_blank" rel="external">https://team-sik.org/trent_portfolio/password-manager-apps/</a><br>这个博客跟踪分析了各种密码管理软件的缺陷，希望抽空的时候好好梳理一下他们的成果,我需要从两个方面考虑：</p>
-<ol>
-<li>如何选择自己的密码保存方式</li>
-<li>如何在我们自己的软件中避免同样的错误</li>
-</ol>
 
         
         

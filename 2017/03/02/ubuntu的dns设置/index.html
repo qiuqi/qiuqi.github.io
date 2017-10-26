@@ -17,7 +17,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/03/02/ubuntu的dns设置/index.html">
 <meta property="og:site_name" content="记">
 <meta property="og:description" content="vi systemd/resolved.conf123456[Resolve]DNS=fb7f:e922:7783:4f2f:632c:fc24:f8d7:7379 223.5.5.5FallbackDNS=fb7f:e922:7783:4f2f:632c:fc24:f8d7:7379 223.5.5.5systemctl restart resolvconf.servicesystemctl r">
-<meta property="og:updated_time" content="2017-04-06T09:01:16.252Z">
+<meta property="og:updated_time" content="2017-10-17T08:14:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ubuntu的dns设置">
 <meta name="twitter:description" content="vi systemd/resolved.conf123456[Resolve]DNS=fb7f:e922:7783:4f2f:632c:fc24:f8d7:7379 223.5.5.5FallbackDNS=fb7f:e922:7783:4f2f:632c:fc24:f8d7:7379 223.5.5.5systemctl restart resolvconf.servicesystemctl r">
@@ -94,6 +94,8 @@
 		<p>vi systemd/resolved.conf<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[Resolve]</div><div class="line">DNS=fb7f:e922:7783:4f2f:632c:fc24:f8d7:7379 223.5.5.5</div><div class="line">FallbackDNS=fb7f:e922:7783:4f2f:632c:fc24:f8d7:7379 223.5.5.5</div><div class="line"></div><div class="line">systemctl restart resolvconf.service</div><div class="line">systemctl restart systemd-resolved.service</div></pre></td></tr></table></figure></p>
 <p>没有测试到底重启哪个service是有效的，索性都重启一下。</p>
 <p>2017-04-06更新<br>systemctl disable systemd-resolved.service<br>彻底关闭了这东西，不知道什么协议引起的，每次ping目标地址的时候，居然要向目标地址发出一个tcp连接请求，太恶心了。</p>
+<p>2017-10-17更新<br>编辑/etc/default/dnsmasq<br>去掉最后一行注释：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">IGNORE_RESOLVCONF=yes</div></pre></td></tr></table></figure></p>
+<p>这样就可以准确使用/etc/dnsmasq.conf里面指定的的resolv-file=/etc/myresolf.conf</p>
   
 	</div>
 		<footer class="article-footer clearfix">
