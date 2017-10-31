@@ -4,29 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>systemd的域名解析 | 记</title>
+    <title>电信宽带通的劫持 | 记</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="QQ">
     
 
     
-    <meta name="description" content="https://wiki.freedesktop.org/www/Software/systemd/writing-resolver-clients/
-在ubuntu下观察系统的域名解析总是会碰到非常奇异的case，比如当你ping一个自定义的域名时，你会发现在某些情况下，并没有触发相应的udp 53端口访问，这种没有触发的原因还不像是简单的cache机制造成的。
-深入观察systemd的域名解析">
+    <meta name="description" content="在访问myip.cn和ip.cn的过程中，发现电信宽带通存在劫持行为，当通过http 80访问网站时，访问目标网站显示的ip地址为 183.240.196.65和118.26.137.157, 这两个地址均不是在无线路由器上分配到的公网地址。存在两种可能，宽带通劫持了访问或者无线路由器劫持了访问，需要更深入的探测这种劫持行为。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="systemd的域名解析">
-<meta property="og:url" content="http://yoursite.com/2017/10/31/systemd的域名解析/index.html">
+<meta property="og:title" content="电信宽带通的劫持">
+<meta property="og:url" content="http://yoursite.com/2017/10/31/电信宽带通的劫持/index.html">
 <meta property="og:site_name" content="记">
-<meta property="og:description" content="https://wiki.freedesktop.org/www/Software/systemd/writing-resolver-clients/
-在ubuntu下观察系统的域名解析总是会碰到非常奇异的case，比如当你ping一个自定义的域名时，你会发现在某些情况下，并没有触发相应的udp 53端口访问，这种没有触发的原因还不像是简单的cache机制造成的。
-深入观察systemd的域名解析">
-<meta property="og:updated_time" content="2017-10-31T03:31:56.000Z">
+<meta property="og:description" content="在访问myip.cn和ip.cn的过程中，发现电信宽带通存在劫持行为，当通过http 80访问网站时，访问目标网站显示的ip地址为 183.240.196.65和118.26.137.157, 这两个地址均不是在无线路由器上分配到的公网地址。存在两种可能，宽带通劫持了访问或者无线路由器劫持了访问，需要更深入的探测这种劫持行为。">
+<meta property="og:updated_time" content="2017-10-31T04:25:02.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="systemd的域名解析">
-<meta name="twitter:description" content="https://wiki.freedesktop.org/www/Software/systemd/writing-resolver-clients/
-在ubuntu下观察系统的域名解析总是会碰到非常奇异的case，比如当你ping一个自定义的域名时，你会发现在某些情况下，并没有触发相应的udp 53端口访问，这种没有触发的原因还不像是简单的cache机制造成的。
-深入观察systemd的域名解析">
+<meta name="twitter:title" content="电信宽带通的劫持">
+<meta name="twitter:description" content="在访问myip.cn和ip.cn的过程中，发现电信宽带通存在劫持行为，当通过http 80访问网站时，访问目标网站显示的ip地址为 183.240.196.65和118.26.137.157, 这两个地址均不是在无线路由器上分配到的公网地址。存在两种可能，宽带通劫持了访问或者无线路由器劫持了访问，需要更深入的探测这种劫持行为。">
 
     
     
@@ -77,14 +71,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/10/31/systemd的域名解析/" title="systemd的域名解析" itemprop="url">systemd的域名解析</a>
+      <a href="/2017/10/31/电信宽带通的劫持/" title="电信宽带通的劫持" itemprop="url">电信宽带通的劫持</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-31T03:04:25.000Z" itemprop="datePublished"> Published 2017-10-31</time>
+    <time datetime="2017-10-31T04:21:25.000Z" itemprop="datePublished"> Published 2017-10-31</time>
     
   </p>
 </header>
@@ -97,11 +91,7 @@
 		
 		</div>
 		
-		<p><a href="https://wiki.freedesktop.org/www/Software/systemd/writing-resolver-clients/" target="_blank" rel="external">https://wiki.freedesktop.org/www/Software/systemd/writing-resolver-clients/</a></p>
-<p>在ubuntu下观察系统的域名解析总是会碰到非常奇异的case，比如当你ping一个自定义的域名时，你会发现在某些情况下，并没有触发相应的udp 53端口访问，这种没有触发的原因还不像是简单的cache机制造成的。</p>
-<p>深入观察systemd的域名解析服务，systemd-resolved.service，可以看到它调用的是/lib/systemd/systemd-resolved, 如果进一步man systemd-resolved会看到它有一个说明，建议在特定的操作系统环境下，可以调用由systemd所提供的api来查询域名而不是传统的glibc的方法，主要优点是这是一个异步的查询。</p>
-<p>它所推荐的调用api说明在：<a href="https://www.freedesktop.org/wiki/Software/systemd/resolved/" target="_blank" rel="external">https://www.freedesktop.org/wiki/Software/systemd/resolved/</a><br>,在这个文档里面提供了一个调用的例子，可编译使用：<a href="https://wiki.freedesktop.org/www/Software/systemd/writing-resolver-clients/。" target="_blank" rel="external">https://wiki.freedesktop.org/www/Software/systemd/writing-resolver-clients/。</a></p>
-<p>根据这些信息，可以查到在ubuntu里面，最终systemd所使用的解析服务器，在运行的时候，归集在/run/systemd/resolve/resolv.conf文件中，在里面可以看到所有系统能搜索到的dns配置。引起我配置干扰的选项在于我曾经有一次设置在wifi的接口上配置了特定的dns地址。<br>令人困扰的表现在于，当调用ping的时候，它优先选择从接口地址上配置的域名服务器，而在调用例子的时候，它优先查询的是/etc/resolve.conf配置的域名地址。</p>
+		<p>在访问myip.cn和ip.cn的过程中，发现电信宽带通存在劫持行为，当通过http 80访问网站时，访问目标网站显示的ip地址为 183.240.196.65和118.26.137.157, 这两个地址均不是在无线路由器上分配到的公网地址。<br>存在两种可能，宽带通劫持了访问或者无线路由器劫持了访问，需要更深入的探测这种劫持行为。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -114,7 +104,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2017/10/31/systemd的域名解析/" data-title="systemd的域名解析 | 记" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2017/10/31/电信宽带通的劫持/" data-title="电信宽带通的劫持 | 记" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -127,19 +117,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2017/10/31/电信宽带通的劫持/" title="电信宽带通的劫持">
-  <strong>上一篇：</strong><br/>
-  <span>
-  电信宽带通的劫持</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2017/10/26/ubuntu-17-10的系统托盘/"  title="ubuntu 17.10的系统托盘">
+<a href="/2017/10/31/systemd的域名解析/"  title="systemd的域名解析">
  <strong>下一篇：</strong><br/> 
- <span>ubuntu 17.10的系统托盘
+ <span>systemd的域名解析
 </span>
 </a>
 </div>
