@@ -4,23 +4,29 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>ubuntu 17.10的系统托盘 | 记</title>
+    <title>systemd的域名解析 | 记</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="QQ">
     
 
     
-    <meta name="description" content="随着ubuntu 17.10的发布，ubuntu终于告别了unity，全面启用gnome.最头痛的莫过于系统托盘了，gnome的人不可理喻的认为系统托盘无用，官方去掉了对系统托盘的支持。幸好在gnome上有人开发KStatusNotifierItem/AppIndicator Support来恢复这个功能,然后为了为了习惯于在系统状态栏的右上角显示，再安装TopIcons插件。Ubuntu 17.">
+    <meta name="description" content="https://wiki.freedesktop.org/www/Software/systemd/writing-resolver-clients/
+在ubuntu下观察系统的域名解析总是会碰到非常奇异的case，比如当你ping一个自定义的域名时，你会发现在某些情况下，并没有触发相应的udp 53端口访问，这种没有触发的原因还不像是简单的cache机制造成的。
+深入观察systemd的域名解析">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ubuntu 17.10的系统托盘">
-<meta property="og:url" content="http://yoursite.com/2017/10/26/ubuntu-17-10的系统托盘/index.html">
+<meta property="og:title" content="systemd的域名解析">
+<meta property="og:url" content="http://yoursite.com/2017/10/31/systemd的域名解析/index.html">
 <meta property="og:site_name" content="记">
-<meta property="og:description" content="随着ubuntu 17.10的发布，ubuntu终于告别了unity，全面启用gnome.最头痛的莫过于系统托盘了，gnome的人不可理喻的认为系统托盘无用，官方去掉了对系统托盘的支持。幸好在gnome上有人开发KStatusNotifierItem/AppIndicator Support来恢复这个功能,然后为了为了习惯于在系统状态栏的右上角显示，再安装TopIcons插件。Ubuntu 17.">
-<meta property="og:updated_time" content="2017-10-26T06:27:51.000Z">
+<meta property="og:description" content="https://wiki.freedesktop.org/www/Software/systemd/writing-resolver-clients/
+在ubuntu下观察系统的域名解析总是会碰到非常奇异的case，比如当你ping一个自定义的域名时，你会发现在某些情况下，并没有触发相应的udp 53端口访问，这种没有触发的原因还不像是简单的cache机制造成的。
+深入观察systemd的域名解析">
+<meta property="og:updated_time" content="2017-10-31T03:11:03.600Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ubuntu 17.10的系统托盘">
-<meta name="twitter:description" content="随着ubuntu 17.10的发布，ubuntu终于告别了unity，全面启用gnome.最头痛的莫过于系统托盘了，gnome的人不可理喻的认为系统托盘无用，官方去掉了对系统托盘的支持。幸好在gnome上有人开发KStatusNotifierItem/AppIndicator Support来恢复这个功能,然后为了为了习惯于在系统状态栏的右上角显示，再安装TopIcons插件。Ubuntu 17.">
+<meta name="twitter:title" content="systemd的域名解析">
+<meta name="twitter:description" content="https://wiki.freedesktop.org/www/Software/systemd/writing-resolver-clients/
+在ubuntu下观察系统的域名解析总是会碰到非常奇异的case，比如当你ping一个自定义的域名时，你会发现在某些情况下，并没有触发相应的udp 53端口访问，这种没有触发的原因还不像是简单的cache机制造成的。
+深入观察systemd的域名解析">
 
     
     
@@ -71,14 +77,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/10/26/ubuntu-17-10的系统托盘/" title="ubuntu 17.10的系统托盘" itemprop="url">ubuntu 17.10的系统托盘</a>
+      <a href="/2017/10/31/systemd的域名解析/" title="systemd的域名解析" itemprop="url">systemd的域名解析</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-26T06:13:30.000Z" itemprop="datePublished"> Published 2017-10-26</time>
+    <time datetime="2017-10-31T03:04:25.000Z" itemprop="datePublished"> Published 2017-10-31</time>
     
   </p>
 </header>
@@ -91,10 +97,11 @@
 		
 		</div>
 		
-		<p>随着ubuntu 17.10的发布，ubuntu终于告别了unity，全面启用gnome.<br>最头痛的莫过于系统托盘了，gnome的人不可理喻的认为系统托盘无用，官方去掉了对系统托盘的支持。幸好在gnome上有人开发KStatusNotifierItem/AppIndicator Support来恢复这个功能,然后为了为了习惯于在系统状态栏的右上角显示，再安装TopIcons插件。<br>Ubuntu 17.10据此做了一个完整的解决方案，即自己写了一个Ubuntu AppIndicators插件用来替代KStatusNotiifierItem和TopIcons。顺带提一下，它的Ubuntu Dock用来实现Unity传统的左侧Dock。<br>如果要确保Ubuntu 17.10的系统托盘能正常显示，则保证只需要安装官方的那个插件即可。<br>但是仅仅如此还不够，依然有很多应用无法显示系统托盘，原因在于，ubuntu将桌面环境变量声明为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">declare -x XDG_CURRENT_DESKTOP=&quot;ubuntu:GNOME&quot;</div></pre></td></tr></table></figure></p>
-<p>而之前很多应用，在识别系统环境的时候，识别的是”Unity”，导致系统托盘显示失败。根本上当然要改变应用软件才行，不过一个苟且的解决方案就是，在当前的系统环境下，强行声明：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">declare -x XDG_CURRENT_DESKTOP=&quot;Unity&quot;</div></pre></td></tr></table></figure></p>
-<p>然后再启动应用，即可正常显示系统托盘。</p>
-<p>再顺带附送一句，如果用户自己安装的gnome session插件，安装后的目录在:<br>~/.local/share/gnome-shell/extensions。</p>
+		<p><a href="https://wiki.freedesktop.org/www/Software/systemd/writing-resolver-clients/" target="_blank" rel="external">https://wiki.freedesktop.org/www/Software/systemd/writing-resolver-clients/</a></p>
+<p>在ubuntu下观察系统的域名解析总是会碰到非常奇异的case，比如当你ping一个自定义的域名时，你会发现在某些情况下，并没有触发相应的udp 53端口访问，这种没有触发的原因还不像是简单的cache机制造成的。</p>
+<p>深入观察systemd的域名解析服务，systemd-resolved.service，可以看到它调用的是/lib/systemd/systemd-resolved, 如果进一步man systemd-resolved会看到它有一个说明，建议在特定的操作系统环境下，可以调用由systemd所提供的api来查询域名而不是传统的glibc的方法，主要优点是这是一个异步的查询。</p>
+<p>它所推荐的调用api说明在：<a href="https://www.freedesktop.org/wiki/Software/systemd/resolved/" target="_blank" rel="external">https://www.freedesktop.org/wiki/Software/systemd/resolved/</a><br>,在这个文档里面提供了一个调用的例子，可编译使用：<a href="https://wiki.freedesktop.org/www/Software/systemd/writing-resolver-clients/。" target="_blank" rel="external">https://wiki.freedesktop.org/www/Software/systemd/writing-resolver-clients/。</a></p>
+<p>奇怪的是当我用它例子编译使用以后，影响了系统的dns表现，各种异常似乎都随着这个特定例子的运行以后，就消失了。这个问题还需要深入的调查。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -107,7 +114,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2017/10/26/ubuntu-17-10的系统托盘/" data-title="ubuntu 17.10的系统托盘 | 记" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2017/10/31/systemd的域名解析/" data-title="systemd的域名解析 | 记" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -120,19 +127,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2017/10/31/systemd的域名解析/" title="systemd的域名解析">
-  <strong>上一篇：</strong><br/>
-  <span>
-  systemd的域名解析</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2017/10/26/ubuntu-shell支持中文/"  title="ubuntu shell支持中文">
+<a href="/2017/10/26/ubuntu-17-10的系统托盘/"  title="ubuntu 17.10的系统托盘">
  <strong>下一篇：</strong><br/> 
- <span>ubuntu shell支持中文
+ <span>ubuntu 17.10的系统托盘
 </span>
 </a>
 </div>
