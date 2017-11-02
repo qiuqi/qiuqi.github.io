@@ -4,23 +4,32 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>电信宽带通的劫持 | 记</title>
+    <title>ubuntu中避免来自于dhcp的dns污染 | 记</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="QQ">
     
 
     
-    <meta name="description" content="在访问myip.cn和ip.cn的过程中，发现电信宽带通存在劫持行为，当通过http 80访问网站时，访问目标网站显示的ip地址为 183.240.196.65和118.26.137.157, 这两个地址均不是在无线路由器上分配到的公网地址。存在两种可能，宽带通劫持了访问或者无线路由器劫持了访问，需要更深入的探测这种劫持行为。">
+    <meta name="description" content="修改/etc/dhcp/dhclient.conf文件：
+
+将supersede设置成指定的dns服务器
+将request选项中domain-name, domain-name-servers,domain-search这三个请求去除">
 <meta property="og:type" content="article">
-<meta property="og:title" content="电信宽带通的劫持">
-<meta property="og:url" content="http://yoursite.com/2017/10/31/电信宽带通的劫持/index.html">
+<meta property="og:title" content="ubuntu中避免来自于dhcp的dns污染">
+<meta property="og:url" content="http://yoursite.com/2017/11/02/ubuntu中避免来自于dhcp的dns污染/index.html">
 <meta property="og:site_name" content="记">
-<meta property="og:description" content="在访问myip.cn和ip.cn的过程中，发现电信宽带通存在劫持行为，当通过http 80访问网站时，访问目标网站显示的ip地址为 183.240.196.65和118.26.137.157, 这两个地址均不是在无线路由器上分配到的公网地址。存在两种可能，宽带通劫持了访问或者无线路由器劫持了访问，需要更深入的探测这种劫持行为。">
-<meta property="og:updated_time" content="2017-10-31T04:25:02.000Z">
+<meta property="og:description" content="修改/etc/dhcp/dhclient.conf文件：
+
+将supersede设置成指定的dns服务器
+将request选项中domain-name, domain-name-servers,domain-search这三个请求去除">
+<meta property="og:updated_time" content="2017-11-02T03:42:26.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="电信宽带通的劫持">
-<meta name="twitter:description" content="在访问myip.cn和ip.cn的过程中，发现电信宽带通存在劫持行为，当通过http 80访问网站时，访问目标网站显示的ip地址为 183.240.196.65和118.26.137.157, 这两个地址均不是在无线路由器上分配到的公网地址。存在两种可能，宽带通劫持了访问或者无线路由器劫持了访问，需要更深入的探测这种劫持行为。">
+<meta name="twitter:title" content="ubuntu中避免来自于dhcp的dns污染">
+<meta name="twitter:description" content="修改/etc/dhcp/dhclient.conf文件：
+
+将supersede设置成指定的dns服务器
+将request选项中domain-name, domain-name-servers,domain-search这三个请求去除">
 
     
     
@@ -71,14 +80,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/10/31/电信宽带通的劫持/" title="电信宽带通的劫持" itemprop="url">电信宽带通的劫持</a>
+      <a href="/2017/11/02/ubuntu中避免来自于dhcp的dns污染/" title="ubuntu中避免来自于dhcp的dns污染" itemprop="url">ubuntu中避免来自于dhcp的dns污染</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-31T04:21:25.000Z" itemprop="datePublished"> Published 2017-10-31</time>
+    <time datetime="2017-11-02T03:40:46.000Z" itemprop="datePublished"> Published 2017-11-02</time>
     
   </p>
 </header>
@@ -91,7 +100,11 @@
 		
 		</div>
 		
-		<p>在访问myip.cn和ip.cn的过程中，发现电信宽带通存在劫持行为，当通过http 80访问网站时，访问目标网站显示的ip地址为 183.240.196.65和118.26.137.157, 这两个地址均不是在无线路由器上分配到的公网地址。<br>存在两种可能，宽带通劫持了访问或者无线路由器劫持了访问，需要更深入的探测这种劫持行为。</p>
+		<p>修改/etc/dhcp/dhclient.conf文件：<br></p>
+<ol>
+<li>将supersede设置成指定的dns服务器<br></li>
+<li>将request选项中domain-name, domain-name-servers,domain-search这三个请求去除 <br></li>
+</ol>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -104,7 +117,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2017/10/31/电信宽带通的劫持/" data-title="电信宽带通的劫持 | 记" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2017/11/02/ubuntu中避免来自于dhcp的dns污染/" data-title="ubuntu中避免来自于dhcp的dns污染 | 记" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -117,19 +130,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2017/11/02/ubuntu中避免来自于dhcp的dns污染/" title="ubuntu中避免来自于dhcp的dns污染">
-  <strong>上一篇：</strong><br/>
-  <span>
-  ubuntu中避免来自于dhcp的dns污染</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2017/10/31/systemd的域名解析/"  title="systemd的域名解析">
+<a href="/2017/10/31/电信宽带通的劫持/"  title="电信宽带通的劫持">
  <strong>下一篇：</strong><br/> 
- <span>systemd的域名解析
+ <span>电信宽带通的劫持
 </span>
 </a>
 </div>
