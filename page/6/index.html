@@ -38,7 +38,7 @@
 				<h1 class="site-name"><a href="/" title="记">记</a></h1>
 				<h2 class="blog-motto">每一天都是新的开始</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -52,7 +52,7 @@
  					
 					<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="Search" />
+						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="搜索" />
 					</form>
 					
 					</li>
@@ -69,6 +69,110 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2017/03/02/ubuntu的dns设置/" title="ubuntu的dns设置" itemprop="url">ubuntu的dns设置</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
+		
+  <p class="article-time">
+    <time datetime="2017-03-02T01:45:35.000Z" itemprop="datePublished"> 发表于 2017-03-02</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>vi systemd/resolved.conf<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[Resolve]</div><div class="line">DNS=fb7f:e922:7783:4f2f:632c:fc24:f8d7:7379 223.5.5.5</div><div class="line">FallbackDNS=fb7f:e922:7783:4f2f:632c:fc24:f8d7:7379 223.5.5.5</div><div class="line"></div><div class="line">systemctl restart resolvconf.service</div><div class="line">systemctl restart systemd-resolved.service</div></pre></td></tr></table></figure></p>
+<p>没有测试到底重启哪个service是有效的，索性都重启一下。</p>
+<p>2017-04-06更新<br>systemctl disable systemd-resolved.service<br>彻底关闭了这东西，不知道什么协议引起的，每次ping目标地址的时候，居然要向目标地址发出一个tcp连接请求，太恶心了。</p>
+<p>2017-10-17更新<br>编辑/etc/default/dnsmasq<br>去掉最后一行注释：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">IGNORE_RESOLVCONF=yes</div></pre></td></tr></table></figure></p>
+<p>这样就可以准确使用/etc/dnsmasq.conf里面指定的的resolv-file=/etc/myresolf.conf</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/03/02/back-again/" title="back again" itemprop="url">back again</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
+		
+  <p class="article-time">
+    <time datetime="2017-03-02T01:25:59.000Z" itemprop="datePublished"> 发表于 2017-03-02</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>时间已是3月，发现不经意之间，又有半个月没有写，原因很简单，因为半个月前启动了一次电脑。<br>我本想记录半个月发生的各种琐事，觉得又毫无意义，很多事情本身有意义，记录下来就没有意义。</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2017/02/12/windows的安全性在哪里？/" title="windows的安全性在哪里？" itemprop="url">windows的安全性在哪里？</a>
   </h1>
   <p class="article-author">By
@@ -76,7 +180,7 @@
 		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
 		
   <p class="article-time">
-    <time datetime="2017-02-12T02:42:27.000Z" itemprop="datePublished"> Published 2017-02-12</time>
+    <time datetime="2017-02-12T02:42:27.000Z" itemprop="datePublished"> 发表于 2017-02-12</time>
     
   </p>
 </header>
@@ -126,7 +230,7 @@
 		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
 		
   <p class="article-time">
-    <time datetime="2017-02-10T15:37:46.000Z" itemprop="datePublished"> Published 2017-02-10</time>
+    <time datetime="2017-02-10T15:37:46.000Z" itemprop="datePublished"> 发表于 2017-02-10</time>
     
   </p>
 </header>
@@ -177,7 +281,7 @@
 		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
 		
   <p class="article-time">
-    <time datetime="2017-02-10T09:28:52.000Z" itemprop="datePublished"> Published 2017-02-10</time>
+    <time datetime="2017-02-10T09:28:52.000Z" itemprop="datePublished"> 发表于 2017-02-10</time>
     
   </p>
 </header>
@@ -227,7 +331,7 @@
 		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
 		
   <p class="article-time">
-    <time datetime="2017-02-09T07:10:24.000Z" itemprop="datePublished"> Published 2017-02-09</time>
+    <time datetime="2017-02-09T07:10:24.000Z" itemprop="datePublished"> 发表于 2017-02-09</time>
     
   </p>
 </header>
@@ -288,7 +392,7 @@
 		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
 		
   <p class="article-time">
-    <time datetime="2017-02-09T02:46:18.000Z" itemprop="datePublished"> Published 2017-02-09</time>
+    <time datetime="2017-02-09T02:46:18.000Z" itemprop="datePublished"> 发表于 2017-02-09</time>
     
   </p>
 </header>
@@ -338,7 +442,7 @@
 		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
 		
   <p class="article-time">
-    <time datetime="2017-02-08T14:05:13.000Z" itemprop="datePublished"> Published 2017-02-08</time>
+    <time datetime="2017-02-08T14:05:13.000Z" itemprop="datePublished"> 发表于 2017-02-08</time>
     
   </p>
 </header>
@@ -431,7 +535,7 @@
 		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
 		
   <p class="article-time">
-    <time datetime="2017-02-08T06:59:20.000Z" itemprop="datePublished"> Published 2017-02-08</time>
+    <time datetime="2017-02-08T06:59:20.000Z" itemprop="datePublished"> 发表于 2017-02-08</time>
     
   </p>
 </header>
@@ -481,7 +585,7 @@
 		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
 		
   <p class="article-time">
-    <time datetime="2017-02-08T03:33:02.000Z" itemprop="datePublished"> Published 2017-02-08</time>
+    <time datetime="2017-02-08T03:33:02.000Z" itemprop="datePublished"> 发表于 2017-02-08</time>
     
   </p>
 </header>
@@ -518,71 +622,16 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/02/07/开始使用HEXO/" title="开始使用HEXO" itemprop="url">开始使用HEXO</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
-		
-  <p class="article-time">
-    <time datetime="2017-02-07T10:10:56.000Z" itemprop="datePublished"> Published 2017-02-07</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>我在很长的时间里面失去了表达的欲望，想想有一下一些原因：</p>
-<ol>
-<li>我曾经有一段热衷表达的时期，但是自那以后，我觉得脑子里没有新鲜的想法，而且随找阅读的广泛，觉得很多想法前人已经表达过了，我没有重复表达的意义;</li>
-<li>其次，我痛恨这个垃圾信息泛滥的年代，大量的未经考证的信息被随意的转载扩散，使得阅读不仅没有提高人的修养，反而让一个人变得更加的庸俗;</li>
-<li>苛刻的互联网内容限制需求，使得我们要维持一个长久的系统并不容易，一些服务存在又消失了，没有心思去维护这样一个基础的设施。</li>
-</ol>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
-    <a class="extend prev" rel="prev" href="/page/5/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span>
+    <a class="extend prev" rel="prev" href="/page/5/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/7/">Next<span></span></a>
   </nav>
 
 </div>
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
@@ -593,7 +642,7 @@
   
 
   <div class="linkslist">
-  <p class="asidetitle">Links</p>
+  <p class="asidetitle">友情链接</p>
     <ul>
         
           <li>
@@ -609,11 +658,11 @@
 
 
   <div class="rsspart">
-	<a href="undefined" target="_blank" title="rss">RSS</a>
+	<a href="undefined" target="_blank" title="rss">RSS 订阅</a>
 </div>
 
   <div class="weiboshow">
-  <p class="asidetitle">Weibo</p>
+  <p class="asidetitle">新浪微博</p>
     <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=&dpc=1"></iframe>
 </div>
 
@@ -736,7 +785,7 @@ $(document).ready(function(){
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
