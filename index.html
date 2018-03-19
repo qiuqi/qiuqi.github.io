@@ -69,6 +69,55 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2018/03/19/在ubuntu-17-10中禁止笔记本内置的键盘/" title="在ubuntu 17.10中禁止笔记本内置的键盘" itemprop="url">在ubuntu 17.10中禁止笔记本内置的键盘</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
+		
+  <p class="article-time">
+    <time datetime="2018-03-19T15:03:41.000Z" itemprop="datePublished"> Published 2018-03-19</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">在ubuntu 17.10中用于使用了wayland，所以导致禁用笔记本键盘的方式和之前发生了变化：</div><div class="line">老方法：</div><div class="line">----------------------------------------------------------------------</div><div class="line">禁用：</div><div class="line">#!/usr/bin/env bash</div><div class="line">AAA=`xinput |grep &quot;AT Translated&quot;`</div><div class="line">DeviceId=`echo $AAA |awk -F &quot; &quot; &apos;&#123;print $7&#125;&apos;|awk -F &quot;=&quot; &apos;&#123;print $2&#125;&apos;`</div><div class="line">xinput set-int-prop $DeviceId &quot;Device Enabled&quot; 8 0</div><div class="line">恢复：</div><div class="line">#!/usr/bin/env bash</div><div class="line">AAA=`xinput |grep &quot;AT Translated&quot;`</div><div class="line">DeviceId=`echo $AAA |awk -F &quot; &quot; &apos;&#123;print $7&#125;&apos;|awk -F &quot;=&quot; &apos;&#123;print $2&#125;&apos;`</div><div class="line">xinput set-int-prop $DeviceId &quot;Device Enabled&quot; 8 1 </div><div class="line"></div><div class="line">新方法：</div><div class="line">用命令列出所有设备：</div><div class="line">sudo libinput list-devices</div><div class="line"></div><div class="line">在列出的设备里面找出内置键盘设备</div><div class="line">Device:           AT Translated Set 2 keyboard</div><div class="line">Kernel:           /dev/input/event2</div><div class="line">Group:            8</div><div class="line">Seat:             seat0, default</div><div class="line"></div><div class="line">利用evtest命令的特性，将内置键盘的输出屏蔽</div><div class="line">sudo evtest --grab /dev/input/event2 &amp;</div><div class="line"></div><div class="line">虽然方法比较苟且，暂时也还是可以用的</div></pre></td></tr></table></figure>
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2018/03/19/清除dpkg-l列出来的rc状态/" title="清除dpkg -l列出来的rc状态" itemprop="url">清除dpkg -l列出来的rc状态</a>
   </h1>
   <p class="article-author">By
@@ -521,56 +570,6 @@
     <div class="article-content">
         
         <p><a href="https://launchpad.net/~mozillateam/+archive/ubuntu/firefox-next" target="_blank" rel="external">https://launchpad.net/~mozillateam/+archive/ubuntu/firefox-next</a></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/11/24/在微信网页中，将内容复制到剪贴板/" title="在微信网页中，将内容复制到剪贴板" itemprop="url">在微信网页中，将内容复制到剪贴板</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
-		
-  <p class="article-time">
-    <time datetime="2017-11-24T14:33:37.000Z" itemprop="datePublished"> Published 2017-11-24</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p><a href="https://clipboardjs.com/" target="_blank" rel="external">https://clipboardjs.com/</a></p>
 
         
         
