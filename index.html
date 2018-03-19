@@ -69,6 +69,55 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2018/03/19/清除dpkg-l列出来的rc状态/" title="清除dpkg -l列出来的rc状态" itemprop="url">清除dpkg -l列出来的rc状态</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
+		
+  <p class="article-time">
+    <time datetime="2018-03-19T13:38:00.000Z" itemprop="datePublished"> Published 2018-03-19</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">r: 已经删除</div><div class="line">c: 配置文件</div><div class="line">所以rc状态就是已经删除但是剩余配置文件的包。</div><div class="line">彻底清除办法：、</div><div class="line">dpkg --purge `dpkg --get-selections | grep deinstall | cut -f1`</div></pre></td></tr></table></figure>
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2018/03/08/erlang的release/" title="erlang的release" itemprop="url">erlang的release</a>
   </h1>
   <p class="article-author">By
@@ -522,60 +571,6 @@
     <div class="article-content">
         
         <p><a href="https://clipboardjs.com/" target="_blank" rel="external">https://clipboardjs.com/</a></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/11/02/ubuntu中避免来自于dhcp的dns污染/" title="ubuntu中避免来自于dhcp的dns污染" itemprop="url">ubuntu中避免来自于dhcp的dns污染</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
-		
-  <p class="article-time">
-    <time datetime="2017-11-02T03:40:46.000Z" itemprop="datePublished"> Published 2017-11-02</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>修改/etc/dhcp/dhclient.conf文件：<br></p>
-<ol>
-<li>将supersede设置成指定的dns服务器<br></li>
-<li>将request选项中domain-name, domain-name-servers,domain-search这三个请求去除 <br></li>
-</ol>
 
         
         
