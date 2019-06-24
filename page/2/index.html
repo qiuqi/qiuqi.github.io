@@ -1,7 +1,7 @@
 
  <!DOCTYPE HTML>
 <html lang="zh_CN">
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
   
     <title>记</title>
@@ -15,6 +15,7 @@
 <meta property="og:title" content="记">
 <meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="记">
+<meta property="og:locale" content="zh_CN">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="记">
 
@@ -28,7 +29,7 @@
     
     <link rel="stylesheet" href="/css/style.css">
 </head>
-
+</html>
   <body>
     <header>
       
@@ -69,6 +70,69 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2018/01/29/英文词组分析工具/" title="英文词组分析工具" itemprop="url">英文词组分析工具</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
+		
+  <p class="article-time">
+    <time datetime="2018-01-29T09:34:18.000Z" itemprop="datePublished"> Published 2018-01-29</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <ol>
+<li>将pdf转成txt文本</li>
+</ol>
+<ul>
+<li><a href="https://github.com/pdfminer/pdfminer.six" target="_blank" rel="noopener">https://github.com/pdfminer/pdfminer.six</a></li>
+<li>pdf2txt test.pdf &gt;test.txt</li>
+</ul>
+<ol start="2">
+<li>统计txt中的单次词频</li>
+</ol>
+<ul>
+<li><a href="https://github.com/Enaunimes/freeq.git" target="_blank" rel="noopener">https://github.com/Enaunimes/freeq.git</a></li>
+<li>freeq.py -i test.txt -o test</li>
+</ul>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2017/12/04/自定义ubuntu-livecd/" title="自定义ubuntu livecd" itemprop="url">自定义ubuntu livecd</a>
   </h1>
   <p class="article-author">By
@@ -82,7 +146,7 @@
 </header>
     <div class="article-content">
         
-        <p><a href="https://www.ostechnix.com/create-custom-ubuntu-live-cd-image/" target="_blank" rel="external">https://www.ostechnix.com/create-custom-ubuntu-live-cd-image/</a></p>
+        <p><a href="https://www.ostechnix.com/create-custom-ubuntu-live-cd-image/" target="_blank" rel="noopener">https://www.ostechnix.com/create-custom-ubuntu-live-cd-image/</a></p>
 
         
         
@@ -132,7 +196,7 @@
 </header>
     <div class="article-content">
         
-        <p><a href="https://launchpad.net/~mozillateam/+archive/ubuntu/firefox-next" target="_blank" rel="external">https://launchpad.net/~mozillateam/+archive/ubuntu/firefox-next</a></p>
+        <p><a href="https://launchpad.net/~mozillateam/+archive/ubuntu/firefox-next" target="_blank" rel="noopener">https://launchpad.net/~mozillateam/+archive/ubuntu/firefox-next</a></p>
 
         
         
@@ -182,7 +246,7 @@
 </header>
     <div class="article-content">
         
-        <p><a href="https://clipboardjs.com/" target="_blank" rel="external">https://clipboardjs.com/</a></p>
+        <p><a href="https://clipboardjs.com/" target="_blank" rel="noopener">https://clipboardjs.com/</a></p>
 
         
         
@@ -336,13 +400,13 @@
 </header>
     <div class="article-content">
         
-        <p><a href="https://wiki.freedesktop.org/www/Software/systemd/writing-resolver-clients/" target="_blank" rel="external">https://wiki.freedesktop.org/www/Software/systemd/writing-resolver-clients/</a></p>
+        <p><a href="https://wiki.freedesktop.org/www/Software/systemd/writing-resolver-clients/" target="_blank" rel="noopener">https://wiki.freedesktop.org/www/Software/systemd/writing-resolver-clients/</a></p>
 <p>在ubuntu下观察系统的域名解析总是会碰到非常奇异的case，比如当你ping一个自定义的域名时，你会发现在某些情况下，并没有触发相应的udp 53端口访问，这种没有触发的原因还不像是简单的cache机制造成的。</p>
 <p>深入观察systemd的域名解析服务，systemd-resolved.service，可以看到它调用的是/lib/systemd/systemd-resolved, 如果进一步man systemd-resolved会看到它有一个说明，建议在特定的操作系统环境下，可以调用由systemd所提供的api来查询域名而不是传统的glibc的方法，主要优点是这是一个异步的查询。</p>
-<p>它所推荐的调用api说明在：<a href="https://www.freedesktop.org/wiki/Software/systemd/resolved/" target="_blank" rel="external">https://www.freedesktop.org/wiki/Software/systemd/resolved/</a><br>,在这个文档里面提供了一个调用的例子，可编译使用：<a href="https://wiki.freedesktop.org/www/Software/systemd/writing-resolver-clients/。" target="_blank" rel="external">https://wiki.freedesktop.org/www/Software/systemd/writing-resolver-clients/。</a></p>
+<p>它所推荐的调用api说明在：<a href="https://www.freedesktop.org/wiki/Software/systemd/resolved/" target="_blank" rel="noopener">https://www.freedesktop.org/wiki/Software/systemd/resolved/</a><br>,在这个文档里面提供了一个调用的例子，可编译使用：<a href="https://wiki.freedesktop.org/www/Software/systemd/writing-resolver-clients/。" target="_blank" rel="noopener">https://wiki.freedesktop.org/www/Software/systemd/writing-resolver-clients/。</a></p>
 <p>根据这些信息，可以查到在ubuntu里面，最终systemd所使用的解析服务器，在运行的时候，归集在/run/systemd/resolve/resolv.conf文件中，在里面可以看到所有系统能搜索到的dns配置。引起我配置干扰的选项在于我曾经有一次设置在wifi的接口上配置了特定的dns地址。<br>令人困扰的表现在于，当调用ping的时候，它优先选择从接口地址上配置的域名服务器，而在调用例子的时候，它优先查询的是/etc/resolve.conf配置的域名地址。</p>
-<p>2017年11月2日更新<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">经过仔细阅读文档和实际使用观察，确认了长久以来使用systemd-resolve的一个困惑。</div><div class="line">当在/etc/resolv.conf中配置一个vpn隧道的地址时候，当笔记本合上又开启时，systemd-resolve会验证这个地址的有效性，当vpn隧道地址不能正确获得的时候，它就会自动转向到从dhcp上获得的dns地址，从而导致域名解析混乱。</div><div class="line">所以解决这个问题的办法就是在wifi或者物理网口的配置界面上，把接收来自dhcp的dns选项关闭即可。</div></pre></td></tr></table></figure></p>
-
+<p>2017年11月2日更新</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">经过仔细阅读文档和实际使用观察，确认了长久以来使用systemd-resolve的一个困惑。</span><br><span class="line">当在/etc/resolv.conf中配置一个vpn隧道的地址时候，当笔记本合上又开启时，systemd-resolve会验证这个地址的有效性，当vpn隧道地址不能正确获得的时候，它就会自动转向到从dhcp上获得的dns地址，从而导致域名解析混乱。</span><br><span class="line">所以解决这个问题的办法就是在wifi或者物理网口的配置界面上，把接收来自dhcp的dns选项关闭即可。</span><br></pre></td></tr></table></figure>
         
         
         <p class="article-more-link">
@@ -391,8 +455,12 @@
 </header>
     <div class="article-content">
         
-        <p>随着ubuntu 17.10的发布，ubuntu终于告别了unity，全面启用gnome.<br>最头痛的莫过于系统托盘了，gnome的人不可理喻的认为系统托盘无用，官方去掉了对系统托盘的支持。幸好在gnome上有人开发KStatusNotifierItem/AppIndicator Support来恢复这个功能,然后为了为了习惯于在系统状态栏的右上角显示，再安装TopIcons插件。<br>Ubuntu 17.10据此做了一个完整的解决方案，即自己写了一个Ubuntu AppIndicators插件用来替代KStatusNotiifierItem和TopIcons。顺带提一下，它的Ubuntu Dock用来实现Unity传统的左侧Dock。<br>如果要确保Ubuntu 17.10的系统托盘能正常显示，则保证只需要安装官方的那个插件即可。<br>但是仅仅如此还不够，依然有很多应用无法显示系统托盘，原因在于，ubuntu将桌面环境变量声明为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">declare -x XDG_CURRENT_DESKTOP=&quot;ubuntu:GNOME&quot;</div></pre></td></tr></table></figure></p>
-<p>而之前很多应用，在识别系统环境的时候，识别的是”Unity”，导致系统托盘显示失败。根本上当然要改变应用软件才行，不过一个苟且的解决方案就是，在当前的系统环境下，强行声明：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">declare -x XDG_CURRENT_DESKTOP=&quot;Unity&quot;</div></pre></td></tr></table></figure></p>
+        <p>随着ubuntu 17.10的发布，ubuntu终于告别了unity，全面启用gnome.<br>最头痛的莫过于系统托盘了，gnome的人不可理喻的认为系统托盘无用，官方去掉了对系统托盘的支持。幸好在gnome上有人开发KStatusNotifierItem/AppIndicator Support来恢复这个功能,然后为了为了习惯于在系统状态栏的右上角显示，再安装TopIcons插件。<br>Ubuntu 17.10据此做了一个完整的解决方案，即自己写了一个Ubuntu AppIndicators插件用来替代KStatusNotiifierItem和TopIcons。顺带提一下，它的Ubuntu Dock用来实现Unity传统的左侧Dock。<br>如果要确保Ubuntu 17.10的系统托盘能正常显示，则保证只需要安装官方的那个插件即可。<br>但是仅仅如此还不够，依然有很多应用无法显示系统托盘，原因在于，ubuntu将桌面环境变量声明为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">declare -x XDG_CURRENT_DESKTOP=&quot;ubuntu:GNOME&quot;</span><br></pre></td></tr></table></figure>
+
+<p>而之前很多应用，在识别系统环境的时候，识别的是”Unity”，导致系统托盘显示失败。根本上当然要改变应用软件才行，不过一个苟且的解决方案就是，在当前的系统环境下，强行声明：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">declare -x XDG_CURRENT_DESKTOP=&quot;Unity&quot;</span><br></pre></td></tr></table></figure>
+
 <p>然后再启动应用，即可正常显示系统托盘。</p>
 <p>再顺带附送一句，如果用户自己安装的gnome session插件，安装后的目录在:<br>~/.local/share/gnome-shell/extensions。</p>
 
@@ -494,63 +562,13 @@
 </header>
     <div class="article-content">
         
-        <p>一个非常好的网站：<a href="https://www.threatcrowd.org" target="_blank" rel="external">https://www.threatcrowd.org</a><br>它至少有两个我认为很不错的功能：</p>
+        <p>一个非常好的网站：<a href="https://www.threatcrowd.org" target="_blank" rel="noopener">https://www.threatcrowd.org</a><br>它至少有两个我认为很不错的功能：</p>
 <ol>
 <li>它可以得到域名的解析历史</li>
 <li>它可以根据ip地址做反向dns查询，这个查询比大多数宣称有此功能的网站都要做的好</li>
 <li>它可以判定哪些网站是恶意网站</li>
 </ol>
-<p>其他类似的网站： <a href="https://www.malwares.com/" target="_blank" rel="external">https://www.malwares.com/</a></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/09/13/docker常用命令/" title="docker常用命令" itemprop="url">docker常用命令</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
-		
-  <p class="article-time">
-    <time datetime="2017-09-13T06:57:28.000Z" itemprop="datePublished"> Published 2017-09-13</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker exec -it dockername bash</div></pre></td></tr></table></figure>
+<p>其他类似的网站： <a href="https://www.malwares.com/" target="_blank" rel="noopener">https://www.malwares.com/</a></p>
 
         
         
@@ -583,7 +601,7 @@
 
 
   <nav id="page-nav" class="clearfix">
-    <a class="extend prev" rel="prev" href="/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/">Next<span></span></a>
+    <a class="extend prev" rel="prev" href="/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/3/">Next<span></span></a>
   </nav>
 
 </div>

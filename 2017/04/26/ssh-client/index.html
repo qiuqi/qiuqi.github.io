@@ -1,7 +1,7 @@
 
  <!DOCTYPE HTML>
 <html lang="zh_CN">
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
   
     <title>ssh client | 记</title>
@@ -11,37 +11,17 @@
     
 
     
-    <meta name="description" content="只用ipv6连接从ubuntu 17.04开始，发现当配置在config里面的ssh server，主动连接的时候，只解析ipv4地址，对于使用ipv6就讨厌了，所以增加
-1AddressFamily inet6
-
-定期包活，每隔60秒发一个保活包
-1ServerAliveInterval 60
-
-多个ssh连接，共用一个socket
-12ControlMaster autoControlPat">
+    <meta name="description" content="只用ipv6连接从ubuntu 17.04开始，发现当配置在config里面的ssh server，主动连接的时候，只解析ipv4地址，对于使用ipv6就讨厌了，所以增加 1AddressFamily inet6  定期包活，每隔60秒发一个保活包 1ServerAliveInterval 60  多个ssh连接，共用一个socket 12ControlMaster autoControlPat">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ssh client">
 <meta property="og:url" content="http://yoursite.com/2017/04/26/ssh-client/index.html">
 <meta property="og:site_name" content="记">
-<meta property="og:description" content="只用ipv6连接从ubuntu 17.04开始，发现当配置在config里面的ssh server，主动连接的时候，只解析ipv4地址，对于使用ipv6就讨厌了，所以增加
-1AddressFamily inet6
-
-定期包活，每隔60秒发一个保活包
-1ServerAliveInterval 60
-
-多个ssh连接，共用一个socket
-12ControlMaster autoControlPat">
+<meta property="og:description" content="只用ipv6连接从ubuntu 17.04开始，发现当配置在config里面的ssh server，主动连接的时候，只解析ipv4地址，对于使用ipv6就讨厌了，所以增加 1AddressFamily inet6  定期包活，每隔60秒发一个保活包 1ServerAliveInterval 60  多个ssh连接，共用一个socket 12ControlMaster autoControlPat">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:updated_time" content="2017-07-02T02:10:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ssh client">
-<meta name="twitter:description" content="只用ipv6连接从ubuntu 17.04开始，发现当配置在config里面的ssh server，主动连接的时候，只解析ipv4地址，对于使用ipv6就讨厌了，所以增加
-1AddressFamily inet6
-
-定期包活，每隔60秒发一个保活包
-1ServerAliveInterval 60
-
-多个ssh连接，共用一个socket
-12ControlMaster autoControlPat">
+<meta name="twitter:description" content="只用ipv6连接从ubuntu 17.04开始，发现当配置在config里面的ssh server，主动连接的时候，只解析ipv4地址，对于使用ipv6就讨厌了，所以增加 1AddressFamily inet6  定期包活，每隔60秒发一个保活包 1ServerAliveInterval 60  多个ssh连接，共用一个socket 12ControlMaster autoControlPat">
 
     
     
@@ -53,7 +33,7 @@
     
     <link rel="stylesheet" href="/css/style.css">
 </head>
-
+</html>
   <body>
     <header>
       
@@ -114,18 +94,19 @@
 		
 		<ol>
 <li><p>只用ipv6连接<br>从ubuntu 17.04开始，发现当配置在config里面的ssh server，主动连接的时候，只解析ipv4地址，对于使用ipv6就讨厌了，所以增加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AddressFamily inet6</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AddressFamily inet6</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>定期包活，每隔60秒发一个保活包</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ServerAliveInterval 60</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ServerAliveInterval 60</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>多个ssh连接，共用一个socket</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ControlMaster auto</div><div class="line">ControlPath ~/.ssh/master-%r%h:%p</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ControlMaster auto</span><br><span class="line">ControlPath ~/.ssh/master-%r%h:%p</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>使用ed25519作为密钥算法<br>ssh-keygen -t ed25519<br>会生成：id_ed25519和id_ed25519_pub<br>在IdentifyFile ~/.ssh/id_ed25519</p>
 </li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Host example</div><div class="line">    HostName example.ipv6.host</div><div class="line">    AddressFamily inet6</div><div class="line">    ServerAliveInterval 60</div><div class="line">    ControlMaster auto</div><div class="line">    ControlPath ~/.ssh/master-%r%h:%p</div><div class="line">    User name</div><div class="line">    Port 22</div><div class="line">    IdentityFile ~/.ssh/rsa_pub</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Host example</span><br><span class="line">    HostName example.ipv6.host</span><br><span class="line">    AddressFamily inet6</span><br><span class="line">    ServerAliveInterval 60</span><br><span class="line">    ControlMaster auto</span><br><span class="line">    ControlPath ~/.ssh/master-%r%h:%p</span><br><span class="line">    User name</span><br><span class="line">    Port 22</span><br><span class="line">    IdentityFile ~/.ssh/rsa_pub</span><br></pre></td></tr></table></figure>
+
   
 	</div>
 		<footer class="article-footer clearfix">

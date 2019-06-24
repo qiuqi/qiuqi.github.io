@@ -1,7 +1,7 @@
 
  <!DOCTYPE HTML>
 <html lang="zh_CN">
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
   
     <title>android adb shell下ping6的路由查找 | 记</title>
@@ -11,16 +11,17 @@
     
 
     
-    <meta name="description" content="android大约是在5.x开始，修改了系统底部的缺省路由表，导致当你从adb shell进去调试ipv6的时候，找不到合适的路由，显示network unreachable。调试过程充满各种盲猜和恶心过程…，最后确定了修正方案：12ip -6 rule add pref 31999 from all lookup mainip -6 route add default dev somedevic">
+    <meta name="description" content="android大约是在5.x开始，修改了系统底部的缺省路由表，导致当你从adb shell进去调试ipv6的时候，找不到合适的路由，显示network unreachable。调试过程充满各种盲猜和恶心过程…，最后确定了修正方案： 12ip -6 rule add pref 31999 from all lookup mainip -6 route add default dev somedevi">
 <meta property="og:type" content="article">
 <meta property="og:title" content="android adb shell下ping6的路由查找">
 <meta property="og:url" content="http://yoursite.com/2017/06/22/android-adb-shell下ping6的路由查找/index.html">
 <meta property="og:site_name" content="记">
-<meta property="og:description" content="android大约是在5.x开始，修改了系统底部的缺省路由表，导致当你从adb shell进去调试ipv6的时候，找不到合适的路由，显示network unreachable。调试过程充满各种盲猜和恶心过程…，最后确定了修正方案：12ip -6 rule add pref 31999 from all lookup mainip -6 route add default dev somedevic">
+<meta property="og:description" content="android大约是在5.x开始，修改了系统底部的缺省路由表，导致当你从adb shell进去调试ipv6的时候，找不到合适的路由，显示network unreachable。调试过程充满各种盲猜和恶心过程…，最后确定了修正方案： 12ip -6 rule add pref 31999 from all lookup mainip -6 route add default dev somedevi">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:updated_time" content="2017-06-22T09:50:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="android adb shell下ping6的路由查找">
-<meta name="twitter:description" content="android大约是在5.x开始，修改了系统底部的缺省路由表，导致当你从adb shell进去调试ipv6的时候，找不到合适的路由，显示network unreachable。调试过程充满各种盲猜和恶心过程…，最后确定了修正方案：12ip -6 rule add pref 31999 from all lookup mainip -6 route add default dev somedevic">
+<meta name="twitter:description" content="android大约是在5.x开始，修改了系统底部的缺省路由表，导致当你从adb shell进去调试ipv6的时候，找不到合适的路由，显示network unreachable。调试过程充满各种盲猜和恶心过程…，最后确定了修正方案： 12ip -6 rule add pref 31999 from all lookup mainip -6 route add default dev somedevi">
 
     
     
@@ -32,7 +33,7 @@
     
     <link rel="stylesheet" href="/css/style.css">
 </head>
-
+</html>
   <body>
     <header>
       
@@ -91,7 +92,9 @@
 		
 		</div>
 		
-		<p>android大约是在5.x开始，修改了系统底部的缺省路由表，导致当你从adb shell进去调试ipv6的时候，找不到合适的路由，显示network unreachable。<br>调试过程充满各种盲猜和恶心过程…，最后确定了修正方案：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ip -6 rule add pref 31999 from all lookup main</div><div class="line">ip -6 route add default dev somedevice table main</div></pre></td></tr></table></figure></p>
+		<p>android大约是在5.x开始，修改了系统底部的缺省路由表，导致当你从adb shell进去调试ipv6的时候，找不到合适的路由，显示network unreachable。<br>调试过程充满各种盲猜和恶心过程…，最后确定了修正方案：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ip -6 rule add pref 31999 from all lookup main</span><br><span class="line">ip -6 route add default dev somedevice table main</span><br></pre></td></tr></table></figure>
+
 <p>现在可以正常的ping6 ipv6地址了。<br>造成这个现象的根本原因在于，当你调用android本地ping6命令的时候，内部实现上设置了mark值，这个步骤被深深的隐藏在其中，折磨你的耐心。</p>
   
 	</div>

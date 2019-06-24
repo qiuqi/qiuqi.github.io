@@ -1,7 +1,7 @@
 
  <!DOCTYPE HTML>
 <html lang="zh_CN">
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
   
     <title>iptables dnat和redirect失效的原因 | 记</title>
@@ -11,19 +11,17 @@
     
 
     
-    <meta name="description" content="好久不用，老司机翻船了，如下命令：12iptables -t nat -A PREROUTING -p tcp --dport 443 -j REDIRECT --to-ports 1080iptables -t nat -A PREROUTING -p tcp --dport 443 -j DNAT --to-destination 127.0.0.1:1080
-运行ss-redir监听在127">
+    <meta name="description" content="好久不用，老司机翻船了，如下命令： 12iptables -t nat -A PREROUTING -p tcp --dport 443 -j REDIRECT --to-ports 1080iptables -t nat -A PREROUTING -p tcp --dport 443 -j DNAT --to-destination 127.0.0.1:1080  运行ss-redir监听在1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iptables dnat和redirect失效的原因">
 <meta property="og:url" content="http://yoursite.com/2017/06/01/iptables-dnat和redirect失效的原因/index.html">
 <meta property="og:site_name" content="记">
-<meta property="og:description" content="好久不用，老司机翻船了，如下命令：12iptables -t nat -A PREROUTING -p tcp --dport 443 -j REDIRECT --to-ports 1080iptables -t nat -A PREROUTING -p tcp --dport 443 -j DNAT --to-destination 127.0.0.1:1080
-运行ss-redir监听在127">
+<meta property="og:description" content="好久不用，老司机翻船了，如下命令： 12iptables -t nat -A PREROUTING -p tcp --dport 443 -j REDIRECT --to-ports 1080iptables -t nat -A PREROUTING -p tcp --dport 443 -j DNAT --to-destination 127.0.0.1:1080  运行ss-redir监听在1">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:updated_time" content="2017-06-01T06:19:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iptables dnat和redirect失效的原因">
-<meta name="twitter:description" content="好久不用，老司机翻船了，如下命令：12iptables -t nat -A PREROUTING -p tcp --dport 443 -j REDIRECT --to-ports 1080iptables -t nat -A PREROUTING -p tcp --dport 443 -j DNAT --to-destination 127.0.0.1:1080
-运行ss-redir监听在127">
+<meta name="twitter:description" content="好久不用，老司机翻船了，如下命令： 12iptables -t nat -A PREROUTING -p tcp --dport 443 -j REDIRECT --to-ports 1080iptables -t nat -A PREROUTING -p tcp --dport 443 -j DNAT --to-destination 127.0.0.1:1080  运行ss-redir监听在1">
 
     
     
@@ -35,7 +33,7 @@
     
     <link rel="stylesheet" href="/css/style.css">
 </head>
-
+</html>
   <body>
     <header>
       
@@ -94,7 +92,9 @@
 		
 		</div>
 		
-		<p>好久不用，老司机翻船了，如下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">iptables -t nat -A PREROUTING -p tcp --dport 443 -j REDIRECT --to-ports 1080</div><div class="line">iptables -t nat -A PREROUTING -p tcp --dport 443 -j DNAT --to-destination 127.0.0.1:1080</div></pre></td></tr></table></figure></p>
+		<p>好久不用，老司机翻船了，如下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iptables -t nat -A PREROUTING -p tcp --dport 443 -j REDIRECT --to-ports 1080</span><br><span class="line">iptables -t nat -A PREROUTING -p tcp --dport 443 -j DNAT --to-destination 127.0.0.1:1080</span><br></pre></td></tr></table></figure>
+
 <p>运行ss-redir监听在127.0.0.1:1080端口上，发现虽然规则被匹配，但是始终没有包进入到ss-redir中。<br>失效的原因在于，对于redirect来说，只能在同一个接口上转发，因此ss-redir必须使用进来的包相同的接口上的ip地址才能收到包。<br>第二条命令失效的原因在于dnat对lo设备无效，因此ss-redir至少要使用某个物理网卡的地址，必redirect限制少一条在于，dnat可以用其他网卡上的地址，而redirect必须使用相同网卡上的地址。<br>折腾了半天！</p>
   
 	</div>

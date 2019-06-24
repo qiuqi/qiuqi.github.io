@@ -1,7 +1,7 @@
 
  <!DOCTYPE HTML>
 <html lang="zh_CN">
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
   
     <title>使用nftables | 记</title>
@@ -11,19 +11,17 @@
     
 
     
-    <meta name="description" content="https://wiki.nftables.org/wiki-nftables/index.php/Quick_reference-nftables_in_10_minutesapt-get install nftables   安装systemctl enable nftables  自动启动应该开始习惯利用nftable来作为系统防火墙，从主机防护开始
-12345678910111213141">
+    <meta name="description" content="https://wiki.nftables.org/wiki-nftables/index.php/Quick_reference-nftables_in_10_minutesapt-get install nftables   安装systemctl enable nftables  自动启动应该开始习惯利用nftable来作为系统防火墙，从主机防护开始 12345678910111213141">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用nftables">
 <meta property="og:url" content="http://yoursite.com/2017/04/07/使用nftables/index.html">
 <meta property="og:site_name" content="记">
-<meta property="og:description" content="https://wiki.nftables.org/wiki-nftables/index.php/Quick_reference-nftables_in_10_minutesapt-get install nftables   安装systemctl enable nftables  自动启动应该开始习惯利用nftable来作为系统防火墙，从主机防护开始
-12345678910111213141">
+<meta property="og:description" content="https://wiki.nftables.org/wiki-nftables/index.php/Quick_reference-nftables_in_10_minutesapt-get install nftables   安装systemctl enable nftables  自动启动应该开始习惯利用nftable来作为系统防火墙，从主机防护开始 12345678910111213141">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:updated_time" content="2017-04-12T02:12:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用nftables">
-<meta name="twitter:description" content="https://wiki.nftables.org/wiki-nftables/index.php/Quick_reference-nftables_in_10_minutesapt-get install nftables   安装systemctl enable nftables  自动启动应该开始习惯利用nftable来作为系统防火墙，从主机防护开始
-12345678910111213141">
+<meta name="twitter:description" content="https://wiki.nftables.org/wiki-nftables/index.php/Quick_reference-nftables_in_10_minutesapt-get install nftables   安装systemctl enable nftables  自动启动应该开始习惯利用nftable来作为系统防火墙，从主机防护开始 12345678910111213141">
 
     
     
@@ -35,7 +33,7 @@
     
     <link rel="stylesheet" href="/css/style.css">
 </head>
-
+</html>
   <body>
     <header>
       
@@ -94,8 +92,8 @@
 		
 		</div>
 		
-		<p><a href="https://wiki.nftables.org/wiki-nftables/index.php/Quick_reference-nftables_in_10_minutes" target="_blank" rel="external">https://wiki.nftables.org/wiki-nftables/index.php/Quick_reference-nftables_in_10_minutes</a><br>apt-get install nftables   安装<br>systemctl enable nftables  自动启动<br>应该开始习惯利用nftable来作为系统防火墙，从主机防护开始</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">cat nftables.conf </div><div class="line">#!/usr/sbin/nft -f</div><div class="line"></div><div class="line">flush ruleset</div><div class="line"></div><div class="line">define sh_gateway = 2.2.2.2</div><div class="line">define test = 1.1.1.1</div><div class="line">define allowips=&#123;$sh_gateway, $test&#125;</div><div class="line"></div><div class="line">table firewall &#123;</div><div class="line">    chain input &#123;</div><div class="line">        type filter hook input priority 0; policy drop;</div><div class="line">        iif lo accept</div><div class="line">        ct state established,related accept</div><div class="line">        icmp type echo-request accept</div><div class="line">        tcp dport &#123;22,443&#125; accept</div><div class="line">        ip saddr $allowips accept</div><div class="line">        counter drop</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">table ip6 firewall &#123;</div><div class="line">    chain input &#123;</div><div class="line">        type filter hook input priority 0; policy drop;</div><div class="line">        iif lo accept</div><div class="line">        ct state established, related accept</div><div class="line">        ct state invalid drop</div><div class="line">        iifname lo accept</div><div class="line">		ip6 nexthdr icmpv6 icmpv6 type &#123; nd-neighbor-solicit,  nd-router-advert, nd-neighbor-advert &#125; accept</div><div class="line">        tcp dport &#123;ssh&#125; accept</div><div class="line">        counter drop</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>  
+		<p><a href="https://wiki.nftables.org/wiki-nftables/index.php/Quick_reference-nftables_in_10_minutes" target="_blank" rel="noopener">https://wiki.nftables.org/wiki-nftables/index.php/Quick_reference-nftables_in_10_minutes</a><br>apt-get install nftables   安装<br>systemctl enable nftables  自动启动<br>应该开始习惯利用nftable来作为系统防火墙，从主机防护开始</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">cat nftables.conf </span><br><span class="line">#!/usr/sbin/nft -f</span><br><span class="line"></span><br><span class="line">flush ruleset</span><br><span class="line"></span><br><span class="line">define sh_gateway = 2.2.2.2</span><br><span class="line">define test = 1.1.1.1</span><br><span class="line">define allowips=&#123;$sh_gateway, $test&#125;</span><br><span class="line"></span><br><span class="line">table firewall &#123;</span><br><span class="line">    chain input &#123;</span><br><span class="line">        type filter hook input priority 0; policy drop;</span><br><span class="line">        iif lo accept</span><br><span class="line">        ct state established,related accept</span><br><span class="line">        icmp type echo-request accept</span><br><span class="line">        tcp dport &#123;22,443&#125; accept</span><br><span class="line">        ip saddr $allowips accept</span><br><span class="line">        counter drop</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">table ip6 firewall &#123;</span><br><span class="line">    chain input &#123;</span><br><span class="line">        type filter hook input priority 0; policy drop;</span><br><span class="line">        iif lo accept</span><br><span class="line">        ct state established, related accept</span><br><span class="line">        ct state invalid drop</span><br><span class="line">        iifname lo accept</span><br><span class="line">		ip6 nexthdr icmpv6 icmpv6 type &#123; nd-neighbor-solicit,  nd-router-advert, nd-neighbor-advert &#125; accept</span><br><span class="line">        tcp dport &#123;ssh&#125; accept</span><br><span class="line">        counter drop</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">

@@ -1,7 +1,7 @@
 
  <!DOCTYPE HTML>
 <html lang="zh_CN">
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
   
     <title>记</title>
@@ -15,6 +15,7 @@
 <meta property="og:title" content="记">
 <meta property="og:url" content="http://yoursite.com/index.html">
 <meta property="og:site_name" content="记">
+<meta property="og:locale" content="zh_CN">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="记">
 
@@ -28,7 +29,7 @@
     
     <link rel="stylesheet" href="/css/style.css">
 </head>
-
+</html>
   <body>
     <header>
       
@@ -69,6 +70,56 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2019/06/24/又回来了/" title="又回来了" itemprop="url">又回来了</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
+		
+  <p class="article-time">
+    <time datetime="2019-06-24T14:59:30.000Z" itemprop="datePublished"> Published 2019-06-24</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>商业、技术、生活、兴趣，一样都不能少。</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2018/05/30/minio/" title="minio" itemprop="url">minio</a>
   </h1>
   <p class="article-author">By
@@ -82,7 +133,7 @@
 </header>
     <div class="article-content">
         
-        <p>将s3兼容的存储服务器变成本地文件系统<br><a href="https://github.com/kahing/goofys" target="_blank" rel="external">https://github.com/kahing/goofys</a></p>
+        <p>将s3兼容的存储服务器变成本地文件系统<br><a href="https://github.com/kahing/goofys" target="_blank" rel="noopener">https://github.com/kahing/goofys</a></p>
 
         
         
@@ -185,7 +236,7 @@
 </header>
     <div class="article-content">
         
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">在ubuntu 17.10中用于使用了wayland，所以导致禁用笔记本键盘的方式和之前发生了变化：</div><div class="line">老方法：</div><div class="line">----------------------------------------------------------------------</div><div class="line">禁用：</div><div class="line">#!/usr/bin/env bash</div><div class="line">AAA=`xinput |grep &quot;AT Translated&quot;`</div><div class="line">DeviceId=`echo $AAA |awk -F &quot; &quot; &apos;&#123;print $7&#125;&apos;|awk -F &quot;=&quot; &apos;&#123;print $2&#125;&apos;`</div><div class="line">xinput set-int-prop $DeviceId &quot;Device Enabled&quot; 8 0</div><div class="line">恢复：</div><div class="line">#!/usr/bin/env bash</div><div class="line">AAA=`xinput |grep &quot;AT Translated&quot;`</div><div class="line">DeviceId=`echo $AAA |awk -F &quot; &quot; &apos;&#123;print $7&#125;&apos;|awk -F &quot;=&quot; &apos;&#123;print $2&#125;&apos;`</div><div class="line">xinput set-int-prop $DeviceId &quot;Device Enabled&quot; 8 1 </div><div class="line"></div><div class="line">新方法：</div><div class="line">用命令列出所有设备：</div><div class="line">sudo libinput list-devices</div><div class="line"></div><div class="line">在列出的设备里面找出内置键盘设备</div><div class="line">Device:           AT Translated Set 2 keyboard</div><div class="line">Kernel:           /dev/input/event2</div><div class="line">Group:            8</div><div class="line">Seat:             seat0, default</div><div class="line"></div><div class="line">利用evtest命令的特性，将内置键盘的输出屏蔽</div><div class="line">sudo evtest --grab /dev/input/event2 &amp;</div><div class="line"></div><div class="line">虽然方法比较苟且，暂时也还是可以用的</div></pre></td></tr></table></figure>
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">在ubuntu 17.10中用于使用了wayland，所以导致禁用笔记本键盘的方式和之前发生了变化：</span><br><span class="line">老方法：</span><br><span class="line">----------------------------------------------------------------------</span><br><span class="line">禁用：</span><br><span class="line">#!/usr/bin/env bash</span><br><span class="line">AAA=`xinput |grep &quot;AT Translated&quot;`</span><br><span class="line">DeviceId=`echo $AAA |awk -F &quot; &quot; &apos;&#123;print $7&#125;&apos;|awk -F &quot;=&quot; &apos;&#123;print $2&#125;&apos;`</span><br><span class="line">xinput set-int-prop $DeviceId &quot;Device Enabled&quot; 8 0</span><br><span class="line">恢复：</span><br><span class="line">#!/usr/bin/env bash</span><br><span class="line">AAA=`xinput |grep &quot;AT Translated&quot;`</span><br><span class="line">DeviceId=`echo $AAA |awk -F &quot; &quot; &apos;&#123;print $7&#125;&apos;|awk -F &quot;=&quot; &apos;&#123;print $2&#125;&apos;`</span><br><span class="line">xinput set-int-prop $DeviceId &quot;Device Enabled&quot; 8 1 </span><br><span class="line"></span><br><span class="line">新方法：</span><br><span class="line">用命令列出所有设备：</span><br><span class="line">sudo libinput list-devices</span><br><span class="line"></span><br><span class="line">在列出的设备里面找出内置键盘设备</span><br><span class="line">Device:           AT Translated Set 2 keyboard</span><br><span class="line">Kernel:           /dev/input/event2</span><br><span class="line">Group:            8</span><br><span class="line">Seat:             seat0, default</span><br><span class="line"></span><br><span class="line">利用evtest命令的特性，将内置键盘的输出屏蔽</span><br><span class="line">sudo evtest --grab /dev/input/event2 &amp;</span><br><span class="line"></span><br><span class="line">虽然方法比较苟且，暂时也还是可以用的</span><br></pre></td></tr></table></figure>
         
         
         <p class="article-more-link">
@@ -234,7 +285,7 @@
 </header>
     <div class="article-content">
         
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">r: 已经删除</div><div class="line">c: 配置文件</div><div class="line">所以rc状态就是已经删除但是剩余配置文件的包。</div><div class="line">彻底清除办法：、</div><div class="line">dpkg --purge `dpkg --get-selections | grep deinstall | cut -f1`</div></pre></td></tr></table></figure>
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">r: 已经删除</span><br><span class="line">c: 配置文件</span><br><span class="line">所以rc状态就是已经删除但是剩余配置文件的包。</span><br><span class="line">彻底清除办法：、</span><br><span class="line">dpkg --purge `dpkg --get-selections | grep deinstall | cut -f1`</span><br></pre></td></tr></table></figure>
         
         
         <p class="article-more-link">
@@ -334,13 +385,16 @@
     <div class="article-content">
         
         <ul>
-<li><a href="https://www.archain.org/" target="_blank" rel="external">https://www.archain.org/</a></li>
-<li>这个项目的想法是基于区块链构建一个分布式存储系统，然后通过爬虫把互联网的网页备份下来，从而形成不可抵赖的证据，这样可以很清晰的可以看到各种网站有可能受到各种原因的更改需求导致的变化。</li>
+<li><p><a href="https://www.archain.org/" target="_blank" rel="noopener">https://www.archain.org/</a></p>
+</li>
+<li><p>这个项目的想法是基于区块链构建一个分布式存储系统，然后通过爬虫把互联网的网页备份下来，从而形成不可抵赖的证据，这样可以很清晰的可以看到各种网站有可能受到各种原因的更改需求导致的变化。</p>
+</li>
 <li><p>在youtube上看到采访这个创始人的视频然后看这个项目，年轻人真是有朝气，敢于开启这么前途渺茫的项目，仅仅为理想奋斗，希望他们能走得更远。</p>
 </li>
-<li><p><a href="https://m.baidu.com/mip/c/m.chinaz.com/mip/article/845730.shtml" target="_blank" rel="external">https://m.baidu.com/mip/c/m.chinaz.com/mip/article/845730.shtml</a></p>
+<li><p><a href="https://m.baidu.com/mip/c/m.chinaz.com/mip/article/845730.shtml" target="_blank" rel="noopener">https://m.baidu.com/mip/c/m.chinaz.com/mip/article/845730.shtml</a></p>
 </li>
-<li>对标一个我们国内的基于区块链的也是年轻人的创新项目，我没有找到官网，只是看到一堆的媒体宣传，美女创始人的定妆照，以及一堆投资人的背书。我把他们想象为95和00后的社交概念，至于基于区块链的个人特征，我实在难以想象这中间的必然逻辑，更像是某种借力概念的炒作。希望年轻一代心目中的社交网络，能体现出创新的亮点。</li>
+<li><p>对标一个我们国内的基于区块链的也是年轻人的创新项目，我没有找到官网，只是看到一堆的媒体宣传，美女创始人的定妆照，以及一堆投资人的背书。我把他们想象为95和00后的社交概念，至于基于区块链的个人特征，我实在难以想象这中间的必然逻辑，更像是某种借力概念的炒作。希望年轻一代心目中的社交网络，能体现出创新的亮点。</p>
+</li>
 </ul>
 
         
@@ -392,8 +446,8 @@
     <div class="article-content">
         
         <ul>
-<li>官网：<a href="https://grpc.io/" target="_blank" rel="external">https://grpc.io/</a></li>
-<li>erlang的实现库：<a href="https://github.com/Bluehouse-Technology/grpc" target="_blank" rel="external">https://github.com/Bluehouse-Technology/grpc</a></li>
+<li>官网：<a href="https://grpc.io/" target="_blank" rel="noopener">https://grpc.io/</a></li>
+<li>erlang的实现库：<a href="https://github.com/Bluehouse-Technology/grpc" target="_blank" rel="noopener">https://github.com/Bluehouse-Technology/grpc</a></li>
 <li>我犹豫使用它的原因是因为两层编译过程，总觉得这样的体系不够干净，慢慢观察吧</li>
 </ul>
 
@@ -445,7 +499,7 @@
 </header>
     <div class="article-content">
         
-        <p>论文：<a href="https://eprint.iacr.org/2017/713" target="_blank" rel="external">https://eprint.iacr.org/2017/713</a><br>项目：<a href="https://github.com/facebookresearch/asynchronousratchetingtree" target="_blank" rel="external">https://github.com/facebookresearch/asynchronousratchetingtree</a></p>
+        <p>论文：<a href="https://eprint.iacr.org/2017/713" target="_blank" rel="noopener">https://eprint.iacr.org/2017/713</a><br>项目：<a href="https://github.com/facebookresearch/asynchronousratchetingtree" target="_blank" rel="noopener">https://github.com/facebookresearch/asynchronousratchetingtree</a></p>
 
         
         
@@ -503,75 +557,12 @@
 <li>对于个人用户来说，只能注册订阅号，有比较大的限制，最重要的应该是不能提供支付功能</li>
 <li>对于企业用户来说，必须要完成各种认证，才能享有最大的开发权限，每年刷新一次300元</li>
 </ul>
-<ol>
+<ol start="2">
 <li>微信JS-SDK说明文档</li>
 </ol>
 <ul>
-<li><a href="http://qydev.weixin.qq.com/wiki/index.php?title=%E5%BE%AE%E4%BF%A1JS-SDK%E6%8E%A5%E5%8F%A3" target="_blank" rel="external">http://qydev.weixin.qq.com/wiki/index.php?title=%E5%BE%AE%E4%BF%A1JS-SDK%E6%8E%A5%E5%8F%A3</a></li>
+<li><a href="http://qydev.weixin.qq.com/wiki/index.php?title=%E5%BE%AE%E4%BF%A1JS-SDK%E6%8E%A5%E5%8F%A3" target="_blank" rel="noopener">http://qydev.weixin.qq.com/wiki/index.php?title=%E5%BE%AE%E4%BF%A1JS-SDK%E6%8E%A5%E5%8F%A3</a></li>
 <li>决定首先解决通过微信分享某个网址的时候的的分享格式问题</li>
-</ul>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2018/01/29/英文词组分析工具/" title="英文词组分析工具" itemprop="url">英文词组分析工具</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
-		
-  <p class="article-time">
-    <time datetime="2018-01-29T09:34:18.000Z" itemprop="datePublished"> Published 2018-01-29</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <ol>
-<li>将pdf转成txt文本</li>
-</ol>
-<ul>
-<li><a href="https://github.com/pdfminer/pdfminer.six" target="_blank" rel="external">https://github.com/pdfminer/pdfminer.six</a></li>
-<li>pdf2txt test.pdf &gt;test.txt</li>
-</ul>
-<ol>
-<li>统计txt中的单次词频</li>
-</ol>
-<ul>
-<li><a href="https://github.com/Enaunimes/freeq.git" target="_blank" rel="external">https://github.com/Enaunimes/freeq.git</a></li>
-<li>freeq.py -i test.txt -o test</li>
 </ul>
 
         
@@ -605,7 +596,7 @@
 
 
   <nav id="page-nav" class="clearfix">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
   </nav>
 
 </div>

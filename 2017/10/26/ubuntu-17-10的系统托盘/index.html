@@ -1,7 +1,7 @@
 
  <!DOCTYPE HTML>
 <html lang="zh_CN">
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
   
     <title>ubuntu 17.10的系统托盘 | 记</title>
@@ -17,6 +17,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/10/26/ubuntu-17-10的系统托盘/index.html">
 <meta property="og:site_name" content="记">
 <meta property="og:description" content="随着ubuntu 17.10的发布，ubuntu终于告别了unity，全面启用gnome.最头痛的莫过于系统托盘了，gnome的人不可理喻的认为系统托盘无用，官方去掉了对系统托盘的支持。幸好在gnome上有人开发KStatusNotifierItem/AppIndicator Support来恢复这个功能,然后为了为了习惯于在系统状态栏的右上角显示，再安装TopIcons插件。Ubuntu 17.">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:updated_time" content="2017-10-26T06:27:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ubuntu 17.10的系统托盘">
@@ -32,7 +33,7 @@
     
     <link rel="stylesheet" href="/css/style.css">
 </head>
-
+</html>
   <body>
     <header>
       
@@ -91,8 +92,12 @@
 		
 		</div>
 		
-		<p>随着ubuntu 17.10的发布，ubuntu终于告别了unity，全面启用gnome.<br>最头痛的莫过于系统托盘了，gnome的人不可理喻的认为系统托盘无用，官方去掉了对系统托盘的支持。幸好在gnome上有人开发KStatusNotifierItem/AppIndicator Support来恢复这个功能,然后为了为了习惯于在系统状态栏的右上角显示，再安装TopIcons插件。<br>Ubuntu 17.10据此做了一个完整的解决方案，即自己写了一个Ubuntu AppIndicators插件用来替代KStatusNotiifierItem和TopIcons。顺带提一下，它的Ubuntu Dock用来实现Unity传统的左侧Dock。<br>如果要确保Ubuntu 17.10的系统托盘能正常显示，则保证只需要安装官方的那个插件即可。<br>但是仅仅如此还不够，依然有很多应用无法显示系统托盘，原因在于，ubuntu将桌面环境变量声明为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">declare -x XDG_CURRENT_DESKTOP=&quot;ubuntu:GNOME&quot;</div></pre></td></tr></table></figure></p>
-<p>而之前很多应用，在识别系统环境的时候，识别的是”Unity”，导致系统托盘显示失败。根本上当然要改变应用软件才行，不过一个苟且的解决方案就是，在当前的系统环境下，强行声明：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">declare -x XDG_CURRENT_DESKTOP=&quot;Unity&quot;</div></pre></td></tr></table></figure></p>
+		<p>随着ubuntu 17.10的发布，ubuntu终于告别了unity，全面启用gnome.<br>最头痛的莫过于系统托盘了，gnome的人不可理喻的认为系统托盘无用，官方去掉了对系统托盘的支持。幸好在gnome上有人开发KStatusNotifierItem/AppIndicator Support来恢复这个功能,然后为了为了习惯于在系统状态栏的右上角显示，再安装TopIcons插件。<br>Ubuntu 17.10据此做了一个完整的解决方案，即自己写了一个Ubuntu AppIndicators插件用来替代KStatusNotiifierItem和TopIcons。顺带提一下，它的Ubuntu Dock用来实现Unity传统的左侧Dock。<br>如果要确保Ubuntu 17.10的系统托盘能正常显示，则保证只需要安装官方的那个插件即可。<br>但是仅仅如此还不够，依然有很多应用无法显示系统托盘，原因在于，ubuntu将桌面环境变量声明为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">declare -x XDG_CURRENT_DESKTOP=&quot;ubuntu:GNOME&quot;</span><br></pre></td></tr></table></figure>
+
+<p>而之前很多应用，在识别系统环境的时候，识别的是”Unity”，导致系统托盘显示失败。根本上当然要改变应用软件才行，不过一个苟且的解决方案就是，在当前的系统环境下，强行声明：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">declare -x XDG_CURRENT_DESKTOP=&quot;Unity&quot;</span><br></pre></td></tr></table></figure>
+
 <p>然后再启动应用，即可正常显示系统托盘。</p>
 <p>再顺带附送一句，如果用户自己安装的gnome session插件，安装后的目录在:<br>~/.local/share/gnome-shell/extensions。</p>
   

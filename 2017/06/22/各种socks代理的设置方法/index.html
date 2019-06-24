@@ -1,7 +1,7 @@
 
  <!DOCTYPE HTML>
 <html lang="zh_CN">
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
   
     <title>各种socks代理的设置方法 | 记</title>
@@ -11,22 +11,17 @@
     
 
     
-    <meta name="description" content="git12git config --global http.proxy &amp;apos;socks5://127.0.0.1:1080&amp;apos;git config --global https.proxy &amp;apos;socks5://127.0.0.1:1080&amp;apos;
-sbt1sbt  -DsocksProxyHost=127.0.0.1 DsocksProxyPort=1080
-npmn">
+    <meta name="description" content="git 12git config --global http.proxy &amp;apos;socks5://127.0.0.1:1080&amp;apos;git config --global https.proxy &amp;apos;socks5://127.0.0.1:1080&amp;apos;  sbt 1sbt  -DsocksProxyHost=127.0.0.1 DsocksProxyPort=1080">
 <meta property="og:type" content="article">
 <meta property="og:title" content="各种socks代理的设置方法">
 <meta property="og:url" content="http://yoursite.com/2017/06/22/各种socks代理的设置方法/index.html">
 <meta property="og:site_name" content="记">
-<meta property="og:description" content="git12git config --global http.proxy &amp;apos;socks5://127.0.0.1:1080&amp;apos;git config --global https.proxy &amp;apos;socks5://127.0.0.1:1080&amp;apos;
-sbt1sbt  -DsocksProxyHost=127.0.0.1 DsocksProxyPort=1080
-npmn">
+<meta property="og:description" content="git 12git config --global http.proxy &amp;apos;socks5://127.0.0.1:1080&amp;apos;git config --global https.proxy &amp;apos;socks5://127.0.0.1:1080&amp;apos;  sbt 1sbt  -DsocksProxyHost=127.0.0.1 DsocksProxyPort=1080">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:updated_time" content="2017-06-22T15:58:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="各种socks代理的设置方法">
-<meta name="twitter:description" content="git12git config --global http.proxy &amp;apos;socks5://127.0.0.1:1080&amp;apos;git config --global https.proxy &amp;apos;socks5://127.0.0.1:1080&amp;apos;
-sbt1sbt  -DsocksProxyHost=127.0.0.1 DsocksProxyPort=1080
-npmn">
+<meta name="twitter:description" content="git 12git config --global http.proxy &amp;apos;socks5://127.0.0.1:1080&amp;apos;git config --global https.proxy &amp;apos;socks5://127.0.0.1:1080&amp;apos;  sbt 1sbt  -DsocksProxyHost=127.0.0.1 DsocksProxyPort=1080">
 
     
     
@@ -38,7 +33,7 @@ npmn">
     
     <link rel="stylesheet" href="/css/style.css">
 </head>
-
+</html>
   <body>
     <header>
       
@@ -97,9 +92,15 @@ npmn">
 		
 		</div>
 		
-		<p>git<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global http.proxy &apos;socks5://127.0.0.1:1080&apos;</div><div class="line">git config --global https.proxy &apos;socks5://127.0.0.1:1080&apos;</div></pre></td></tr></table></figure></p>
-<p>sbt<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sbt  -DsocksProxyHost=127.0.0.1 DsocksProxyPort=1080</div></pre></td></tr></table></figure></p>
-<p>npm<br>npm是先通过neesocks把socks5转成http proxy<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">npm config set http http://127.0.0.1:1081</div><div class="line">npm config set https-proxy http://127.0.0.1:1081</div><div class="line">DEBUG=proxy kneesocks 1081 1080</div></pre></td></tr></table></figure></p>
+		<p>git</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.proxy &apos;socks5://127.0.0.1:1080&apos;</span><br><span class="line">git config --global https.proxy &apos;socks5://127.0.0.1:1080&apos;</span><br></pre></td></tr></table></figure>
+
+<p>sbt</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sbt  -DsocksProxyHost=127.0.0.1 DsocksProxyPort=1080</span><br></pre></td></tr></table></figure>
+
+<p>npm<br>npm是先通过neesocks把socks5转成http proxy</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm config set http http://127.0.0.1:1081</span><br><span class="line">npm config set https-proxy http://127.0.0.1:1081</span><br><span class="line">DEBUG=proxy kneesocks 1081 1080</span><br></pre></td></tr></table></figure>
+
   
 	</div>
 		<footer class="article-footer clearfix">

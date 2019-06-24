@@ -1,7 +1,7 @@
 
  <!DOCTYPE HTML>
 <html lang="zh_CN">
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
   
     <title>针对lynis检查以后的安全改进建议 | 记</title>
@@ -11,25 +11,17 @@
     
 
     
-    <meta name="description" content="1、安装基于pam的密码检测模块apt-get install libpam-pwquality
-2、在/etc/login.defs里面设置密码的最小和最长时间minimum和maximum在ubuntu下，缺省的PASS_MAX_DAYS 99999，缺省的PASS_MIN_DAYS 0
-3、修改/etc/login.defs里面umask的值为027，缺省为022
-4、/tmp和/var采用">
+    <meta name="description" content="1、安装基于pam的密码检测模块apt-get install libpam-pwquality 2、在/etc/login.defs里面设置密码的最小和最长时间minimum和maximum在ubuntu下，缺省的PASS_MAX_DAYS 99999，缺省的PASS_MIN_DAYS 0 3、修改/etc/login.defs里面umask的值为027，缺省为022 4、/tmp和/var采用">
 <meta property="og:type" content="article">
 <meta property="og:title" content="针对lynis检查以后的安全改进建议">
 <meta property="og:url" content="http://yoursite.com/2017/03/02/针对lynis检查以后的安全改进建议/index.html">
 <meta property="og:site_name" content="记">
-<meta property="og:description" content="1、安装基于pam的密码检测模块apt-get install libpam-pwquality
-2、在/etc/login.defs里面设置密码的最小和最长时间minimum和maximum在ubuntu下，缺省的PASS_MAX_DAYS 99999，缺省的PASS_MIN_DAYS 0
-3、修改/etc/login.defs里面umask的值为027，缺省为022
-4、/tmp和/var采用">
+<meta property="og:description" content="1、安装基于pam的密码检测模块apt-get install libpam-pwquality 2、在/etc/login.defs里面设置密码的最小和最长时间minimum和maximum在ubuntu下，缺省的PASS_MAX_DAYS 99999，缺省的PASS_MIN_DAYS 0 3、修改/etc/login.defs里面umask的值为027，缺省为022 4、/tmp和/var采用">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:updated_time" content="2017-03-02T06:21:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="针对lynis检查以后的安全改进建议">
-<meta name="twitter:description" content="1、安装基于pam的密码检测模块apt-get install libpam-pwquality
-2、在/etc/login.defs里面设置密码的最小和最长时间minimum和maximum在ubuntu下，缺省的PASS_MAX_DAYS 99999，缺省的PASS_MIN_DAYS 0
-3、修改/etc/login.defs里面umask的值为027，缺省为022
-4、/tmp和/var采用">
+<meta name="twitter:description" content="1、安装基于pam的密码检测模块apt-get install libpam-pwquality 2、在/etc/login.defs里面设置密码的最小和最长时间minimum和maximum在ubuntu下，缺省的PASS_MAX_DAYS 99999，缺省的PASS_MIN_DAYS 0 3、修改/etc/login.defs里面umask的值为027，缺省为022 4、/tmp和/var采用">
 
     
     
@@ -41,7 +33,7 @@
     
     <link rel="stylesheet" href="/css/style.css">
 </head>
-
+</html>
   <body>
     <header>
       
@@ -104,7 +96,7 @@
 <p>2、在/etc/login.defs里面设置密码的最小和最长时间<br>minimum和maximum<br>在ubuntu下，缺省的PASS_MAX_DAYS 99999，缺省的PASS_MIN_DAYS 0</p>
 <p>3、修改/etc/login.defs里面umask的值为027，缺省为022</p>
 <p>4、/tmp和/var采用独立分区，以防止这些地方无序增长的空间要求，影响整体系统</p>
-<p>5、缺省关闭对usb存储设备的支持<br><a href="https://linux-audit.com/kernel-hardening-disable-and-blacklist-linux-modules/" target="_blank" rel="external">https://linux-audit.com/kernel-hardening-disable-and-blacklist-linux-modules/</a><br>利用卸载内核模块的办法进行管理</p>
+<p>5、缺省关闭对usb存储设备的支持<br><a href="https://linux-audit.com/kernel-hardening-disable-and-blacklist-linux-modules/" target="_blank" rel="noopener">https://linux-audit.com/kernel-hardening-disable-and-blacklist-linux-modules/</a><br>利用卸载内核模块的办法进行管理</p>
 <p>6、安装debsums用来验证安装包的正确性</p>
 <p>7、安装apt-show-versions用来看软件是否安装到最新版本</p>
 <p>8、安装arpwatch或者arpon来监控arp的变化</p>
