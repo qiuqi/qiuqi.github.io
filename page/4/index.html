@@ -444,7 +444,8 @@
 <p>npm<br>npm是先通过neesocks把socks5转成http proxy</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm config set http http://127.0.0.1:1081</span><br><span class="line">npm config set https-proxy http://127.0.0.1:1081</span><br><span class="line">DEBUG=proxy kneesocks 1081 1080</span><br></pre></td></tr></table></figure>
 
-
+<p>socks5转http</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">apt install privoxy</span><br><span class="line">vi /etc/privoxy/config</span><br><span class="line">增加一行：</span><br><span class="line">forward-socks5   /    socks.domain:1080  .</span><br></pre></td></tr></table></figure>
         
         
         <p class="article-more-link">
