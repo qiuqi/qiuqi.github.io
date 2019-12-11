@@ -70,6 +70,112 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2017/06/22/android-adb-shell下ping6的路由查找/" title="android adb shell下ping6的路由查找" itemprop="url">android adb shell下ping6的路由查找</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
+		
+  <p class="article-time">
+    <time datetime="2017-06-22T09:40:41.000Z" itemprop="datePublished"> Published 2017-06-22</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>android大约是在5.x开始，修改了系统底部的缺省路由表，导致当你从adb shell进去调试ipv6的时候，找不到合适的路由，显示network unreachable。<br>调试过程充满各种盲猜和恶心过程…，最后确定了修正方案：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ip -6 rule add pref 31999 from all lookup main</span><br><span class="line">ip -6 route add default dev somedevice table main</span><br></pre></td></tr></table></figure>
+
+<p>现在可以正常的ping6 ipv6地址了。<br>造成这个现象的根本原因在于，当你调用android本地ping6命令的时候，内部实现上设置了mark值，这个步骤被深深的隐藏在其中，折磨你的耐心。</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/06/01/iptables-dnat和redirect失效的原因/" title="iptables dnat和redirect失效的原因" itemprop="url">iptables dnat和redirect失效的原因</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
+		
+  <p class="article-time">
+    <time datetime="2017-06-01T06:12:56.000Z" itemprop="datePublished"> Published 2017-06-01</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>好久不用，老司机翻船了，如下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iptables -t nat -A PREROUTING -p tcp --dport 443 -j REDIRECT --to-ports 1080</span><br><span class="line">iptables -t nat -A PREROUTING -p tcp --dport 443 -j DNAT --to-destination 127.0.0.1:1080</span><br></pre></td></tr></table></figure>
+
+<p>运行ss-redir监听在127.0.0.1:1080端口上，发现虽然规则被匹配，但是始终没有包进入到ss-redir中。<br>失效的原因在于，对于redirect来说，只能在同一个接口上转发，因此ss-redir必须使用进来的包相同的接口上的ip地址才能收到包。<br>第二条命令失效的原因在于dnat对lo设备无效，因此ss-redir至少要使用某个物理网卡的地址，必redirect限制少一条在于，dnat可以用其他网卡上的地址，而redirect必须使用相同网卡上的地址。<br>折腾了半天！</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2017/05/31/设置gnome-terminal的显示标签/" title="设置gnome-terminal的显示标签" itemprop="url">设置gnome-terminal的显示标签</a>
   </h1>
   <p class="article-author">By
@@ -495,110 +601,6 @@
 <p><a href="https://netdevconf.org/1.2/papers/Linux_Forwarding_Stack_Fastpath_Paper.pdf" target="_blank" rel="noopener">https://netdevconf.org/1.2/papers/Linux_Forwarding_Stack_Fastpath_Paper.pdf</a>   Linux Forwarding Stack Fastpath<br><a href="http://www.netdevconf.org" target="_blank" rel="noopener">http://www.netdevconf.org</a>  The Technical Conference on Linux networking<br><a href="https://github.com/luigirizzo/netmap" target="_blank" rel="noopener">https://github.com/luigirizzo/netmap</a>  Netmap  - a frameworrk for fast packet I/O<br><a href="http://info.iet.unipi.it/~luigi/netmap/" target="_blank" rel="noopener">http://info.iet.unipi.it/~luigi/netmap/</a></p>
 <p><a href="http://www.itsec.gov.cn/export/sites/itsec/product/download/" target="_blank" rel="noopener">http://www.itsec.gov.cn/export/sites/itsec/product/download/</a>  中国信息安全测评中心<br><a href="https://wiki.nftables.org/wiki-nftables/index.php/Quick_reference-nftables_in_10_minutes" target="_blank" rel="noopener">https://wiki.nftables.org/wiki-nftables/index.php/Quick_reference-nftables_in_10_minutes</a> Quick reference-nftables in 10 minutes</p>
 
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/04/07/禁用内核module/" title="禁用内核module" itemprop="url">禁用内核module</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
-		
-  <p class="article-time">
-    <time datetime="2017-04-07T03:51:24.000Z" itemprop="datePublished"> Published 2017-04-07</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <ol>
-<li>编辑 /etc/modules， 确保要禁用的modules没有启用</li>
-<li>在/etc/modprobe.d里面建立一个自定义的custom.conf，把要禁用的module增加进去<br>blacklist modulename</li>
-<li>dpkg-reconfigure linux-image-$(uname -r)<br>修改完成以后，重启机器测试</li>
-</ol>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/04/07/使用nftables/" title="使用nftables" itemprop="url">使用nftables</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
-		
-  <p class="article-time">
-    <time datetime="2017-04-07T03:43:26.000Z" itemprop="datePublished"> Published 2017-04-07</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p><a href="https://wiki.nftables.org/wiki-nftables/index.php/Quick_reference-nftables_in_10_minutes" target="_blank" rel="noopener">https://wiki.nftables.org/wiki-nftables/index.php/Quick_reference-nftables_in_10_minutes</a><br>apt-get install nftables   安装<br>systemctl enable nftables  自动启动<br>应该开始习惯利用nftable来作为系统防火墙，从主机防护开始</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">cat nftables.conf </span><br><span class="line">#!/usr/sbin/nft -f</span><br><span class="line"></span><br><span class="line">flush ruleset</span><br><span class="line"></span><br><span class="line">define sh_gateway = 2.2.2.2</span><br><span class="line">define test = 1.1.1.1</span><br><span class="line">define allowips=&#123;$sh_gateway, $test&#125;</span><br><span class="line"></span><br><span class="line">table firewall &#123;</span><br><span class="line">    chain input &#123;</span><br><span class="line">        type filter hook input priority 0; policy drop;</span><br><span class="line">        iif lo accept</span><br><span class="line">        ct state established,related accept</span><br><span class="line">        icmp type echo-request accept</span><br><span class="line">        tcp dport &#123;22,443&#125; accept</span><br><span class="line">        ip saddr $allowips accept</span><br><span class="line">        counter drop</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">table ip6 firewall &#123;</span><br><span class="line">    chain input &#123;</span><br><span class="line">        type filter hook input priority 0; policy drop;</span><br><span class="line">        iif lo accept</span><br><span class="line">        ct state established, related accept</span><br><span class="line">        ct state invalid drop</span><br><span class="line">        iifname lo accept</span><br><span class="line">		ip6 nexthdr icmpv6 icmpv6 type &#123; nd-neighbor-solicit,  nd-router-advert, nd-neighbor-advert &#125; accept</span><br><span class="line">        tcp dport &#123;ssh&#125; accept</span><br><span class="line">        counter drop</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
         
         
         <p class="article-more-link">

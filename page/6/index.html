@@ -70,6 +70,110 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2017/04/07/禁用内核module/" title="禁用内核module" itemprop="url">禁用内核module</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
+		
+  <p class="article-time">
+    <time datetime="2017-04-07T03:51:24.000Z" itemprop="datePublished"> Published 2017-04-07</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <ol>
+<li>编辑 /etc/modules， 确保要禁用的modules没有启用</li>
+<li>在/etc/modprobe.d里面建立一个自定义的custom.conf，把要禁用的module增加进去<br>blacklist modulename</li>
+<li>dpkg-reconfigure linux-image-$(uname -r)<br>修改完成以后，重启机器测试</li>
+</ol>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/04/07/使用nftables/" title="使用nftables" itemprop="url">使用nftables</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
+		
+  <p class="article-time">
+    <time datetime="2017-04-07T03:43:26.000Z" itemprop="datePublished"> Published 2017-04-07</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p><a href="https://wiki.nftables.org/wiki-nftables/index.php/Quick_reference-nftables_in_10_minutes" target="_blank" rel="noopener">https://wiki.nftables.org/wiki-nftables/index.php/Quick_reference-nftables_in_10_minutes</a><br>apt-get install nftables   安装<br>systemctl enable nftables  自动启动<br>应该开始习惯利用nftable来作为系统防火墙，从主机防护开始</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">cat nftables.conf </span><br><span class="line">#!/usr/sbin/nft -f</span><br><span class="line"></span><br><span class="line">flush ruleset</span><br><span class="line"></span><br><span class="line">define sh_gateway = 2.2.2.2</span><br><span class="line">define test = 1.1.1.1</span><br><span class="line">define allowips=&#123;$sh_gateway, $test&#125;</span><br><span class="line"></span><br><span class="line">table firewall &#123;</span><br><span class="line">    chain input &#123;</span><br><span class="line">        type filter hook input priority 0; policy drop;</span><br><span class="line">        iif lo accept</span><br><span class="line">        ct state established,related accept</span><br><span class="line">        icmp type echo-request accept</span><br><span class="line">        tcp dport &#123;22,443&#125; accept</span><br><span class="line">        ip saddr $allowips accept</span><br><span class="line">        counter drop</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">table ip6 firewall &#123;</span><br><span class="line">    chain input &#123;</span><br><span class="line">        type filter hook input priority 0; policy drop;</span><br><span class="line">        iif lo accept</span><br><span class="line">        ct state established, related accept</span><br><span class="line">        ct state invalid drop</span><br><span class="line">        iifname lo accept</span><br><span class="line">		ip6 nexthdr icmpv6 icmpv6 type &#123; nd-neighbor-solicit,  nd-router-advert, nd-neighbor-advert &#125; accept</span><br><span class="line">        tcp dport &#123;ssh&#125; accept</span><br><span class="line">        counter drop</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2017/04/07/阿里云上的ubuntu跨版本升级/" title="阿里云上的ubuntu跨版本升级" itemprop="url">阿里云上的ubuntu跨版本升级</a>
   </h1>
   <p class="article-author">By
@@ -472,117 +576,6 @@
         <ol>
 <li>插入代码块<br>使用三个”```”起头，然后再结束，中间就是代码块。</li>
 </ol>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/03/06/windows-10使用照片查看器/" title="windows 10使用照片查看器" itemprop="url">windows 10使用照片查看器</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
-		
-  <p class="article-time">
-    <time datetime="2017-03-06T01:55:41.000Z" itemprop="datePublished"> Published 2017-03-06</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>微软脑子坏了，居然屏蔽使用历史悠久的windows照片查看器，在win10下浏览照片几乎成为噩梦。<br>找回办法：<br>编辑一个注册表文件：picture.reg</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Photo Viewer\Capabilities\FileAssociations]</span><br><span class="line">&quot;.tif&quot;=&quot;PhotoViewer.FileAssoc.Tiff&quot;</span><br><span class="line">&quot;.tiff&quot;=&quot;PhotoViewer.FileAssoc.Tiff&quot;</span><br><span class="line">&quot;.jpg&quot;=&quot;PhotoViewer.FileAssoc.Tiff&quot;</span><br><span class="line">&quot;.png&quot;=&quot;PhotoViewer.FileAssoc.Tiff&quot;</span><br><span class="line">&quot;.gif&quot;=&quot;PhotoViewer.FileAssoc.Tiff&quot;</span><br></pre></td></tr></table></figure>
-
-<p>双机执行，重新找回windows照片查看器。</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/03/02/针对lynis检查以后的安全改进建议/" title="针对lynis检查以后的安全改进建议" itemprop="url">针对lynis检查以后的安全改进建议</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
-		
-  <p class="article-time">
-    <time datetime="2017-03-02T05:31:20.000Z" itemprop="datePublished"> Published 2017-03-02</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>1、安装基于pam的密码检测模块<br>apt-get install libpam-pwquality</p>
-<p>2、在/etc/login.defs里面设置密码的最小和最长时间<br>minimum和maximum<br>在ubuntu下，缺省的PASS_MAX_DAYS 99999，缺省的PASS_MIN_DAYS 0</p>
-<p>3、修改/etc/login.defs里面umask的值为027，缺省为022</p>
-<p>4、/tmp和/var采用独立分区，以防止这些地方无序增长的空间要求，影响整体系统</p>
-<p>5、缺省关闭对usb存储设备的支持<br><a href="https://linux-audit.com/kernel-hardening-disable-and-blacklist-linux-modules/" target="_blank" rel="noopener">https://linux-audit.com/kernel-hardening-disable-and-blacklist-linux-modules/</a><br>利用卸载内核模块的办法进行管理</p>
-<p>6、安装debsums用来验证安装包的正确性</p>
-<p>7、安装apt-show-versions用来看软件是否安装到最新版本</p>
-<p>8、安装arpwatch或者arpon来监控arp的变化</p>
-<p>9、安装rkhunter来发现隐藏木马</p>
 
         
         
