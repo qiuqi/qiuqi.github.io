@@ -70,6 +70,216 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2017/07/02/两个不基于webview的Android浏览器项目/" title="两个不基于webview的Android浏览器项目" itemprop="url">两个不基于webview的Android浏览器项目</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
+		
+  <p class="article-time">
+    <time datetime="2017-07-02T01:32:48.000Z" itemprop="datePublished"> Published 2017-07-02</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>基于Firefox的项目：<br><a href="https://github.com/mozilla-mobile/focus-android" target="_blank" rel="noopener">https://github.com/mozilla-mobile/focus-android</a></p>
+<p>基于Chromium的项目：<br><a href="https://github.com/JackyAndroid/AndroidChromium" target="_blank" rel="noopener">https://github.com/JackyAndroid/AndroidChromium</a></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/07/02/配置ubuntu-server的无线网络/" title="配置ubuntu server的无线网络" itemprop="url">配置ubuntu server的无线网络</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
+		
+  <p class="article-time">
+    <time datetime="2017-07-02T01:21:40.000Z" itemprop="datePublished"> Published 2017-07-02</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>ubuntu server简单安装以后，需要配置无线网络：<br>1.iwconfig，确认无线网卡的名称，wlan0或者其他比较怪的名字，例如：wlp2s0<br>2.启用无线网卡 sudo ifconfig wlp2s0 up<br>3.使用wpa_passphrase命令生成无线配置文件<br>wpa_passphrase “essid” “password” &gt;/etc/wireless.conf<br>4.配置添加网卡<br>vi /etc/network/interfaces<br>auto wlp2s0<br>iface wlp2s0 inet dhcp<br>wpa-conf /etc/wireless.conf</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/06/24/窗外的雨声/" title="窗外的雨声" itemprop="url">窗外的雨声</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
+		
+  <p class="article-time">
+    <time datetime="2017-06-23T16:51:02.000Z" itemprop="datePublished"> Published 2017-06-24</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>黑夜里坐在窗边静静聆听雨声，就象模拟器里那样。<br>看着sbt傻傻的更新，名副其实。</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/06/22/各种socks代理的设置方法/" title="各种socks代理的设置方法" itemprop="url">各种socks代理的设置方法</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
+		
+  <p class="article-time">
+    <time datetime="2017-06-22T15:52:00.000Z" itemprop="datePublished"> Published 2017-06-22</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>git</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.proxy &apos;socks5://127.0.0.1:1080&apos;</span><br><span class="line">git config --global https.proxy &apos;socks5://127.0.0.1:1080&apos;</span><br></pre></td></tr></table></figure>
+
+<p>sbt</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sbt  -DsocksProxyHost=127.0.0.1 DsocksProxyPort=1080</span><br></pre></td></tr></table></figure>
+
+<p>npm<br>npm是先通过neesocks把socks5转成http proxy</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm config set http http://127.0.0.1:1081</span><br><span class="line">npm config set https-proxy http://127.0.0.1:1081</span><br><span class="line">DEBUG=proxy kneesocks 1081 1080</span><br></pre></td></tr></table></figure>
+
+<p>socks5转http</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">apt install privoxy</span><br><span class="line">vi /etc/privoxy/config</span><br><span class="line">增加一行：</span><br><span class="line">forward-socks5   /    socks.domain:1080  .</span><br></pre></td></tr></table></figure>
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2017/06/22/android-adb-shell下ping6的路由查找/" title="android adb shell下ping6的路由查找" itemprop="url">android adb shell下ping6的路由查找</a>
   </h1>
   <p class="article-author">By
@@ -369,237 +579,6 @@
 <li>把图片拷贝到新建立的md文件名的目录中去</li>
 <li>显示图片<br><img src="/2017/04/20/图片测试/sea.jpg" alt="图片说明"></li>
 </ol>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/04/20/圆周率包含一切信息了吗/" title="圆周率包含一切信息了吗?" itemprop="url">圆周率包含一切信息了吗?</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
-		
-  <p class="article-time">
-    <time datetime="2017-04-20T03:49:20.000Z" itemprop="datePublished"> Published 2017-04-20</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>有一个说法，说圆周率是无限不循环的数，所以它包含了所有宇宙中可能的信息组成形态。<br>我想这个说法是错误的，无限不循环不代表能穷尽所有可能，当无限不循环减去无限种组合以后还是无限的。</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/04/20/计划的作用/" title="计划的作用" itemprop="url">计划的作用</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
-		
-  <p class="article-time">
-    <time datetime="2017-04-20T03:33:47.000Z" itemprop="datePublished"> Published 2017-04-20</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>听到音频节目里面说计划的作用，和我平时的想法类似，在我快忘记它的说法的时候，用自己的语言再重新组织一下：</p>
-<ol>
-<li>什么事情其实都有计划，但是太小的时候，靠人脑存储和运算就可以了，所以没有体现在纸面上，但是当项目庞大的时候，就需要以某种格式呈现出来;</li>
-<li>制订计划的过程比执行计划的过程更重要，如果一个计划涉及到很多的人，就最好让参与的人都自己加入制订计划的过程，在这个过程中，所有参与人会理解计划的目标，能动用的资源，确定和不确定的时间片，哪些是关键点;</li>
-<li>执行计划是一个灵活的过程，经验越丰富的人，可以制订出偏差越小的计划，但是意外永远都可能出现，不要纠结与是否在执行一个完全没有偏差的计划，要更强调在执行一个可控的计划，如果计划已经失控了，最好重新制订新的计划;</li>
-<li>制订计划可以在当你碰到意外的时候，可以非常清晰的认识到哪些环节你是可以调节的，哪些资源是可以重新分配的，会避免掉去动用那些更关键的环节导致整体计划上的崩溃;意外并不总是指坏情况，有时候意外是发现执行计划必预想的要容易，这时候，计划可以方便将资源调配到那些需要的地方，从而在整体上达到必计划中更好的预期;</li>
-<li>在执行计划的过程中，不断的修整并展示计划，使得每一个参与人都明白自己所处的位置和整体计划之间的关系，每个个体不断调整和总体计划目标之间的进度距离，就可以使得整体计划处于一个健康状态。<br>凭直觉写这么多先。</li>
-</ol>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/04/13/bye-unity-hello-gnome/" title="bye unity, hello gnome!" itemprop="url">bye unity, hello gnome!</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
-		
-  <p class="article-time">
-    <time datetime="2017-04-13T01:57:41.000Z" itemprop="datePublished"> Published 2017-04-13</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>作为一个ubuntu的重度使用者，噩耗莫过于听到居然又要重启炉灶放弃unity，回到gnome。好吧，日子过久了，谁不腻呢。</p>
-<ol>
-<li>在firefox上启用gnome extensions插件</li>
-<li>ClassicMenu Indicator</li>
-<li>插件安装：TopIcons Plus， 用来把状态通知栏移动到顶部右上角。  记录那么多，其实就是为了实现这个配置，缺省配置在右下角太恶心了，严重干扰我写代码。</li>
-<li>安装插件：Hibernate Status Button 为电源键的状态栏增加suspend功能</li>
-<li>sudo apt-get install chrome-gnome-shell 用来配合浏览器插件</li>
-<li>安装插件：TaskBar， 用Activities总觉得太耗眼神，还是固定的切换器比较好。</li>
-<li>安装插件：ShellTile 按住Ctrl键调整窗口大小</li>
-<li>插件安装：Panel OSD 通过tweak tool启动，可以定制系统消息弹出的位置</li>
-<li>插件安装：Places Status Indicator</li>
-<li>安装插件：AlternateTab 不要以群组的方式显示任务切换</li>
-<li>安装插件：Recent(Item)s 显示最近打开文件列表</li>
-<li>Gnome优化工具，貌似用处不大，把日期显示调整了一下</li>
-<li>锁屏：ctrl+alt+l</li>
-<li>安装插件：Extension Update Notifier 插件更新提醒</li>
-<li>安装插件：Clipboard Indicator </li>
-<li>卸载某些插件以后，需要通过alt+F2，输入r，然后回车，来重新启动gnome shell.</li>
-<li>插件安装：activities-configurator来控制gnome的activities的行为，貌似没什么大用。</li>
-</ol>
-<ul>
-<li>20170510 根据这些插件使用的频度调整一下次序</li>
-</ul>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/04/08/一天中看到有趣的一些网址20170407/" title="一天中看到有趣的一些网址20170407" itemprop="url">一天中看到有趣的一些网址20170407</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
-		
-  <p class="article-time">
-    <time datetime="2017-04-08T01:23:23.000Z" itemprop="datePublished"> Published 2017-04-08</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p><a href="https://juejin.im/entry/57c76deec4c971005419a1bb" target="_blank" rel="noopener">https://juejin.im/entry/57c76deec4c971005419a1bb</a>   5 个炫酷的 Unikernels 项目<br><a href="https://github.com/cnplab" target="_blank" rel="noopener">https://github.com/cnplab</a>    Cloud Networking Performance Lab<br><a href="http://cnp.neclab.eu/ovs" target="_blank" rel="noopener">http://cnp.neclab.eu/ovs</a>   Seamless Open vSwitch Acceleration<br><a href="https://en.wikipedia.org/wiki/Unikernel" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Unikernel</a>   What’s Unikernel?</p>
-<p><a href="https://netdevconf.org/1.2/papers/Linux_Forwarding_Stack_Fastpath_Paper.pdf" target="_blank" rel="noopener">https://netdevconf.org/1.2/papers/Linux_Forwarding_Stack_Fastpath_Paper.pdf</a>   Linux Forwarding Stack Fastpath<br><a href="http://www.netdevconf.org" target="_blank" rel="noopener">http://www.netdevconf.org</a>  The Technical Conference on Linux networking<br><a href="https://github.com/luigirizzo/netmap" target="_blank" rel="noopener">https://github.com/luigirizzo/netmap</a>  Netmap  - a frameworrk for fast packet I/O<br><a href="http://info.iet.unipi.it/~luigi/netmap/" target="_blank" rel="noopener">http://info.iet.unipi.it/~luigi/netmap/</a></p>
-<p><a href="http://www.itsec.gov.cn/export/sites/itsec/product/download/" target="_blank" rel="noopener">http://www.itsec.gov.cn/export/sites/itsec/product/download/</a>  中国信息安全测评中心<br><a href="https://wiki.nftables.org/wiki-nftables/index.php/Quick_reference-nftables_in_10_minutes" target="_blank" rel="noopener">https://wiki.nftables.org/wiki-nftables/index.php/Quick_reference-nftables_in_10_minutes</a> Quick reference-nftables in 10 minutes</p>
 
         
         
