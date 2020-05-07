@@ -4,24 +4,24 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
   
-    <title>测试集合 | 记</title>
+    <title>ubuntu 1804网络配置 | 记</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="QQ">
     
 
     
-    <meta name="description" content="1234567891011121314151617181920212223242526272829303132333435网络性能测试服务器端iperf3 -i 10 -s-i 带宽更新间隔时间-s listen as a server客户端iperf3 -i 10  -w 1M  -t 60 -c  [server hostname or ip address]-w socket buffer">
+    <meta name="description" content="在/etc/netplan/01-network-0manager-all.yaml里面制定了用network-manager来管理网络 在/etc/NetworkManager/NetworkManager.conf 里面,在[main]章节中，dns的值没有设置，这个在man NetworkManager.conf里面有说明，缺省的default值表示通过当前的active connecti">
 <meta property="og:type" content="article">
-<meta property="og:title" content="测试集合">
-<meta property="og:url" content="http://yoursite.com/2020/03/23/测试集合/index.html">
+<meta property="og:title" content="ubuntu 1804网络配置">
+<meta property="og:url" content="http://yoursite.com/2020/05/07/ubuntu-1804网络配置/index.html">
 <meta property="og:site_name" content="记">
-<meta property="og:description" content="1234567891011121314151617181920212223242526272829303132333435网络性能测试服务器端iperf3 -i 10 -s-i 带宽更新间隔时间-s listen as a server客户端iperf3 -i 10  -w 1M  -t 60 -c  [server hostname or ip address]-w socket buffer">
+<meta property="og:description" content="在/etc/netplan/01-network-0manager-all.yaml里面制定了用network-manager来管理网络 在/etc/NetworkManager/NetworkManager.conf 里面,在[main]章节中，dns的值没有设置，这个在man NetworkManager.conf里面有说明，缺省的default值表示通过当前的active connecti">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:updated_time" content="2020-03-22T17:00:15.593Z">
+<meta property="og:updated_time" content="2020-05-07T07:52:06.842Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="测试集合">
-<meta name="twitter:description" content="1234567891011121314151617181920212223242526272829303132333435网络性能测试服务器端iperf3 -i 10 -s-i 带宽更新间隔时间-s listen as a server客户端iperf3 -i 10  -w 1M  -t 60 -c  [server hostname or ip address]-w socket buffer">
+<meta name="twitter:title" content="ubuntu 1804网络配置">
+<meta name="twitter:description" content="在/etc/netplan/01-network-0manager-all.yaml里面制定了用network-manager来管理网络 在/etc/NetworkManager/NetworkManager.conf 里面,在[main]章节中，dns的值没有设置，这个在man NetworkManager.conf里面有说明，缺省的default值表示通过当前的active connecti">
 
     
     
@@ -72,14 +72,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2020/03/23/测试集合/" title="测试集合" itemprop="url">测试集合</a>
+      <a href="/2020/05/07/ubuntu-1804网络配置/" title="ubuntu 1804网络配置" itemprop="url">ubuntu 1804网络配置</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
 		
   <p class="article-time">
-    <time datetime="2020-03-22T16:44:56.000Z" itemprop="datePublished"> Published 2020-03-23</time>
+    <time datetime="2020-05-07T07:48:34.000Z" itemprop="datePublished"> Published 2020-05-07</time>
     
   </p>
 </header>
@@ -92,7 +92,17 @@
 		
 		</div>
 		
-		<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">网络性能测试</span><br><span class="line">服务器端</span><br><span class="line">iperf3 -i 10 -s</span><br><span class="line">-i 带宽更新间隔时间</span><br><span class="line">-s listen as a server</span><br><span class="line"></span><br><span class="line">客户端</span><br><span class="line">iperf3 -i 10  -w 1M  -t 60 -c  [server hostname or ip address]</span><br><span class="line">-w socket buffer size，影响TCP window.</span><br><span class="line">-t 运行的时间</span><br><span class="line">-c 连接指定服务器</span><br><span class="line"></span><br><span class="line">测试UDP性能:</span><br><span class="line">iperf -s -u</span><br><span class="line">iperf -u -c server</span><br><span class="line">没有加-b参数的时候，UDP模式缺省采用1MBit/s测试</span><br><span class="line">iperf -u -c server -b 1000M 采用指定带宽测试</span><br><span class="line">iperf -mc 192.168.10.12 测试MTU值</span><br><span class="line">-m 探测MTU</span><br><span class="line"></span><br><span class="line">磁盘IO性能测试</span><br><span class="line">顺序读</span><br><span class="line">fio -filename=./test.file -direct=1 -iodepth 1 -thread -rw=read -ioengine=psync -bs=16k -size=2G -numjobs=10 -runtime=60 -group_reporting -name=test_r</span><br><span class="line"></span><br><span class="line">随机写</span><br><span class="line">fio -filename=./test.file -direct=1 -iodepth 1 -thread -rw=randwrite -ioengine=psync -bs=16k -size=2G -numjobs=10 -runtime=60 -group_reporting -name=test_randw</span><br><span class="line"></span><br><span class="line">顺序写</span><br><span class="line">fio -filename=./test.file -direct=1 -iodepth 1 -thread -rw=write -ioengine=psync -bs=16k -size=2G -numjobs=10 -runtime=60 -group_reporting -name=test_w</span><br><span class="line"></span><br><span class="line">混合随机读写</span><br><span class="line">fio -filename=./test.file -direct=1 -iodepth 1 -thread -rw=randrw -rwmixread=70 -ioengine=psync -bs=16k -size=2G -numjobs=10 -runtime=60 -group_reporting -name=test_r_w -ioscheduler=noop</span><br><span class="line"></span><br><span class="line">内存速度测试</span><br><span class="line">mbw -q -n 10000 256</span><br></pre></td></tr></table></figure>  
+		<ol>
+<li>在/etc/netplan/01-network-0manager-all.yaml里面制定了用network-manager来管理网络</li>
+<li>在/etc/NetworkManager/NetworkManager.conf 里面,在[main]章节中，dns的值没有设置，这个在man NetworkManager.conf里面有说明，缺省的default值表示通过当前的active connections里面提供的nameservers来更新到 /etc/resolv.conf中。</li>
+</ol>
+<p>2019-12-17更新：<br>nmcli d wifi connnect SSID password PASS</p>
+<p>2020-5-7 更新:<br>‘’’<br>在ubuntu 17以后，采用netplan作为网络配置，netplan本身很简单，但是ubuntu处理起来并不容易：</p>
+<ol>
+<li>看系统缺省的/etc/netplan下的配置，要关注的点是如果是rederer的选择，如果ubuntu的server版本，采用的是networkd，那配置的命令，基本按照netplan的配置命令走就行，如果renderer选择的是NetowrkManager，则一般是在ubuntu的desktop版本下，就不得不走原来nmcli的套路，ubuntu这几年，翻来覆去的修改这些配置，说明并不明确，造成很大的困扰。</li>
+<li>在nmcli下，如果要修改dns地址，就必须通过nmcli的命令走<br>首先通过nmcli c 列出当前的网络连接<br>然后nmcli modify “某个连接的名字” ipv4.dns “8.8.8.8”<br>修改完以后，需要systemctl NetworkManager restart才能生效。<br>这个配置恶心的地方显然在于，它把dns的配置，和某个具体的连接接口关联在一起。对于这么多年从/etc/resolv.conf修改dns配置的用户来说，这种配置十分的不友善。另外，为了迁就Desktop的nmcli，界面上的修改，也是无效的，这点最令人痛苦，没有命令行就不行了。<br>‘’’</li>
+</ol>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -104,7 +114,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2020/03/23/测试集合/" data-title="测试集合 | 记" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2020/05/07/ubuntu-1804网络配置/" data-title="ubuntu 1804网络配置 | 记" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -117,19 +127,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2020/05/07/ubuntu-1804网络配置/" title="ubuntu 1804网络配置">
-  <strong>上一篇：</strong><br/>
-  <span>
-  ubuntu 1804网络配置</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2020/02/12/批量下载deb包的方法/"  title="批量下载deb包的方法">
+<a href="/2020/03/23/测试集合/"  title="测试集合">
  <strong>下一篇：</strong><br/> 
- <span>批量下载deb包的方法
+ <span>测试集合
 </span>
 </a>
 </div>

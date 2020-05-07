@@ -70,6 +70,65 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2020/05/07/ubuntu-1804网络配置/" title="ubuntu 1804网络配置" itemprop="url">ubuntu 1804网络配置</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
+		
+  <p class="article-time">
+    <time datetime="2020-05-07T07:48:34.000Z" itemprop="datePublished"> Published 2020-05-07</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <ol>
+<li>在/etc/netplan/01-network-0manager-all.yaml里面制定了用network-manager来管理网络</li>
+<li>在/etc/NetworkManager/NetworkManager.conf 里面,在[main]章节中，dns的值没有设置，这个在man NetworkManager.conf里面有说明，缺省的default值表示通过当前的active connections里面提供的nameservers来更新到 /etc/resolv.conf中。</li>
+</ol>
+<p>2019-12-17更新：<br>nmcli d wifi connnect SSID password PASS</p>
+<p>2020-5-7 更新:<br>‘’’<br>在ubuntu 17以后，采用netplan作为网络配置，netplan本身很简单，但是ubuntu处理起来并不容易：</p>
+<ol>
+<li>看系统缺省的/etc/netplan下的配置，要关注的点是如果是rederer的选择，如果ubuntu的server版本，采用的是networkd，那配置的命令，基本按照netplan的配置命令走就行，如果renderer选择的是NetowrkManager，则一般是在ubuntu的desktop版本下，就不得不走原来nmcli的套路，ubuntu这几年，翻来覆去的修改这些配置，说明并不明确，造成很大的困扰。</li>
+<li>在nmcli下，如果要修改dns地址，就必须通过nmcli的命令走<br>首先通过nmcli c 列出当前的网络连接<br>然后nmcli modify “某个连接的名字” ipv4.dns “8.8.8.8”<br>修改完以后，需要systemctl NetworkManager restart才能生效。<br>这个配置恶心的地方显然在于，它把dns的配置，和某个具体的连接接口关联在一起。对于这么多年从/etc/resolv.conf修改dns配置的用户来说，这种配置十分的不友善。另外，为了迁就Desktop的nmcli，界面上的修改，也是无效的，这点最令人痛苦，没有命令行就不行了。<br>‘’’</li>
+</ol>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2020/03/23/测试集合/" title="测试集合" itemprop="url">测试集合</a>
   </h1>
   <p class="article-author">By
@@ -485,56 +544,6 @@
     <div class="article-content">
         
         <p>商业、技术、生活、兴趣，一样都不能少。</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2018/05/30/minio/" title="minio" itemprop="url">minio</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
-		
-  <p class="article-time">
-    <time datetime="2018-05-30T07:08:54.000Z" itemprop="datePublished"> Published 2018-05-30</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>将s3兼容的存储服务器变成本地文件系统<br><a href="https://github.com/kahing/goofys" target="_blank" rel="noopener">https://github.com/kahing/goofys</a></p>
 
         
         
