@@ -4,24 +4,24 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
   
-    <title>ubuntu网络配置 | 记</title>
+    <title>在ubuntu 20.04下安装virtualbox | 记</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="QQ">
     
 
     
-    <meta name="description" content="在/etc/netplan/01-network-0manager-all.yaml里面制定了用network-manager来管理网络 在/etc/NetworkManager/NetworkManager.conf 里面,在[main]章节中，dns的值没有设置，这个在man NetworkManager.conf里面有说明，缺省的default值表示通过当前的active connecti">
+    <meta name="description" content="1234不知道从什么时候开始，从virtualbox官网下载的deb包，无法直接在ubuntu 20.04上升级安装。首先是包依赖问题，索性卸载官方的vbox包，完全使用官方的安装包。在官方的安装包安装以后，发现vboxdrv的内核驱动模块编译失败。原因在于编译时候的magicversion不对，直接去修改/usr/include/linux/vermagic.h里面，将对应的magic值写死成当">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ubuntu网络配置">
-<meta property="og:url" content="http://yoursite.com/2020/05/07/ubuntu-1804网络配置/index.html">
+<meta property="og:title" content="在ubuntu 20.04下安装virtualbox">
+<meta property="og:url" content="http://yoursite.com/2020/10/13/在ubuntu-20-04下安装virtualbox/index.html">
 <meta property="og:site_name" content="记">
-<meta property="og:description" content="在/etc/netplan/01-network-0manager-all.yaml里面制定了用network-manager来管理网络 在/etc/NetworkManager/NetworkManager.conf 里面,在[main]章节中，dns的值没有设置，这个在man NetworkManager.conf里面有说明，缺省的default值表示通过当前的active connecti">
+<meta property="og:description" content="1234不知道从什么时候开始，从virtualbox官网下载的deb包，无法直接在ubuntu 20.04上升级安装。首先是包依赖问题，索性卸载官方的vbox包，完全使用官方的安装包。在官方的安装包安装以后，发现vboxdrv的内核驱动模块编译失败。原因在于编译时候的magicversion不对，直接去修改/usr/include/linux/vermagic.h里面，将对应的magic值写死成当">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:updated_time" content="2020-05-07T07:54:30.610Z">
+<meta property="og:updated_time" content="2020-10-13T03:26:12.514Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ubuntu网络配置">
-<meta name="twitter:description" content="在/etc/netplan/01-network-0manager-all.yaml里面制定了用network-manager来管理网络 在/etc/NetworkManager/NetworkManager.conf 里面,在[main]章节中，dns的值没有设置，这个在man NetworkManager.conf里面有说明，缺省的default值表示通过当前的active connecti">
+<meta name="twitter:title" content="在ubuntu 20.04下安装virtualbox">
+<meta name="twitter:description" content="1234不知道从什么时候开始，从virtualbox官网下载的deb包，无法直接在ubuntu 20.04上升级安装。首先是包依赖问题，索性卸载官方的vbox包，完全使用官方的安装包。在官方的安装包安装以后，发现vboxdrv的内核驱动模块编译失败。原因在于编译时候的magicversion不对，直接去修改/usr/include/linux/vermagic.h里面，将对应的magic值写死成当">
 
     
     
@@ -72,14 +72,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2020/05/07/ubuntu-1804网络配置/" title="ubuntu网络配置" itemprop="url">ubuntu网络配置</a>
+      <a href="/2020/10/13/在ubuntu-20-04下安装virtualbox/" title="在ubuntu 20.04下安装virtualbox" itemprop="url">在ubuntu 20.04下安装virtualbox</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="QQ" target="_blank" itemprop="author">QQ</a>
 		
   <p class="article-time">
-    <time datetime="2020-05-07T07:48:34.000Z" itemprop="datePublished"> Published 2020-05-07</time>
+    <time datetime="2020-10-13T03:18:49.000Z" itemprop="datePublished"> Published 2020-10-13</time>
     
   </p>
 </header>
@@ -92,15 +92,9 @@
 		
 		</div>
 		
-		<ol>
-<li>在/etc/netplan/01-network-0manager-all.yaml里面制定了用network-manager来管理网络</li>
-<li>在/etc/NetworkManager/NetworkManager.conf 里面,在[main]章节中，dns的值没有设置，这个在man NetworkManager.conf里面有说明，缺省的default值表示通过当前的active connections里面提供的nameservers来更新到 /etc/resolv.conf中。</li>
-</ol>
-<p>2019-12-17更新：<br>nmcli d wifi connnect SSID password PASS</p>
-<p>2020-5-7 更新:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">在ubuntu 17以后，采用netplan作为网络配置，netplan本身很简单，但是ubuntu处理起来并不容易：</span><br><span class="line">1. 看系统缺省的/etc/netplan下的配置，要关注的点是如果是rederer的选择，如果ubuntu的server版本，采用的是networkd，那配置的命令，基本按照netplan的配置命令走就行，如果renderer选择的是NetowrkManager，则一般是在ubuntu的desktop版本下，就不得不走原来nmcli的套路，ubuntu这几年，翻来覆去的修改这些配置，说明并不明确，造成很大的困扰。</span><br><span class="line">2. 在nmcli下，如果要修改dns地址，就必须通过nmcli的命令走</span><br><span class="line">首先通过nmcli c 列出当前的网络连接</span><br><span class="line">然后nmcli modify &quot;某个连接的名字&quot; ipv4.dns &quot;8.8.8.8&quot;</span><br><span class="line">修改完以后，需要systemctl NetworkManager restart才能生效。</span><br><span class="line">这个配置恶心的地方显然在于，它把dns的配置，和某个具体的连接接口关联在一起。对于这么多年从/etc/resolv.conf修改dns配置的用户来说，这种配置十分的不友善。另外，为了迁就Desktop的nmcli，界面上的修改，也是无效的，这点最令人痛苦，没有命令行就不行了。</span><br></pre></td></tr></table></figure>
+		<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">不知道从什么时候开始，从virtualbox官网下载的deb包，无法直接在ubuntu 20.04上升级安装。</span><br><span class="line">首先是包依赖问题，索性卸载官方的vbox包，完全使用官方的安装包。</span><br><span class="line">在官方的安装包安装以后，发现vboxdrv的内核驱动模块编译失败。</span><br><span class="line">原因在于编译时候的magicversion不对，直接去修改/usr/include/linux/vermagic.h里面，将对应的magic值写死成当前的kernel magic值即可。</span><br></pre></td></tr></table></figure>
 
-  
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">在这个过程中，因为一度怀疑kernel版本的问题，学会了手动切换ubuntu kernel的办法</span><br><span class="line">wget https://raw.githubusercontent.com/pimlie/ubuntu-mainline-kernel.sh</span><br><span class="line">可以用这个shell自动下载ubuntu的版本并安装。</span><br></pre></td></tr></table></figure>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -112,7 +106,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2020/05/07/ubuntu-1804网络配置/" data-title="ubuntu网络配置 | 记" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2020/10/13/在ubuntu-20-04下安装virtualbox/" data-title="在ubuntu 20.04下安装virtualbox | 记" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -125,19 +119,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2020/10/13/在ubuntu-20-04下安装virtualbox/" title="在ubuntu 20.04下安装virtualbox">
-  <strong>上一篇：</strong><br/>
-  <span>
-  在ubuntu 20.04下安装virtualbox</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2020/03/23/测试集合/"  title="测试集合">
+<a href="/2020/05/07/ubuntu-1804网络配置/"  title="ubuntu网络配置">
  <strong>下一篇：</strong><br/> 
- <span>测试集合
+ <span>ubuntu网络配置
 </span>
 </a>
 </div>
